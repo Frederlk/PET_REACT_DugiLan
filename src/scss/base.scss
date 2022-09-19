@@ -1,0 +1,151 @@
+// Общий файл элементов форм
+// Для подключения/отключения стилей конкретного єлемента формы смотри base/forms/forms.scss
+@import "base/forms/forms";
+
+// Стили попапов
+// @import "base/popup";
+
+// Стили спойлеров
+// @import "base/spollers";
+
+// Стили табов
+// @import "base/tabs";
+
+// Стили карт
+// @import "base/maps";
+
+// Стили блока "показать еще"
+// @import "base/showmore";
+
+// Стили для полноэкранного блока
+// @import "base/fullscreen";
+
+// Стили для липкого блока
+// @import "base/sticky";
+
+// Стили для отзывчивых картинок (IBG)
+// Сниппет (HTML): ibg (div c картинкой и классами)
+// Сниппет (HTML): ibga (a c картинкой и классами)
+[class*="-ibg"] {
+    position: relative;
+    img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+    }
+}
+[class*="-ibg_contain"] {
+    img {
+        object-fit: contain;
+    }
+}
+
+// Адаптивное видео
+%responsiveVideo {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    padding-bottom: 56.25%;
+    video,
+    iframe,
+    object,
+    embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+//========================================================================================================================================================
+
+h1,
+.h1 {
+    font-weight: 700;
+    @include adaptiv-font(45, 25, 1);
+    line-height: 54 / 45 * 100%;
+    letter-spacing: -0.0088em;
+}
+h2,
+.h2 {
+    font-weight: 700;
+    @include adaptiv-font(35, 25, 1);
+    line-height: 44 / 35 * 100%;
+    letter-spacing: -0.0068em;
+}
+h3,
+.h3 {
+    font-weight: 600;
+    font-size: 30px;
+    @include adaptiv-font(30, 20, 1);
+    line-height: 39 / 30 * 100%;
+    letter-spacing: -0.0058em;
+}
+h4,
+.h4 {
+    @include adaptiv-font(25, 18, 1);
+    line-height: 34 / 25 * 100%;
+    letter-spacing: -0.0058em;
+}
+h5,
+.h5 {
+    @include adaptiv-font(18, 15, 1);
+    line-height: 27 / 18 * 100%;
+    letter-spacing: -0.0035em;
+}
+h6,
+.h6 {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 21 / 12 * 100%;
+    letter-spacing: 0.0112em;
+    text-transform: uppercase;
+}
+.p {
+    font-size: 15px;
+    line-height: 24 / 15 * 100%;
+    letter-spacing: -0.0033em;
+    &_lead {
+        @include adaptiv-font(20, 18, 1);
+        line-height: 29 / 20 * 100%;
+        letter-spacing: -0.0033em;
+        &_thin {
+            font-weight: 300;
+        }
+        &_bold {
+            font-weight: 700;
+        }
+    }
+}
+.field-error {
+    font-size: 13px;
+    line-height: 22 / 13 * 100%;
+    letter-spacing: -0.0033em;
+}
+.cart-number {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    height: 12px;
+    width: 12px;
+    background-color: $error;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: 500;
+    font-size: 8px;
+    color: $white;
+    @media (max-width: $md2+px) {
+        bottom: -5px;
+        right: -5px;
+        height: 16px;
+        width: 16px;
+        font-size: 10px;
+    }
+}

@@ -1,31 +1,52 @@
 {
-	"name": "fls_start_gulp",
-	"version": "1.0.0",
-	"description": "Start template with Gulp",
-	"author": "FLS",
-	"private": true,
-	"license": "GNU General Public License (GPL)",
-	"devDependencies": {
-		"browser-sync": "latest",
-		"del": "latest",
-		"gulp": "latest",
-		"gulp-autoprefixer": "latest",
-		"gulp-clean-css": "latest",
-		"gulp-file-include": "latest",
-		"gulp-fonter": "latest",
-		"gulp-group-css-media-queries": "latest",
-		"gulp-imagemin": "latest",
-		"gulp-newer": "latest",
-		"gulp-plumber": "latest",
-		"gulp-rename": "latest",
-		"gulp-sass": "latest",
-		"gulp-ttf2woff": "latest",
-		"gulp-ttf2woff2": "latest",
-		"gulp-uglify-es": "latest",
-		"gulp-webp-html": "latest",
-		"gulp-webpcss": "latest",
-		"imagemin-webp": "latest",
-		"transform-runtime": "0.0.0",
-		"webp-converter": "^2.2.3"
-	}
+  "name": "react-ts-redux__template",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.8.5",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.11.58",
+    "@types/react": "^18.0.18",
+    "@types/react-dom": "^18.0.6",
+    "@types/react-helmet": "^6.1.5",
+    "date-fns": "^2.29.3",
+    "formik": "^2.2.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-redux": "^8.0.2",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "swiper": "^8.4.2",
+    "typescript": "^4.8.3",
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
