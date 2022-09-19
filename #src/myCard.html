@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title":"MyCard"
+})
+
+<body>
+   <div class="wrapper">
+      @@include('_header.html',{})
+      <main class="page">
+         <div class="page__body body-card">
+            <div class="body-card__wrapper">
+               <div class="body-card__container _container">
+                  <div class="body-card__flex">
+                     <section class="body-card__content content-card">
+                        <div class="content-card__wrapper">
+                           <h2 class="content-card__title">Shopping Card</h2>
+                           <div class="content-card__table">
+                              <div class="content-card__row content-card__row_top">
+                                 <div class="content-card__td content-card__td_1">Products</div>
+                                 <div class="content-card__td content-card__td_2">Order ID</div>
+                                 <div class="content-card__td content-card__td_3">Quantity</div>
+                                 <div class="content-card__td content-card__td_4">Total</div>
+                              </div>
+
+                              <div class="content-card__row">
+                                 <div class="content-card__td content-card__td_1">
+                                    <span><img src="img/icons/dugi.svg" alt=""></span>
+                                    WireDugi
+                                 </div>
+                                 <div class="content-card__td content-card__td_2">#2306</div>
+                                 <div class="content-card__td content-card__td_3">1</div>
+                                 <div class="content-card__td content-card__td_4">€ 89,99 </div>
+                              </div>
+                              <div class="content-card__row">
+                                 <div class="content-card__td content-card__td_1">
+                                    <span><img src="img/icons/dugi.svg" alt=""></span>
+                                    WireDugi
+                                 </div>
+                                 <div class="content-card__td content-card__td_2">#2306</div>
+                                 <div class="content-card__td content-card__td_3">1</div>
+                                 <div class="content-card__td content-card__td_4">€ 89,99 </div>
+                              </div>
+                              <div class="content-card__row">
+                                 <div class="content-card__td content-card__td_1">
+                                    <span><img src="img/icons/dugi.svg" alt=""></span>
+                                    WireDugi
+                                 </div>
+                                 <div class="content-card__td content-card__td_2">#2306</div>
+                                 <div class="content-card__td content-card__td_3">1</div>
+                                 <div class="content-card__td content-card__td_4">€ 89,99 </div>
+                              </div>
+                           </div>
+                           <div class="content-card__bottom bottom-card">
+                              <form class="bottom-card__discount">
+                                 <input autocomplete="off" type="text" name="form[]" data-error="Error"
+                                    data-value="Your discount code" class="bottom-card__input input">
+                                 <button type="submit" class="bottom-card__btn btn btn_outline">Apply</button>
+                              </form>
+                              <div class="bottom-card__text">
+                                 If you have a coupon code discount please apply , otherwise please subscribe to our
+                                 offers below for a chance to receive one.
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                     <aside class="body-card__aside aside-card">
+                        <div class="aside-card__wrapper">
+                           <section class="aside-card__menu card">
+                              <div class="card__inner">
+                                 <h3 class="card__title">My Profile</h3>
+                                 <div class="card__body">
+                                    <div class="card__item">
+                                       <div class="card__label">Subtotal</div>
+                                       <div class="card__price">€<span>89,99</span></div>
+                                    </div>
+                                    <div class="card__item">
+                                       <div class="card__label">Discount Cupon</div>
+                                       <div class="card__price">€<span>89,99</span></div>
+                                    </div>
+                                    <div class="card__item card__item_active">
+                                       <div class="card__label">Total</div>
+                                       <div class="card__price">€<span>89,99</span></div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <a href="#" class="card__btn btn">
+                                 Proceed to checkout
+                              </a>
+                           </section>
+                        </div>
+                     </aside>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
+      @@include('_footer.html',{})
+   </div>
+   @@include('_js.html',{})
+</body>
+
+</html>

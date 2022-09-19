@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title":"Billing"
+})
+
+<body>
+   <div class="wrapper">
+      @@include('_header.html',{})
+      <main class="page">
+         <div class="page__body body-billing">
+            <div class="body-billing__wrapper">
+               <div class="body-billing__container _container">
+                  <div class="body-billing__flex">
+                     <section class="body-billing__address account-address">
+                        <div class="account-address__inner">
+                           <h2 class="account-address__subtitle">Billing address</h2>
+                           <div class="account-address__form">
+                              <button type="button" class="account-address__btn">Edit</button>
+                              <button type="submit" class="account-address__btn account-address__btn_submit">
+                                 Submit</button>
+                              <div class="account-address__body">
+                                 <div class="account-address__row">
+                                    <div class="account-address__label">First Name</div>
+                                    <div class="account-address__input-wrap">
+                                       <input autocomplete="off" type="text" name="form[]" data-error="error"
+                                          data-value="Sabri" class="account-address__input">
+                                    </div>
+                                 </div>
+                                 <div class="account-address__row">
+                                    <div class="account-address__label">Last Name</div>
+                                    <div class="account-address__input-wrap">
+                                       <input autocomplete="off" type="text" name="form[]" data-error="error"
+                                          data-value="Hakuli" class="account-address__input">
+                                    </div>
+                                 </div>
+                                 <div class="account-address__row">
+                                    <div class="account-address__label">Country</div>
+                                    <div class="account-address__input-wrap">
+                                       <input autocomplete="off" type="text" name="form[]" data-error="error"
+                                          data-value="Kosovo" class="account-address__input">
+                                    </div>
+                                 </div>
+                                 <div class="account-address__row">
+                                    <div class="account-address__label">Street Address</div>
+                                    <div class="account-address__input-wrap">
+                                       <input autocomplete="off" type="text" name="form[]" data-error="error"
+                                          data-value="Chuck Norris 32" class="account-address__input">
+                                    </div>
+                                 </div>
+                                 <div class="account-address__row">
+                                    <div class="account-address__label">Town</div>
+                                    <div class="account-address__input-wrap">
+                                       <input autocomplete="off" type="text" name="form[]" data-error="error"
+                                          data-value="Gjilan" class="account-address__input">
+                                    </div>
+                                 </div>
+                                 <div class="account-address__row">
+                                    <div class="account-address__label">State</div>
+                                    <div class="account-address__input-wrap">
+                                       <input autocomplete="off" type="text" name="form[]" data-error="error"
+                                          data-value="Gjilan" class="account-address__input">
+                                    </div>
+                                 </div>
+                                 <div class="account-address__row">
+                                    <div class="account-address__label">Postal Code</div>
+                                    <div class="account-address__input-wrap">
+                                       <input autocomplete="off" type="text" name="form[]" data-error="error"
+                                          data-value="60000" class="account-address__input">
+                                    </div>
+                                 </div>
+                                 <div class="account-address__row">
+                                    <div class="account-address__label">Phone</div>
+                                    <div class="account-address__input-wrap">
+                                       <input autocomplete="off" type="text" name="form[]" data-error="error"
+                                          data-value="+383 44 201 874" class="account-address__input">
+                                    </div>
+                                 </div>
+                                 <div class="account-address__row">
+                                    <div class="account-address__label">Email Address</div>
+                                    <div class="account-address__input-wrap">
+                                       <input autocomplete="off" type="text" name="form[]" data-error="error"
+                                          data-value="sabrihakuli@outlook.com" class="account-address__input">
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                     <section class="body-billing__order order-billing">
+                        <div class="order-billing__inner">
+                           <h2 class="order-billing__title">Your order</h2>
+                           <div class="order-billing__products products-billing">
+                              <div class="products-billing__body">
+                                 <div class="products-billing__item">
+                                    <div class="products-billing__name">
+                                       <span>
+                                          <img src="img/icons/dugi.svg" alt="">
+                                       </span>
+                                       WireDugi
+                                    </div>
+                                    <button type="submit" class="products-billing__btn">
+                                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                          xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M12 4L4 12" stroke="#B9B9B9" stroke-width="2" stroke-linecap="round"
+                                             stroke-linejoin="round" />
+                                          <path d="M4 4L12 12" stroke="#B9B9B9" stroke-width="2" stroke-linecap="round"
+                                             stroke-linejoin="round" />
+                                       </svg>
+                                    </button>
+                                 </div>
+                                 <div class="products-billing__item">
+                                    <div class="products-billing__name">
+                                       <span>
+                                          <img src="img/icons/dugi.svg" alt="">
+                                       </span>
+                                       WireDugi
+                                    </div>
+                                    <button type="submit" class="products-billing__btn">
+                                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                          xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M12 4L4 12" stroke="#B9B9B9" stroke-width="2" stroke-linecap="round"
+                                             stroke-linejoin="round" />
+                                          <path d="M4 4L12 12" stroke="#B9B9B9" stroke-width="2" stroke-linecap="round"
+                                             stroke-linejoin="round" />
+                                       </svg>
+                                    </button>
+                                 </div>
+                                 <div class="products-billing__item">
+                                    <div class="products-billing__name">
+                                       <span>
+                                          <img src="img/icons/dugi.svg" alt="">
+                                       </span>
+                                       WireDugi
+                                    </div>
+                                    <button type="submit" class="products-billing__btn">
+                                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                          xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M12 4L4 12" stroke="#B9B9B9" stroke-width="2" stroke-linecap="round"
+                                             stroke-linejoin="round" />
+                                          <path d="M4 4L12 12" stroke="#B9B9B9" stroke-width="2" stroke-linecap="round"
+                                             stroke-linejoin="round" />
+                                       </svg>
+                                    </button>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="order-billing__prices prices-billing">
+                              <div class="prices-billing__body">
+                                 <div class="prices-billing__item">
+                                    <div class="prices-billing__label">Subtotal</div>
+                                    <div class="prices-billing__price">€<span>89,99</span></div>
+                                 </div>
+                                 <div class="prices-billing__item">
+                                    <div class="prices-billing__label">Discount Cupon</div>
+                                    <div class="prices-billing__price">€<span>89,99</span></div>
+                                 </div>
+                                 <div class="prices-billing__item prices-billing__item_active">
+                                    <div class="prices-billing__label">Total</div>
+                                    <div class="prices-billing__price">€<span>89,99</span></div>
+                                 </div>
+                              </div>
+                           </div>
+                           <form action="#" class="order-billing__form form-billing">
+                              <div class="form-billing__body">
+                                 <div class="form-billing__top">
+                                    <div class="form-billing__soforte">
+                                       <label class="form-billing__checkbox checkbox">
+                                          <input data-error="Ошибка" class="checkbox__input" type="checkbox" value="1"
+                                             name="form[]">
+                                          <span class="checkbox__text"><span>Soforte Payment</span></span>
+                                       </label>
+                                       <div class="form-billing__payment">
+                                          <div class="form-billing__pay-item">
+                                             <img src="img/payment/mastercard.svg" alt="">
+                                          </div>
+                                          <div class="form-billing__pay-item">
+                                             <img src="img/payment/amex.svg" alt="">
+                                          </div>
+                                          <div class="form-billing__pay-item">
+                                             <img src="img/payment/visa.svg" alt="">
+                                          </div>
+                                          <div class="form-billing__pay-item">
+                                             <img src="img/payment/diners.svg" alt="">
+                                          </div>
+                                          <div class="form-billing__pay-item">
+                                             <img src="img/payment/jcb.svg" alt="">
+                                          </div>
+                                          <div class="form-billing__pay-item">
+                                             <img src="img/payment/discover.svg" alt="">
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <a href="#" class="form-billing__btn btn btn_outline">Go to soforte</a>
+                                 </div>
+                                 <div class="form-billing__middle">
+                                    <label class="form-billing__checkbox checkbox">
+                                       <input data-error="error" class="checkbox__input" type="checkbox" value="1"
+                                          name="form[]">
+                                       <span class="checkbox__text">
+                                          <span>
+                                             <img src="img/payment/PayPal.svg" alt="">
+                                          </span>
+                                       </span>
+                                    </label>
+                                 </div>
+                                 <div class="form-billing__bottom">
+                                    <div class="form-billing__checkbox-wrap">
+                                       <label class="form-billing__checkbox checkbox">
+                                          <input data-error="error" class="checkbox__input" type="checkbox" value="1"
+                                             name="form[]">
+                                          <span class="checkbox__text"><span>I have read and agree to the website terms
+                                                and
+                                                conditions</span></span>
+                                       </label>
+                                    </div>
+                                    <button type="submit" class="form-billing__btn btn">Place order</button>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>
+                     </section>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
+      @@include('_footer.html',{})
+   </div>
+   @@include('_js.html',{})
+</body>
+
+</html>

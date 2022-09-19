@@ -1,0 +1,326 @@
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+h1,
+.h1 {
+	font-weight: 700;
+	@include adaptiv-font(45, 25, 1);
+	line-height: 54 / 45 * 100%;
+	letter-spacing: -0.0088em;
+}
+h2,
+.h2 {
+	font-weight: 700;
+	@include adaptiv-font(35, 25, 1);
+	line-height: 44 / 35 * 100%;
+	letter-spacing: -0.0068em;
+}
+h3,
+.h3 {
+	font-weight: 600;
+	font-size: 30px;
+	@include adaptiv-font(30, 20, 1);
+	line-height: 39 / 30 * 100%;
+	letter-spacing: -0.0058em;
+}
+h4,
+.h4 {
+	@include adaptiv-font(25, 18, 1);
+	line-height: 34 / 25 * 100%;
+	letter-spacing: -0.0058em;
+}
+h5,
+.h5 {
+	@include adaptiv-font(18, 15, 1);
+	line-height: 27 / 18 * 100%;
+	letter-spacing: -0.0035em;
+}
+h6,
+.h6 {
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 21 / 12 * 100%;
+	letter-spacing: 0.0112em;
+	text-transform: uppercase;
+}
+.p {
+	font-size: 15px;
+	line-height: 24 / 15 * 100%;
+	letter-spacing: -0.0033em;
+	&_lead {
+		@include adaptiv-font(20, 18, 1);
+		line-height: 29 / 20 * 100%;
+		letter-spacing: -0.0033em;
+		&_thin {
+			font-weight: 300;
+		}
+		&_bold {
+			font-weight: 700;
+		}
+	}
+}
+.field-error {
+	font-size: 13px;
+	line-height: 22 / 13 * 100%;
+	letter-spacing: -0.0033em;
+}
+.cart-number {
+	position: absolute;
+	bottom: -2px;
+	right: -2px;
+	height: 12px;
+	width: 12px;
+	background-color: $error;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	border-radius: 50%;
+	font-weight: 500;
+	font-size: 8px;
+	color: $white;
+	@media (max-width: $md2+px) {
+		bottom: -5px;
+		right: -5px;
+		height: 16px;
+		width: 16px;
+		font-size: 10px;
+	}
+}
+
+.anim {
+	visibility: visible;
+	opacity: 1;
+}
+
+.no-anim {
+	visibility: hidden;
+	opacity: 0;
+}
+//</ОСНОВНОЙ БЛОК>====================================================================================================
+
+//<ГОТОВЫЕ КЛАССЫ>====================================================================================================
+
+.rub:after {
+	content: "₽";
+}
+//====================================================================================================
+.table {
+	display: table;
+	font-size: 0;
+	width: 100%;
+	//table-layout: fixed;
+}
+.trow {
+	display: table-row;
+}
+.cell {
+	display: table-cell;
+	&.full {
+		width: 100%;
+	}
+}
+//====================================================================================================
+._ibg {
+	position: relative;
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}
+body.ie {
+	._ibg {
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	._ibg img {
+		width: 0;
+		height: 0;
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+//====================================================================================================
+._video {
+	position: relative;
+	overflow: hidden;
+	height: 0;
+	video,
+	iframe,
+	object,
+	embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+.videobg {
+	video,
+	iframe,
+	object,
+	embed {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		min-width: 100%;
+		min-height: 100%;
+		width: auto;
+		height: auto;
+		z-index: -100;
+		transform: translateX(-50%) translateY(-50%);
+		background-size: cover;
+	}
+}
+%graystyle {
+	transition: all 0.3s ease 0s;
+	filter: grayscale(1);
+	-webkit-filter: grayscale(1);
+	-moz-filter: grayscale(1);
+	-o-filter: grayscale(1);
+}
+%graystyleoff {
+	filter: grayscale(0);
+	-webkit-filter: grayscale(0);
+	-moz-filter: grayscale(0);
+	-o-filter: grayscale(0);
+}
+
+/* Слайдер */
+.slick-slider {
+}
+/* Слайдер запущен */
+.slick-slider.slick-initialized {
+}
+/* Слайдер с точками */
+.slick-slider.slick-dotted {
+}
+/* Ограничивающая оболочка */
+.slick-list {
+}
+/* Лента слайдов */
+.slick-track {
+	display: flex;
+}
+/* Слайд */
+.slick-slide {
+}
+/* Слайд активный (показывается) */
+.slick-slide.slick-active {
+}
+/* Слайд основной */
+.slick-slide.slick-current {
+}
+/* Слайд по центру */
+.slick-slide.slick-center {
+}
+/* Клонированный слайд */
+.slick-slide.slick-cloned {
+}
+/* Стрелка */
+.slick-arrow {
+}
+/* Стрелка влево */
+.slick-arrow.slick-prev {
+}
+/* Стрелка вправо */
+.slick-arrow.slick-next {
+}
+/* Стрелка не активная */
+.slick-arrow.slick-disabled {
+}
+/* Точки (булиты) */
+.slick-dots {
+}
+.slick-dots li {
+}
+/* Активная точка */
+.slick-dots li.slick-active {
+}
+/* Элемент точки */
+.slick-dots li button {
+	font-size: 0;
+}
+//====================================================================================================
+._swiper {
+	overflow: hidden;
+	//.swiper-wrapper
+	.swiper-wrapper {
+		width: 100%;
+		height: 100%;
+		box-sizing: content-box;
+		display: flex;
+		position: relative;
+	}
+	&.swiper-container-vertical {
+		.swiper-wrapper {
+			flex-direction: column;
+		}
+	}
+	&.swiper-container-autoheight {
+		.swiper-wrapper {
+			align-items: flex-start;
+		}
+	}
+}
+.swiper-container-initialized {
+	.swiper-slide {
+		flex-shrink: 0;
+		// transition-property: transform;
+	}
+}
+.swiper-container-android {
+	.swiper-slide,
+	.swiper-wrapper {
+		transform: translate3d(0px, 0, 0);
+	}
+}
+.swiper-button-lock {
+	display: none !important;
+}
+//====================================================================================================
+//=====================================================================================================================
+._tabs {
+}
+._tabs-item {
+}
+._tabs-block {
+	display: none;
+	&._active {
+		display: block;
+	}
+}
+//=====================================================================================================================
+.mirror {
+	transform: scale(-1, 1);
+}
+//=====================================================================================================================
+.nicescroll-rails {
+	z-index: 1000 !important;
+}
+//=====================================================================================================================
+
+//========================================================================================================================================================
+._custom-scroll {
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 3px;
+	height: 100%;
+	z-index: 1000;
+	//background-color: rgba(0, 0, 0, 0.1);
+	&__line {
+		background-color: rgba(0, 0, 0, 0.5);
+		border-radius: 3px 0 0 3px;
+		position: relative;
+		left: 0;
+		top: 0;
+		width: 100%;
+	}
+}
+//</ГОТОВЫЕ КЛАССЫ>====================================================================================================
