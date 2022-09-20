@@ -45,14 +45,14 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 npm i formik yup
 
 `React-Helmet`
-npm i react-helmet
-npm i --save @types/react-helmet
+npm i react-helmet \
+npm i --save @types/react-helmet \
 
 `React-GoTo`
-npm i react-scroll
-npm i --save @types/react-scroll
+npm i react-scroll \
+npm i --save @types/react-scroll \
 
 `etc.`
-npm i lightgallery
-npm i swiper
-npm i date-fns
+npm i lightgallery \
+npm i swiper \
+npm i date-fns \

@@ -14,7 +14,7 @@
     }
 
     &__label {
-        @extend %text_md;
+        @extend %h5;
         &:not(:last-child) {
             margin-bottom: rem(20);
         }

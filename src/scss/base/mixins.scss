@@ -146,17 +146,16 @@
     &::-webkit-scrollbar-thumb {
         background: $foreground-color;
         overflow: hidden;
+        border-radius: rem(10);
         @if ($border) {
-            border-left: 2px solid $background-color;
-            border-right: 2px solid $background-color;
+            border: rem(2) solid $background-color;
         }
     }
 
     &::-webkit-scrollbar-track {
         background: $background-color;
         @if ($border) {
-            border-left: 2px solid $background-color;
-            border-right: 2px solid $background-color;
+            border: rem(2) solid $background-color;
         }
     }
 

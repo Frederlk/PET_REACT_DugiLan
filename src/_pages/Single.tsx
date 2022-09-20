@@ -1,21 +1,21 @@
 import React from "react";
 
 const Single = () => {
-    if (document.querySelector(".content-workshop__video")) {
-        const videoFile = document.getElementById("video-file"),
-            videoWrap = document.getElementById("video-wrap");
-        function playPause() {
-            if (videoFile.paused) {
-                videoFile.play();
-                videoWrap.classList.add("_play");
-            } else {
-                videoFile.pause();
-                videoWrap.classList.remove("_play");
-            }
-        }
+    // if (document.querySelector(".content-workshop__video")) {
+    //     const videoFile = document.getElementById("video-file"),
+    //         videoWrap = document.getElementById("video-wrap");
+    //     function playPause() {
+    //         if (videoFile.paused) {
+    //             videoFile.play();
+    //             videoWrap.classList.add("_play");
+    //         } else {
+    //             videoFile.pause();
+    //             videoWrap.classList.remove("_play");
+    //         }
+    //     }
 
-        videoWrap.addEventListener("click", playPause);
-    }
+    //     videoWrap.addEventListener("click", playPause);
+    // }
 
     return (
         <>

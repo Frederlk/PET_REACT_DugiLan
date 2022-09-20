@@ -1,44 +1,25 @@
-//<BUTTONS (a.btn+tab)>
-// Снипет (HTML): btn
-
-.button {
-    display: inline-flex;
-    padding: 0px 0px;
-    @media (any-hover: hover) {
-        &:hover {
-        }
-    }
-    &._fw {
-        width: 100%;
-    }
-}
-
-//========================================================================================================================================================
-
 //<BUTTONS (a.btn+tab)>====================================================================================================
 .btn {
     display: inline-flex;
-    padding: 5px 10px;
+    padding: rem(5) rem(10);
     justify-content: center;
     align-items: center;
     text-align: center;
-    @extend .p;
+    @extend %p;
     text-transform: uppercase;
     background-color: $blue;
-    border-radius: 10px;
-    min-height: 60px;
+    border-radius: rem(10);
+    min-height: rem(60);
     color: $white;
-    border: 1px solid $blue;
-    transition: all 0.3s ease 0s;
-    @media (max-width: $md2+px) {
-        min-height: 50px;
-    }
+    border: rem(1) solid $blue;
+    transition: background-color 0.3s ease 0s, color 0.3s ease 0s;
     @media (any-hover: hover) {
         &:hover {
             background-color: rgba(15, 175, 233, 0.1);
             color: $blue;
         }
     }
+
     &_outline {
         background-color: rgba(15, 175, 233, 0.1);
         color: $blue;
@@ -49,5 +30,8 @@
             }
         }
     }
+
+    @media (max-width: $tablet) {
+        min-height: rem(50);
+    }
 }
-//</BUTTONS>====================================================================================================

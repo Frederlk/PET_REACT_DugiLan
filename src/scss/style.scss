@@ -57,13 +57,14 @@ $responsiveType: 1;
 body {
     color: $text_1;
     background-color: $white;
+    @include scrollbars(rem(15), $blue, $white, true);
     // Скролл заблокирован
-    .lock & {
+    ._lock & {
         overflow: hidden;
         touch-action: none;
     }
     // Сайт загружен
-    .loaded & {
+    ._loaded & {
     }
 }
 
@@ -111,44 +112,40 @@ body {
 
 //<ОСНОВНОЙ БЛОК>====================================================================================================
 .page {
-    flex: 1 1 auto;
-    @include adaptiv-value("margin-bottom", 50, 20, 1);
+    @include adaptiveValue("margin-bottom", 50, 20);
     &__home {
-        @include adaptiv-value("padding-top", 225, 90, 1);
+        @include adaptiveValue("padding-top", 225, 90);
     }
     &__companies {
-        @include adaptiv-value("padding-top", 80, 40, 1);
+        @include adaptiveValue("padding-top", 80, 40);
     }
     &__body {
-        @include adaptiv-value("padding-top", 100, 40, 1);
+        @include adaptiveValue("padding-top", 100, 40);
         &.body-workshop {
-            @include adaptiv-value("padding-top", 180, 90, 1);
-            @include adaptiv-value("padding-bottom", 50, 25, 1);
+            @include adaptiveValue("padding-top", 180, 90);
+            @include adaptiveValue("padding-bottom", 50, 25);
         }
         &.body-account {
-            @include adaptiv-value("padding-top", 200, 90, 1);
+            @include adaptiveValue("padding-top", 200, 90);
         }
         &.body-card {
-            @include adaptiv-value("padding-top", 200, 90, 1);
+            @include adaptiveValue("padding-top", 200, 90);
         }
         &.body-billing {
-            @include adaptiv-value("padding-top", 200, 90, 1);
+            @include adaptiveValue("padding-top", 200, 90);
         }
         &.body-thanks {
-            @include adaptiv-value("padding-top", 200, 90, 1);
+            @include adaptiveValue("padding-top", 200, 90);
         }
         &.body-registr {
-            @include adaptiv-value("padding-top", 200, 90, 1);
+            @include adaptiveValue("padding-top", 200, 90);
         }
     }
     &__banner {
-        @include adaptiv-value("padding-top", 50, 40, 1);
-        @media (max-width: $md3+px) {
-            @include adaptiv-value("padding-top", 50, 30, 1);
-        }
+        @include adaptiveValue("padding-top", 50, 30, 767.98, 320, 1);
     }
 
     &__related {
-        @include adaptiv-value("padding-top", 100, 40, 1);
+        @include adaptiveValue("padding-top", 100, 40);
     }
 }

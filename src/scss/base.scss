@@ -2,26 +2,8 @@
 // Для подключения/отключения стилей конкретного єлемента формы смотри base/forms/forms.scss
 @import "base/forms/forms";
 
-// Стили попапов
-// @import "base/popup";
-
-// Стили спойлеров
-// @import "base/spollers";
-
-// Стили табов
-// @import "base/tabs";
-
-// Стили карт
-// @import "base/maps";
-
-// Стили блока "показать еще"
-// @import "base/showmore";
-
-// Стили для полноэкранного блока
-// @import "base/fullscreen";
-
-// Стили для липкого блока
-// @import "base/sticky";
+// Стили swiper
+@import "base/swiper";
 
 // Стили для отзывчивых картинок (IBG)
 // Сниппет (HTML): ibg (div c картинкой и классами)
@@ -61,77 +43,98 @@
     }
 }
 
+%no-highlight {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+
 //========================================================================================================================================================
 
 h1,
-.h1 {
+%h1 {
     font-weight: 700;
-    @include adaptiv-font(45, 25, 1);
-    line-height: 54 / 45 * 100%;
+    @include adaptiveValue("font-size", 45, 25);
+    line-height: math.div(54, 45);
     letter-spacing: -0.0088em;
 }
+
 h2,
-.h2 {
+%h2 {
     font-weight: 700;
-    @include adaptiv-font(35, 25, 1);
-    line-height: 44 / 35 * 100%;
+    @include adaptiveValue("font-size", 35, 25);
+    line-height: math.div(44, 35);
     letter-spacing: -0.0068em;
 }
+
 h3,
-.h3 {
+%h3 {
     font-weight: 600;
-    font-size: 30px;
-    @include adaptiv-font(30, 20, 1);
-    line-height: 39 / 30 * 100%;
+    @include adaptiveValue("font-size", 30, 20);
+    line-height: math.div(39, 30);
     letter-spacing: -0.0058em;
 }
+
 h4,
-.h4 {
-    @include adaptiv-font(25, 18, 1);
-    line-height: 34 / 25 * 100%;
+%h4 {
+    @include adaptiveValue("font-size", 25, 18);
+    line-height: math.div(34, 25);
     letter-spacing: -0.0058em;
 }
+
 h5,
-.h5 {
-    @include adaptiv-font(18, 15, 1);
-    line-height: 27 / 18 * 100%;
+%h5 {
+    @include adaptiveValue("font-size", 18, 15);
+    line-height: math.div(27, 18);
     letter-spacing: -0.0035em;
 }
+
 h6,
-.h6 {
+%h6 {
     font-weight: 600;
-    font-size: 12px;
-    line-height: 21 / 12 * 100%;
+    font-size: rem(12);
+    line-height: math.div(21, 12);
     letter-spacing: 0.0112em;
     text-transform: uppercase;
 }
-.p {
-    font-size: 15px;
-    line-height: 24 / 15 * 100%;
-    letter-spacing: -0.0033em;
-    &_lead {
-        @include adaptiv-font(20, 18, 1);
-        line-height: 29 / 20 * 100%;
-        letter-spacing: -0.0033em;
-        &_thin {
-            font-weight: 300;
-        }
-        &_bold {
-            font-weight: 700;
-        }
-    }
-}
-.field-error {
-    font-size: 13px;
-    line-height: 22 / 13 * 100%;
+
+//========================================================================================================================================================
+
+%p {
+    font-size: rem(15);
+    line-height: math.div(24, 15);
     letter-spacing: -0.0033em;
 }
-.cart-number {
+
+%p-lead {
+    @include adaptiveValue("font-size", 20, 18);
+    line-height: math.div(29, 20);
+    letter-spacing: -0.0033em;
+}
+
+%p-lead_thin {
+    @extend %p-lead;
+    font-weight: 300;
+}
+
+%p-lead_bold {
+    @extend %p-lead;
+    font-weight: 700;
+}
+
+//========================================================================================================================================================
+
+%field-error {
+    font-size: rem(13);
+    line-height: math.div(22, 13);
+    letter-spacing: -0.0033em;
+}
+
+%cart-number {
     position: absolute;
-    bottom: -2px;
-    right: -2px;
-    height: 12px;
-    width: 12px;
+    bottom: rem(-2);
+    right: rem(-2);
+    height: rem(12);
+    width: rem(12);
     background-color: $error;
     display: flex;
     justify-content: center;
@@ -139,13 +142,13 @@ h6,
     text-align: center;
     border-radius: 50%;
     font-weight: 500;
-    font-size: 8px;
+    font-size: rem(8);
     color: $white;
-    @media (max-width: $md2+px) {
-        bottom: -5px;
-        right: -5px;
-        height: 16px;
-        width: 16px;
-        font-size: 10px;
+    @media (max-width: $tablet) {
+        bottom: rem(-5);
+        right: rem(-5);
+        height: rem(16);
+        width: rem(16);
+        font-size: rem(10);
     }
 }

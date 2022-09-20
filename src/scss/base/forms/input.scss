@@ -8,59 +8,35 @@ textarea {
     -moz-appearance: none;
     appearance: none;
 }
-.input {
-    border-radius: 0 !important;
-    width: 100%;
-    display: block;
-    padding: 0px 20px;
-    border: 1px solid #eee;
-    &:focus-visible {
-        outline-offset: rem(-1);
-        outline: white solid rem(1);
-    }
-    &._form-focus {
-    }
-    &._form-error {
-        color: red;
-    }
-}
-textarea.input {
-    resize: none;
-    padding: 0px 0px;
-}
 
-//========================================================================================================================================================
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-textarea {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
 .input {
-    @extend .p;
+    @extend %p;
     align-items: center;
     width: 100%;
     display: flex;
-    padding: 5px 25px 5px 20px;
-    border-radius: 7px;
-    min-height: 60px;
-    border: 1px solid $light;
+    padding: rem(5) rem(25) rem(5) rem(20);
+    border-radius: rem(7);
+    min-height: rem(60);
+    border: rem(1) solid $light;
     background-color: $white;
-    color: $text_3;
-    transition: all 0.3s ease 0s;
-    @media (max-width: $md2+px) {
-        min-height: 50px;
+    transition: background-color 0.3s ease 0s, color 0.3s ease 0s;
+    @media (max-width: $tablet) {
+        min-height: rem(50);
     }
-    &._focus {
-        border: 1px solid $blue;
-        color: $text_1;
+    &::placeholder {
+        color: $text_3;
     }
+
+    &:focus {
+        outline: white solid rem(1);
+        border: rem(1) solid $blue !important;
+    }
+
     &._error {
-        border: 1px solid $error;
+        border: rem(1) solid $error;
     }
 }
+
 textarea.input {
     resize: none;
     padding: 0px 0px;

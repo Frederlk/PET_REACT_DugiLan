@@ -1,143 +1,31 @@
 import React from "react";
+import { Helmet } from "react-helmet";
+import Banner from "../_containers/HomePage/Banner";
+import Companies from "../_containers/HomePage/Companies";
+import Home from "../_containers/HomePage/Home";
 
 const HomePage = () => {
-    $(".slider-home__slider")
-        .on("afterChange init", function (event, slick, direction) {
-            // console.log('afterChange/init', event, slick, slick.$slides);
-            // remove all prev/next
-            slick.$slides.removeClass("prevSlide").removeClass("nextSlide");
-
-            // find current slide
-            for (var i = 0; i < slick.$slides.length; i++) {
-                var $slide = $(slick.$slides[i]);
-                if ($slide.hasClass("slick-current")) {
-                    // update DOM siblings
-                    $slide.prev().addClass("prevSlide");
-                    $slide.next().addClass("nextSlide");
-                    break;
-                }
-            }
-        })
-        .on("beforeChange", function (event, slick) {
-            // optional, but cleaner maybe
-            // remove all prev/next
-            slick.$slides.removeClass("prevSlide").removeClass("nextSlide");
-        });
-    $(".slider-home__slider").slick({
-        speed: 500,
-        arrows: false,
-        slidesToShow: 1,
-        infinite: false,
-        useTransform: false,
-        autoplay: true,
-        autoplaySpeed: 3000,
-    });
-
-    $(".content-workshop__slick").slick({
-        speed: 800,
-        arrows: false,
-        dots: true,
-        slidesToShow: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        appendDots: ".content-workshop__pagination",
-    });
+    // $(".content-workshop__slick").slick({
+    //     speed: 800,
+    //     arrows: false,
+    //     dots: true,
+    //     slidesToShow: 1,
+    //     autoplay: true,
+    //     autoplaySpeed: 3000,
+    //     appendDots: ".content-workshop__pagination",
+    // });
 
     return (
         <>
-            <section className="page__home home">
-                <div className="home__wrapper">
-                    <div className="home__container _container">
-                        <div className="home__flex">
-                            <div className="home__content content-home">
-                                <h1 className="content-home__title">
-                                    More than 100 Wordpress Themes & Templates
-                                </h1>
-                                <form action="#" className="content-home__form">
-                                    <input
-                                        autoComplete="off"
-                                        type="text"
-                                        name="Search"
-                                        data-error="Error"
-                                        data-value="e.g Responsive slider"
-                                        className="content-home__input input"
-                                    />
-                                    <button type="submit" className="content-home__btn btn">
-                                        Search
-                                    </button>
-                                </form>
-                                <div className="content-home__text">
-                                    From multipurpose themes to niche templates, you’ll always find something
-                                    that catches your eye.
-                                </div>
-                            </div>
-                            <div className="home__slider-wrap slider-home">
-                                <div className="slider-home__slider">
-                                    <div className="slider-home__slide">
-                                        <div className="slider-home__image _ibg">
-                                            <img src="img/home/1.jpg" alt="1" />
-                                        </div>
-                                    </div>
-                                    <div className="slider-home__slide">
-                                        <div className="slider-home__image _ibg">
-                                            <img src="img/home/2.jpg" alt="2" />
-                                        </div>
-                                    </div>
-                                    <div className="slider-home__slide">
-                                        <div className="slider-home__image _ibg">
-                                            <img src="img/home/3.jpg" alt="3" />
-                                        </div>
-                                    </div>
-                                    <div className="slider-home__slide">
-                                        <div className="slider-home__image _ibg">
-                                            <img src="img/home/4.jpg" alt="1" />
-                                        </div>
-                                    </div>
-                                    <div className="slider-home__slide">
-                                        <div className="slider-home__image _ibg">
-                                            <img src="img/home/5.jpg" alt="2" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section className="page__companies companies">
-                <div className="companies__wrapper">
-                    <div className="companies__container _container">
-                        <h5 className="companies__title">Some of our 500 clients already using Dugilan</h5>
-                        <div className="companies__flex">
-                            <div className="companies__column">
-                                <div className="companies__image">
-                                    <img src="img/company/acer.svg" alt="" />
-                                </div>
-                            </div>
-                            <div className="companies__column">
-                                <div className="companies__image">
-                                    <img src="img/company/facebook.svg" alt="" />
-                                </div>
-                            </div>
-                            <div className="companies__column">
-                                <div className="companies__image">
-                                    <img src="img/company/LinkedIn.svg" alt="" />
-                                </div>
-                            </div>
-                            <div className="companies__column">
-                                <div className="companies__image">
-                                    <img src="img/company/forbes.svg" alt="" />
-                                </div>
-                            </div>
-                            <div className="companies__column">
-                                <div className="companies__image">
-                                    <img src="img/company/dell.svg" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <Helmet>
+                <meta name="Home Page" content="Home Page" />
+                <title>DugiLan</title>
+            </Helmet>
+
+            <Home />
+
+            <Companies />
+
             <div className="page__body body">
                 <div className="body__wrapper">
                     <div className="body__container _container">
@@ -911,38 +799,8 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
-            <section className="page__banner banner">
-                <div className="banner__wrapper">
-                    <div className="banner__container _container">
-                        <div className="banner__flex">
-                            <div className="banner__content">
-                                <h2 className="banner__title">We build apps and websites</h2>
-                                <div className="banner__text">
-                                    From multipurpose themes to niche templates,you’ll always find something
-                                    that catches your eye.
-                                </div>
-                                <div className="banner__bottom">
-                                    <a href="#" className="banner__btn btn">
-                                        Contact us
-                                    </a>
-                                    <a href="" className="banner__more">
-                                        or see our portfolio
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="banner__images">
-                                <div className="banner__phone banner__phone_1">
-                                    <img src="img/more/01.png" alt="phone_1" />
-                                </div>
-                                <div className="banner__phone banner__phone_2">
-                                    <img src="img/more/02.png" alt="phone_2" />
-                                </div>
-                                <div className="banner__bg"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
+            <Banner />
         </>
     );
 };
