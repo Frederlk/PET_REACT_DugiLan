@@ -1,4 +1,4 @@
-import { FC, ReactNode, memo } from "react";
+import { FC, memo, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { routesConfig } from "../../routes";
 

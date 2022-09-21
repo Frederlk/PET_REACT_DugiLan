@@ -9,3 +9,31 @@ export interface IImageItem {
     webp?: string;
     alt: string;
 }
+
+export interface ICategory {
+    title: string;
+    link: string;
+    icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+}
+
+export interface IProduct {
+    id: string;
+    title: string;
+    thumbImg: string;
+    thumbWebp: string;
+    stack: string[];
+    inFavourites: number;
+    priceTotal: number;
+    // PRODUCT PAGE ========= //
+    subtitle: string;
+    content: string;
+    discount?: number;
+    images?: IImageItem[];
+    video?: string;
+    priceTax: number;
+    lastUpdate: Date;
+    created: Date;
+    browsers: string[];
+    category: string;
+    version: string;
+}

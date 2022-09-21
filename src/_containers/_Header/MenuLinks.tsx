@@ -1,11 +1,11 @@
-import { FC, useMemo, memo } from "react";
+import { FC, memo, useMemo } from "react";
 import { Link } from "react-router-dom";
 
 import { routesConfig } from "../../routes";
 import { images } from "../../constants";
 
 const MenuLinks: FC = () => {
-    const { icon_down } = images.icons;
+    const { Icon_down } = images.icons;
 
     const menuLinks = useMemo(() => {
         return routesConfig.map(({ path, title, type, nested }, i) => {
@@ -18,7 +18,7 @@ const MenuLinks: FC = () => {
                         {nested && nested.length > 0 && (
                             <>
                                 <button data-spoller type="button" className="menu__arrow">
-                                    <img src={icon_down} alt="arrow" />
+                                    <Icon_down />
                                 </button>
                                 <ul className="menu__sub-list">
                                     {nested.map((item, i) => (

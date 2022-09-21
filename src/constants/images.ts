@@ -130,59 +130,61 @@ const paymentImages = {
     paymentVisa,
 };
 
-import icon_logo from "./../assets/img/icons/logo.svg";
-import icon_cart from "./../assets/img/icons/cart.svg";
-import icon_circle from "./../assets/img/icons/circle-check.svg";
-import icon_dashboard from "./../assets/img/icons/dashboard.svg";
-import icon_down from "./../assets/img/icons/down.svg";
-import icon_dugi from "./../assets/img/icons/dugi.svg";
-import icon_edit from "./../assets/img/icons/edit.svg";
-import icon_eye from "./../assets/img/icons/eye.svg";
-import icon_heart from "./../assets/img/icons/heart.svg";
-import icon_heart_b from "./../assets/img/icons/heart_b.svg";
-import icon_help from "./../assets/img/icons/help.svg";
-import icon_home from "./../assets/img/icons/home.svg";
-import icon_mail from "./../assets/img/icons/mail.svg";
-import icon_map from "./../assets/img/icons/map-pin.svg";
-import icon_monitor from "./../assets/img/icons/monitor.svg";
-import icon_play from "./../assets/img/icons/play-circle.svg";
-import icon_shield from "./../assets/img/icons/shield.svg";
-import icon_shopBag from "./../assets/img/icons/shop-bag.svg";
-import icon_shopCart from "./../assets/img/icons/shop-cart.svg";
-import icon_shoppingBag from "./../assets/img/icons/shopping-bag.svg";
-import icon_tick from "./../assets/img/icons/tick.svg";
-import icon_tv from "./../assets/img/icons/tv.svg";
-import icon_user from "./../assets/img/icons/user.svg";
-import icon_userDash from "./../assets/img/icons/user-dash.svg";
-import icon_wordpress from "./../assets/img/icons/wordpress.svg";
-import icon_x from "./../assets/img/icons/x.svg";
+import { ReactComponent as Icon_logo } from "./../assets/img/icons/logo.svg";
+import { ReactComponent as Icon_cart } from "./../assets/img/icons/shopping-cart.svg";
+import { ReactComponent as Icon_circle } from "./../assets/img/icons/circle-check.svg";
+import { ReactComponent as Icon_dashboard } from "./../assets/img/icons/dashboard.svg";
+import { ReactComponent as Icon_down } from "./../assets/img/icons/down.svg";
+import { ReactComponent as Icon_dugi } from "./../assets/img/icons/dugi.svg";
+import { ReactComponent as Icon_edit } from "./../assets/img/icons/edit.svg";
+import { ReactComponent as Icon_eye } from "./../assets/img/icons/eye.svg";
+import { ReactComponent as Icon_heart } from "./../assets/img/icons/heart.svg";
+import { ReactComponent as Icon_heart_b } from "./../assets/img/icons/heart_b.svg";
+import { ReactComponent as Icon_heart_full } from "./../assets/img/icons/heart_full.svg";
+import { ReactComponent as Icon_help } from "./../assets/img/icons/help.svg";
+import { ReactComponent as Icon_home } from "./../assets/img/icons/home.svg";
+import { ReactComponent as Icon_mail } from "./../assets/img/icons/mail.svg";
+import { ReactComponent as Icon_map } from "./../assets/img/icons/map-pin.svg";
+import { ReactComponent as Icon_monitor } from "./../assets/img/icons/monitor.svg";
+import { ReactComponent as Icon_play } from "./../assets/img/icons/play-circle.svg";
+import { ReactComponent as Icon_shield } from "./../assets/img/icons/shield.svg";
+import { ReactComponent as Icon_shopBag } from "./../assets/img/icons/shop-bag.svg";
+import { ReactComponent as Icon_shopCart } from "./../assets/img/icons/shop-cart.svg";
+import { ReactComponent as Icon_shoppingBag } from "./../assets/img/icons/shopping-bag.svg";
+import { ReactComponent as Icon_tick } from "./../assets/img/icons/tick.svg";
+import { ReactComponent as Icon_tv } from "./../assets/img/icons/tv.svg";
+import { ReactComponent as Icon_user } from "./../assets/img/icons/user.svg";
+import { ReactComponent as Icon_userDash } from "./../assets/img/icons/user-dash.svg";
+import { ReactComponent as Icon_wordpress } from "./../assets/img/icons/wordpress.svg";
+import { ReactComponent as Icon_x } from "./../assets/img/icons/x.svg";
 const icons = {
-    icon_logo,
-    icon_cart,
-    icon_circle,
-    icon_dashboard,
-    icon_down,
-    icon_dugi,
-    icon_edit,
-    icon_eye,
-    icon_heart,
-    icon_heart_b,
-    icon_help,
-    icon_home,
-    icon_mail,
-    icon_map,
-    icon_monitor,
-    icon_play,
-    icon_shield,
-    icon_shopBag,
-    icon_shopCart,
-    icon_shoppingBag,
-    icon_tick,
-    icon_tv,
-    icon_user,
-    icon_userDash,
-    icon_wordpress,
-    icon_x,
+    Icon_logo,
+    Icon_cart,
+    Icon_circle,
+    Icon_dashboard,
+    Icon_down,
+    Icon_dugi,
+    Icon_edit,
+    Icon_eye,
+    Icon_heart,
+    Icon_heart_b,
+    Icon_heart_full,
+    Icon_help,
+    Icon_home,
+    Icon_mail,
+    Icon_map,
+    Icon_monitor,
+    Icon_play,
+    Icon_shield,
+    Icon_shopBag,
+    Icon_shopCart,
+    Icon_shoppingBag,
+    Icon_tick,
+    Icon_tv,
+    Icon_user,
+    Icon_userDash,
+    Icon_wordpress,
+    Icon_x,
 };
 
 export default { catalogImages, companyImages, footerImages, homeImages, moreImages, paymentImages, icons };

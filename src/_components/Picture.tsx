@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC } from "react";
 
 interface PictureProps {
     srcWebp: string;
@@ -24,4 +24,4 @@ const Picture: FC<PictureProps> = ({
     );
 };
 
-export default memo(Picture);
+export default Picture;

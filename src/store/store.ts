@@ -1,3 +1,4 @@
+import { productReducer } from "./slices/product/product.slice";
 import { bodyLockReducer } from "./slices/bodyLock/bodyLock.slice";
 import { menuReducer } from "./slices/menu/menu.slice";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
@@ -5,6 +6,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 const rootReducer = combineReducers({
     bodyLock: bodyLockReducer,
     menu: menuReducer,
+    product: productReducer,
 });
 
 export const setupStore = () => {

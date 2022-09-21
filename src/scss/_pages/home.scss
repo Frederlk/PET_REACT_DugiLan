@@ -30,7 +30,6 @@
         }
     }
 }
-
 .content-home {
     @include adaptiveValue("padding-bottom", 130, 20, 1920, 767.98, 1);
     @media (min-width: $tablet) {
@@ -47,16 +46,22 @@
         display: flex;
         align-items: center;
         position: relative;
+        justify-content: center;
         &:not(:last-child) {
             @include adaptiveValue("margin-bottom", 45, 20);
         }
         ._input__error {
-            position: absolute;
-            margin-top: rem(5);
-            top: 100%;
-            left: 0;
-            @extend %p-lead;
+            @extend %p;
             color: $error;
+            @media (min-width: $mobileSmall) {
+                position: absolute;
+                margin-top: rem(5);
+                top: 100%;
+                left: 0;
+            }
+            @media (max-width: $mobileSmall) {
+                margin: rem(-10) 0 rem(5) 0;
+            }
         }
         @media (max-width: $mobileSmall) {
             flex-wrap: wrap;
@@ -100,7 +105,6 @@
         color: $text_2;
     }
 }
-
 .slider-home {
     min-width: 0;
     overflow: visible !important;
@@ -202,13 +206,7 @@
 //========================================================================================================================================================
 
 .body {
-    &__wrapper {
-    }
-
     &__container {
-    }
-
-    &__flex {
         display: flex;
         @media (max-width: $mobile) {
             flex-wrap: wrap;
@@ -219,12 +217,12 @@
     }
 
     &__aside {
-        flex: 0 0 400px;
+        flex: 0 0 rem(400);
         @media (max-width: em(1300)) {
-            flex: 0 0 320px;
+            flex: 0 0 rem(320);
         }
         @media (max-width: $tablet) {
-            flex: 0 0 250px;
+            flex: 0 0 rem(250);
         }
         @media (max-width: $mobile) {
             flex: 1 1 100%;
@@ -233,7 +231,7 @@
 
     &__shop {
         flex: 1 1 auto;
-        margin-left: 20px;
+        margin-left: rem(20);
         @media (max-width: $mobile) {
             flex: 1 1 100%;
             margin: 0;
@@ -243,65 +241,57 @@
 
 // ASIDE  ========================================================================================================================================================
 .aside-body {
-    &__wrapper {
-    }
-
     &__categories {
-        @include adaptiveValue("margin-bottom", 50, 20);
-        @media (max-width: $mobile) {
-            @include adaptiveValue("margin-bottom", 50, 30);
-        }
+        @include adaptiveValue("margin-bottom", 50, 30, 767.98, 320, 1);
     }
 
     &__newsletter {
-        @include adaptiveValue("margin-bottom", 50, 20);
+        @include adaptiveValue("margin-bottom", 50, 20, 767.98, 320, 1);
     }
+
     &__users {
-        @include adaptiveValue("margin-bottom", 50, 20);
+        @include adaptiveValue("margin-bottom", 50, 20, 767.98, 320, 1);
     }
+
     &__advert {
     }
 }
-//========================================================================================================================================================
 .categories {
-    box-shadow: 1px 4px 44px rgba(0, 0, 0, 0.03);
-    &__inner {
-        border-radius: 10px;
-        overflow: hidden;
-        background-color: $blue;
-    }
+    box-shadow: rem(1) rem(4) rem(44) rgba(0, 0, 0, 0.03);
+    border-radius: rem(10);
+    overflow: hidden;
+    background-color: $blue;
 
     &__title {
         display: flex;
         align-items: center;
-        min-height: 80px;
-        padding: 10px 25px;
+        min-height: rem(80);
+        padding: rem(10) rem(25);
         color: $white;
         @media (max-width: em(1300)) {
-            padding: 5px 20px;
-            min-height: 60px;
+            padding: rem(25) rem(20);
+            min-height: rem(60);
         }
         @media (max-width: $tablet) {
-            padding: 5px 10px;
+            padding: rem(10);
         }
         @media (max-width: $mobile) {
             justify-content: space-between;
         }
-        &._active {
+        &._spoller-active {
             span {
                 transform: rotate(-180deg);
             }
         }
         span {
             display: none;
-            transition: all 0.5s ease 0s;
-
+            transition: transform 0.5s ease 0s;
             @media (max-width: $mobile) {
                 display: flex;
                 align-items: center;
                 svg {
-                    width: 30px;
-                    height: 30px;
+                    width: rem(30);
+                    height: rem(30);
                 }
             }
         }
@@ -309,7 +299,7 @@
 
     &__body {
         background-color: $white;
-        border: 1px solid $light;
+        border: rem(1) solid $light;
     }
 
     &__list {
@@ -317,7 +307,7 @@
 
     &__item {
         &:not(:last-child) {
-            border-bottom: 1px solid $light;
+            border-bottom: rem(1) solid $light;
         }
     }
 
@@ -325,13 +315,12 @@
         flex: 1 1 auto;
         display: flex;
         align-items: center;
-        padding: 5px 30px;
-        min-height: 65px;
-        transition: all 0.3s ease 0s;
-        background-color: transparent;
+        padding: rem(5) rem(30);
+        min-height: rem(65);
+        transition: background-color 0.3s ease 0s;
         @media (any-hover: hover) {
             &:hover {
-                background: rgba(15, 175, 233, 0.1);
+                background-color: rgba(15, 175, 233, 0.1);
             }
         }
         span {
@@ -348,50 +337,39 @@
             }
         }
         @media (max-width: em(1300)) {
-            min-height: 50px;
-            padding: 5px 20px;
+            min-height: rem(50);
+            padding: rem(5) rem(20);
         }
         @media (max-width: $tablet) {
-            padding: 5px 10px;
+            padding: rem(5) rem(10);
         }
-        &._active {
-            background: rgba(15, 175, 233, 0.1);
+        &.active {
+            background-color: rgba(15, 175, 233, 0.1);
         }
     }
 
     &__icon {
         @include adaptiveValue("margin-right", 15, 10);
-        flex: 0 0 16px;
-        height: 16px;
-        img {
-            max-width: 100%;
-        }
+        flex: 0 0 rem(16);
+        height: rem(16);
     }
 }
-//========================================================================================================================================================
+
 .newsletter {
-    box-shadow: 1px 4px 44px rgba(0, 0, 0, 0.03);
-    @media (max-width: $mobileSmall) {
-        margin-top: 20px;
+    box-shadow: rem(1) rem(4) rem(44) rgba(0, 0, 0, 0.03);
+    background: rgba(15, 175, 233, 0.1);
+    border: rem(1) solid $light;
+    border-radius: rem(10);
+    text-align: center;
+    padding: rem(40) rem(30);
+    @media (max-width: em(1300)), (max-width: $mobile) {
+        padding: rem(20) rem(25);
     }
-    &__inner {
-        background: rgba(15, 175, 233, 0.1);
-        border: 1px solid $light;
-        border-radius: 10px;
-        text-align: center;
-        padding: 30px 40px;
-        @media (max-width: em(1300)) {
-            padding: 20px 25px;
-        }
-        @media (max-width: $tablet) {
-            padding: 10px;
-        }
-        @media (max-width: $mobile) {
-            padding: 20px 25px;
-        }
-        @media (max-width: $mobileSmall) {
-            padding: 10px;
-        }
+    @media (max-width: $tablet), (max-width: $mobileSmall) {
+        padding: rem(10);
+    }
+    @media (max-width: $mobileSmall) {
+        margin-top: rem(20);
     }
 
     &__title {
@@ -410,108 +388,74 @@
     &__input-wrap {
         position: relative;
         @include adaptiveValue("margin-bottom", 30, 20);
+        ._input__error {
+            @extend %p;
+            position: absolute;
+            left: 0;
+            color: $error;
+            @media (min-width: $mobile) {
+                top: 100%;
+                width: 100%;
+                text-align: center;
+            }
+            @media (max-width: $mobile) {
+                bottom: 100%;
+                margin-bottom: rem(2);
+            }
+        }
     }
 
     &__input {
-        padding: 0px 20px 0 50px;
+        padding: 0px rem(20) 0 rem(50);
     }
 
     &__icon {
         position: absolute;
-        width: 16px;
-        height: 16px;
+        width: rem(16);
+        height: rem(16);
         top: 50%;
         transform: translate(0px, -50%);
-        left: 22px;
+        left: rem(22);
     }
 
     &__btn {
-        min-width: 260px;
+        min-width: rem(260);
         @media (max-width: $tablet) {
-            min-width: 190px;
+            min-width: rem(190);
         }
         @media (max-width: $mobileSmall) {
             width: 100%;
         }
     }
-}
-//========================================================================================================================================================
-.advert {
-    background: rgba(248, 197, 41, 0.12);
-    border-radius: 10px;
-    overflow: hidden;
-    @media (max-width: $mobile) {
-        display: none;
-    }
-    &__inner {
-    }
 
-    &__image {
-        @include adaptiveValue("min-height", 124, 100);
-    }
-
-    &__body {
+    &__subscribed {
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        text-align: center;
-        @include adaptiveValue("min-height", 170, 150);
-        padding: 30px 30px 20px 30px;
-        @media (max-width: em(1300)) {
-            padding: 20px;
-        }
-        @media (max-width: $tablet) {
-            padding: 10px;
-        }
-    }
-
-    &__text {
-        color: $secondary;
-        @extend %p;
-        @include adaptiveValue("margin-bottom", 30, 20);
-        flex: 1 1 auto;
-        transition: all 0.3s ease 0s;
-        @media (any-hover: hover) {
-            &:hover {
-                color: $blue;
-            }
-        }
-    }
-
-    &__label {
-        @extend %p;
-        transition: all 0.3s ease 0s;
-        color: #9f9f9f;
-        @media (any-hover: hover) {
-            &:hover {
-                color: $text_1;
-            }
-        }
+        @extend %h3;
+        color: $blue;
+        height: rem(60);
     }
 }
-//========================================================================================================================================================
 .users {
-    border: 1px solid $light;
-    border-radius: 10px;
+    border: rem(1) solid $light;
+    border-radius: rem(10);
+    text-align: center;
+    padding: rem(30) rem(25);
+    @media (max-width: em(1300)) {
+        padding: rem(20);
+    }
+    @media (max-width: $tablet) {
+        padding: rem(10);
+    }
     @media (max-width: $mobile) {
         display: none;
-    }
-    &__inner {
-        text-align: center;
-        padding: 30px 25px;
-        @media (max-width: em(1300)) {
-            padding: 20px;
-        }
-        @media (max-width: $tablet) {
-            padding: 10px;
-        }
     }
 
     &__circle {
-        width: 120px;
-        height: 120px;
-        border: 10px solid rgba(15, 175, 233, 0.1);
+        width: rem(120);
+        height: rem(120);
+        border: rem(10) solid rgba(15, 175, 233, 0.1);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -523,12 +467,12 @@
 
     &__percents {
         @extend %h3;
-        color: #489dff;
+        color: $blue;
     }
 
     &__line {
         position: absolute;
-        top: -10px;
+        top: rem(-10);
         left: 45%;
     }
 
@@ -549,75 +493,98 @@
         color: $text_3;
     }
 }
+.advert {
+    background: rgba(248, 197, 41, 0.12);
+    border-radius: rem(10);
+    overflow: hidden;
+    @media (max-width: $mobile) {
+        display: none;
+    }
+
+    &__image-ibg {
+        @include adaptiveValue("min-height", 124, 100);
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        @include adaptiveValue("min-height", 170, 150);
+        padding: rem(30) rem(30) rem(20) rem(30);
+        @media (max-width: em(1300)) {
+            padding: rem(20);
+        }
+        @media (max-width: $tablet) {
+            padding: rem(10);
+        }
+    }
+
+    &__text {
+        color: $secondary;
+        @extend %p;
+        @include adaptiveValue("margin-bottom", 30, 20);
+        flex: 1 1 auto;
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $blue;
+            }
+        }
+    }
+
+    &__label {
+        @extend %p;
+        transition: color 0.3s ease 0s;
+        color: #9f9f9f;
+    }
+}
 // </ASIDE>  ========================================================================================================================================================
 
 // SHOP ========================================================================================================================================================
 .shop-body {
-    &__wrapper {
-    }
-
     &__features {
     }
 
     &__products {
         @include adaptiveValue("padding-top", 50, 30);
-        display: flex;
-        margin: 0px -10px;
-        flex-wrap: wrap;
-    }
-
-    &__column {
-        flex: 0 1 33.333%;
-        padding: 0px 10px;
-        @include adaptiveValue("margin-bottom", 50, 25);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: rem(50) rem(20);
         @media (max-width: $tablet) {
-            flex: 0 1 50%;
+            grid-template-columns: repeat(2, 1fr);
         }
         @media (max-width: $mobileSmall) {
-            flex: 1 1 100%;
+            grid-template-columns: 1fr;
         }
     }
 
     &__item {
     }
 }
+
 .features {
     background: rgba(15, 175, 233, 0.1);
-    border-radius: 10px;
-    padding: 30px;
+    border-radius: rem(10);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    padding: rem(30);
+    @include adaptiveValue("gap", 45, 20, 1920, 1640, 1);
     @media (max-width: $pc) {
-        padding: 20px;
+        padding: rem(20);
+    }
+    @media (max-width: em(1300)) {
+        grid-template-columns: 1fr;
     }
     @media (max-width: $mobile) {
-        padding: 10px;
-    }
-    &__flex {
-        display: flex;
-        justify-content: space-between;
-        margin: 0px -22px;
-        @media (max-width: $pc) {
-            margin: 0px -10px;
-        }
-        @media (max-width: em(1300)) {
-            flex-wrap: wrap;
-            justify-content: flex-start;
-        }
+        padding: rem(10);
     }
 
     &__column {
-        flex: 0 1 33.333%;
         display: flex;
         align-items: flex-start;
-        padding: 0px 22px;
-        @media (max-width: $pc) {
-            padding: 0px 10px;
-        }
-        @media (max-width: em(1300)) {
-            flex: 1 1 100%;
-            &:not(:last-child) {
-                margin: 0px 0px 10px 0px;
-            }
-        }
     }
 
     &__icon {
@@ -625,21 +592,18 @@
         justify-content: center;
         align-items: center;
         background: rgba(15, 175, 233, 0.1);
-        padding: 5px;
+        padding: rem(5);
         @media (min-width: $pc) {
-            height: 40px;
-            flex: 0 0 40px;
+            height: rem(40);
+            flex: 0 0 rem(40);
             @include adaptiveValue("margin-right", 16, 5);
-            border-radius: 10px;
+            border-radius: rem(10);
         }
         @media (max-width: $pc) {
-            height: 30px;
-            flex: 0 0 30px;
-            border-radius: 5px;
-            margin-right: 8px;
-        }
-        img {
-            max-width: 100%;
+            height: rem(30);
+            flex: 0 0 rem(30);
+            border-radius: rem(5);
+            margin-right: rem(8);
         }
     }
 
@@ -647,44 +611,31 @@
     }
 
     &__title {
-        font-size: 18px;
-        line-height: 34 / 18 * 100%;
+        font-size: rem(18);
+        line-height: math.div(34, 18);
         color: $secondary;
-        margin-bottom: 10px;
-        @media (max-width: $pc) {
-            margin-bottom: 5px;
-        }
+        @include adaptiveValue("margin-bottom", 10, 5, 1920, 1640, 1);
     }
 
     &__text {
         flex: 1 1 auto;
         @extend %p;
         color: $text_4;
-        @media (max-width: em(1300)) {
-            br {
-                display: none;
-            }
-        }
     }
 }
+
 //========================================================================================================================================================
 .product-item {
     display: flex;
     flex-direction: column;
     height: 100%;
-    &__wrapper {
-        flex: 1 1 auto;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
 
     &__image {
         position: relative;
-        box-shadow: 1px 4px 44px rgba(0, 0, 0, 0.03);
-        border-radius: 8px;
+        box-shadow: rem(1) rem(4) rem(44) rgba(0, 0, 0, 0.03);
+        border-radius: rem(8);
         overflow: hidden;
-        margin-bottom: 10px;
+        margin-bottom: rem(10);
         @media (any-hover: hover) {
             &:hover {
                 .product-item__hover {
@@ -695,22 +646,17 @@
         }
     }
 
-    &__inner {
+    &__inner-ibg {
         position: relative;
-        border-radius: 8px;
+        border-radius: rem(8);
         overflow: hidden;
         display: flex;
-        @media (min-width: $tablet) {
-            @include adaptiveValue("height", 260, 200);
-        }
-        @media (max-width: $tablet) {
-            height: 200px;
-        }
+        @include adaptiveValue("height", 260, 200, 1640, 991.98, 1);
     }
 
     &__hover {
-        opacity: 0;
-        visibility: hidden;
+        // opacity: 0;
+        // visibility: hidden;
         transition: all 0.5s ease 0s;
         position: absolute;
         width: 100%;
@@ -719,14 +665,14 @@
         left: 0;
         z-index: 2;
         background: linear-gradient(0deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85));
-        padding: 10px 20px;
+        padding: rem(10) rem(20);
     }
 
     &__top {
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        transition: all 0.3s ease 0s;
+        transition: opacity 0.3s ease 0s;
         pointer-events: none;
         @media (any-hover: hover) {
             &:hover {
@@ -736,20 +682,19 @@
     }
 
     &__number {
-        margin-right: 8px;
+        margin-right: rem(8);
         @extend %h6;
         color: $blue;
         pointer-events: all;
     }
 
     &__heart {
-        height: 12px;
-        flex: 0 0 12px;
+        height: rem(12);
+        flex: 0 0 rem(12);
         pointer-events: all;
-        margin-top: 3px;
-        img {
-            max-width: 100%;
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     &__buttons {
@@ -758,8 +703,8 @@
         left: 50%;
         transform: translate(-50%, -50%);
         display: inline-flex;
-        box-shadow: 1px 4px 44px rgba(0, 0, 0, 0.03);
-        border-radius: 7px;
+        box-shadow: rem(1) rem(4) rem(44) rgba(0, 0, 0, 0.03);
+        border-radius: rem(7);
         justify-content: center;
         align-items: center;
         background-color: $white;
@@ -769,22 +714,20 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 0.5px;
-            height: 25px;
+            width: rem(0.5);
+            height: rem(25);
             background-color: rgba(15, 175, 233, 0.1);
         }
     }
 
     &__icon {
-        display: inline-flex;
+        display: flex;
         justify-content: center;
         align-items: center;
-        text-align: center;
-        min-height: 45px;
-        min-width: 65px;
-        transition: all 0.3s ease 0s;
-        img {
-            max-width: 100%;
+        min-height: rem(45);
+        min-width: rem(65);
+        transition: opacity 0.3s ease 0s;
+        svg {
         }
         @media (any-hover: hover) {
             &:hover {
@@ -795,10 +738,10 @@
 
     &__title {
         flex: 1 1 auto;
-        margin-bottom: 1px;
+        margin-bottom: rem(1);
         a {
             display: flex;
-            transition: all 0.3s ease 0s;
+            transition: color 0.3s ease 0s;
             color: $text_1;
             @media (any-hover: hover) {
                 &:hover {
@@ -811,22 +754,16 @@
     &__type {
         display: flex;
         align-items: center;
-        margin-bottom: 1px;
+        margin-bottom: rem(1);
     }
 
-    &__type-link {
+    &__type-item {
         @extend %h6;
-        transition: all 0.3s ease 0s;
         color: $text_3;
         &:not(:last-child) {
             &::after {
                 content: ",";
-                margin-right: 2px;
-            }
-        }
-        @media (any-hover: hover) {
-            &:hover {
-                color: $blue;
+                margin-right: rem(2);
             }
         }
     }
@@ -834,12 +771,10 @@
     &__price {
         @extend %p;
         color: $blue;
-        line-height: 27 / 15 * 100%;
+        line-height: math.div(27, 15);
     }
 }
 // </SHOP> ========================================================================================================================================================
-
-//========================================================================================================================================================
 
 .banner {
     &__container {
@@ -988,513 +923,6 @@
         @include adaptiveValue("height", 425, 200);
         @include adaptiveValue("width", 425, 200);
         background: linear-gradient(223.45deg, $white -22.5%, rgba(255, 255, 255, 0) 57.85%);
-    }
-}
-
-// SINGLE WORKSHOP ========================================================================================================================================================
-.related {
-    &__wrapper {
-    }
-
-    &__container {
-    }
-
-    &__title {
-        @include adaptiveValue("margin-bottom", 50, 25);
-        font-weight: 400;
-        max-width: 670px;
-    }
-
-    &__lfex {
-        display: flex;
-        justify-content: space-between;
-        margin: 0 -10px;
-        @media (max-width: $tablet) {
-            overflow: auto;
-        }
-    }
-
-    &__column {
-        flex: 0 1 360px;
-        padding: 0px 10px;
-        @media (max-width: $tablet) {
-            flex: 0 0 30%;
-        }
-        @media (max-width: $mobile) {
-            flex: 0 0 45%;
-        }
-        @media (max-width: $mobileSmall) {
-            flex: 0 0 80%;
-        }
-    }
-    &__item {
-    }
-}
-// </SINGLE WORKSHOP>=======================================================================================================================================================
-
-.body-workshop {
-    &__wrapper {
-    }
-
-    &__container {
-    }
-
-    &__flex {
-        display: flex;
-        @media (max-width: $tablet) {
-            flex-wrap: wrap;
-        }
-    }
-
-    &__content {
-        flex: 1 1 auto;
-        min-width: 0;
-        @media (max-width: $tablet) {
-            flex: 1 1 100%;
-            @include adaptiveValue("margin-bottom", 50, 30);
-        }
-    }
-    &__aside {
-        flex: 0 0 400px;
-        @media (min-width: em(1300)) {
-            @include adaptiveValue("margin-left", 100, 20);
-        }
-        margin-left: 30px;
-        @media (max-width: $tablet) {
-            flex: 1 1 100%;
-            margin-left: 0;
-        }
-    }
-}
-.aside-single {
-    &__wrapper {
-    }
-
-    &__search {
-        @media (min-width: $tablet) {
-            @include adaptiveValue("margin-bottom", 40, 20);
-        }
-    }
-
-    &__price {
-        box-shadow: 1px 4px 44px rgba(0, 0, 0, 0.03);
-        @include adaptiveValue("margin-bottom", 30, 20);
-    }
-
-    &__text {
-        @include adaptiveValue("margin-bottom", 30, 20);
-        @extend %p;
-        color: $text_4;
-        text-align: center;
-        @media (min-width: $mobileSmall) {
-            padding: 0px 20px;
-        }
-    }
-
-    &__info {
-        box-shadow: 1px 4px 44px rgba(0, 0, 0, 0.03);
-        @media (max-width: $tablet) {
-            @include adaptiveValue("margin-bottom", 40, 20);
-        }
-    }
-}
-.search-workshop {
-    &__inner {
-    }
-
-    &__text {
-        text-align: center;
-        @extend %p;
-        color: $text_4;
-        margin-bottom: 20px;
-    }
-
-    &__form {
-        display: flex;
-        align-items: center;
-        @media (max-width: $mobileSmall) {
-            flex-wrap: wrap;
-        }
-    }
-
-    &__input {
-        &._focus {
-            @media (min-width: $mobileSmall) {
-                border-right: none;
-            }
-        }
-        @media (max-width: $tablet) {
-            min-height: 65px;
-        }
-        @media (min-width: $mobileSmall) {
-            flex: 1 1 auto;
-            border-radius: 7px 0px 0px 7px;
-            border-right: none;
-        }
-        @media (max-width: $mobileSmall) {
-            margin-bottom: 15px;
-            flex: 1 1 100%;
-            min-height: 50px;
-        }
-    }
-
-    &__btn {
-        @media (min-width: $mobileSmall) {
-            flex: 0 0 132px;
-            border-radius: 0px 7px 7px 0px;
-        }
-        @media (max-width: $tablet) {
-            min-height: 65px;
-        }
-        @media (max-width: $mobileSmall) {
-            flex: 1 1 100%;
-            min-height: 50px;
-        }
-    }
-}
-.price-workshop {
-    background-color: $white;
-    &__inner {
-    }
-
-    &__top {
-        border-radius: 10px 10px 0 0;
-        background-color: $blue;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        min-height: 80px;
-        padding: 10px 25px;
-        color: $white;
-        @media (max-width: em(1300)) {
-            padding: 5px 20px;
-        }
-        @media (max-width: $mobileSmall) {
-            padding: 5px 10px;
-            min-height: 60px;
-        }
-    }
-
-    &__title {
-        @extend %p;
-    }
-
-    &__price {
-        text-align: right;
-        @extend %h3;
-    }
-
-    &__list {
-        border: 1px solid $light;
-    }
-
-    &__item {
-        flex: 1 1 auto;
-        display: flex;
-        align-items: center;
-        padding: 5px 20px 5px 30px;
-        min-height: 65px;
-        &:not(:last-child) {
-            border-bottom: 1px solid $light;
-        }
-        @media (max-width: em(1300)) {
-            padding: 5px 20px;
-        }
-        @media (max-width: $mobileSmall) {
-            padding: 5px 10px;
-            min-height: 60px;
-        }
-    }
-
-    &__icon {
-        flex: 0 0 16px;
-        height: 16px;
-        width: 16px;
-        margin-top: 4px;
-        margin-right: 15px;
-        img {
-            max-width: 100%;
-        }
-    }
-
-    &__text {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    &__check-form {
-        flex: 1 1 auto;
-    }
-    &__checkbox {
-        display: flex;
-        .checkbox__text {
-            flex: 1 1 auto;
-            .price-workshop__text {
-                flex: 1 1 auto;
-                span {
-                    margin-left: 20px;
-                    white-space: nowrap;
-                }
-            }
-        }
-    }
-
-    &__total {
-        background: rgba(15, 175, 233, 0.1);
-        border: 1px solid $light;
-        padding: 25px 25px 25px 30px;
-        @media (max-width: em(1300)) {
-            padding: 20px;
-        }
-        @media (max-width: $mobileSmall) {
-            padding: 20px 10px;
-        }
-    }
-
-    &__price-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        @extend %p;
-        &:not(:last-child) {
-            @include adaptiveValue("margin-bottom", 20, 15);
-        }
-    }
-
-    &__label {
-        color: $text_4;
-        flex: 0 1 60%;
-    }
-
-    &__value {
-        color: $secondary;
-        flex: 0 1 40%;
-        text-align: right;
-        &_total {
-            @extend %p-lead_bold;
-            color: #489dff;
-        }
-    }
-
-    &__btn-wrap {
-        padding: 25px 25px 25px 30px;
-        border: 1px solid $light;
-        border-top: none;
-        border-radius: 0px 0px 10px 10px;
-        @media (max-width: em(1300)) {
-            padding: 20px;
-        }
-        @media (max-width: $mobileSmall) {
-            padding: 10px;
-        }
-    }
-
-    &__btn {
-        width: 100%;
-        @media (max-width: $tablet) {
-            min-height: 65px;
-        }
-    }
-}
-.info-workshop {
-    &__inner {
-        border-radius: 10px;
-        overflow: hidden;
-        border: 1px solid $light;
-    }
-
-    &__item {
-        min-height: 65px;
-        padding: 5px 30px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        @extend %p;
-        @media (max-width: em(1300)) {
-            padding: 5px 20px;
-        }
-        @media (max-width: $mobileSmall) {
-            padding: 5px 10px;
-            min-height: 60px;
-        }
-        &:not(:last-child) {
-            border-bottom: 1px solid $light;
-        }
-    }
-
-    &__label {
-        flex: 0 1 50%;
-        color: $text_4;
-        padding-right: 15px;
-    }
-
-    &__value {
-        text-align: right;
-        flex: 0 1 50%;
-        color: $text_1;
-        padding-left: 10px;
-    }
-}
-//========================================================================================================================================================
-
-.content-workshop {
-    &__wrapper {
-    }
-
-    &__logo {
-        display: flex;
-        align-items: center;
-        @include adaptiveValue("margin-bottom", 50, 30);
-    }
-
-    &__image-logo {
-        margin-right: 20px;
-        flex: 0 0 64px;
-        img {
-            max-width: 100%;
-        }
-    }
-
-    &__title {
-        flex: 1 1 auto;
-        @extend %h2;
-        font-weight: 400;
-    }
-
-    &__subtitle {
-        @extend %h5;
-        @include adaptiveValue("font-size", 22, 18);
-        @include adaptiveValue("margin-bottom", 50, 30);
-    }
-
-    &__video-wrap {
-        position: relative;
-        @include adaptiveValue("height", 510, 300);
-        border: 1px solid $light;
-        box-shadow: 1px 4px 44px rgba(0, 0, 0, 0.03);
-        border-radius: 9px;
-        cursor: pointer;
-        @include adaptiveValue("margin-bottom", 50, 30);
-        &::after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-color: $black;
-            opacity: 0.85;
-            z-index: 2;
-            transition: all 0.5s ease 0s;
-        }
-        @media (any-hover: hover) {
-            &:hover {
-                &::after {
-                    opacity: 0.8;
-                }
-            }
-        }
-        &._play {
-            &::after {
-                opacity: 0 !important;
-            }
-            .content-workshop__video-btn {
-                opacity: 0;
-            }
-        }
-    }
-
-    &__video {
-        position: relative;
-    }
-
-    &__video-btn {
-        position: absolute;
-        transition: all 0.5s ease 0s;
-        top: 50%;
-        left: 50%;
-        z-index: 3;
-        @include adaptiveValue("height", 134, 80);
-        @include adaptiveValue("width", 134, 80);
-        transform: translate(-50%, -50%);
-        @media (any-hover: hover) {
-            &:hover {
-                opacity: 0.5;
-            }
-        }
-        img {
-            max-width: 100%;
-        }
-    }
-
-    &__text {
-        @extend %h5;
-        font-size: 15px;
-        color: $text_4;
-        @include adaptiveValue("margin-bottom", 50, 30);
-        @media (min-width: $tablet) {
-            max-width: 900px;
-        }
-        p {
-            &:not(:last-child) {
-                @include adaptiveValue("margin-bottom", 30, 15);
-            }
-        }
-    }
-
-    &__slider {
-        position: relative;
-    }
-
-    &__slick {
-        border-radius: 10px;
-        overflow: hidden;
-        .slick-track {
-            display: flex;
-        }
-    }
-
-    &__slide {
-        @include adaptiveValue("height", 420, 250);
-        cursor: grab;
-    }
-
-    &__pagination {
-        position: absolute;
-        height: 34px;
-        padding: 5px 16px;
-        @include adaptiveValue("bottom", 25, 10);
-        @include adaptiveValue("right", 25, 10);
-        background-color: $white;
-        border-radius: 60px;
-        display: flex;
-        align-items: center;
-        .slick-dots {
-            display: flex;
-            align-items: center;
-            li {
-                cursor: pointer;
-                width: 8px;
-                height: 8px;
-                background: $text_1;
-                opacity: 0.2;
-                transition: all 0.8s ease 0s;
-                border-radius: 50%;
-                @media (any-hover: hover) {
-                    &:hover {
-                        opacity: 0.5;
-                    }
-                }
-                &:not(:last-child) {
-                    margin-right: 6px;
-                }
-                &.slick-active {
-                    width: 14px;
-                    height: 14px;
-                    opacity: 1;
-                }
-            }
-        }
     }
 }
 

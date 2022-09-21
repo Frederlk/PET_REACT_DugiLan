@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC } from "react";
 import { Link } from "react-router-dom";
 import format from "date-fns/format";
 
@@ -45,4 +45,4 @@ const Footer: FC = () => {
     );
 };
 
-export default memo(Footer);
+export default Footer;
