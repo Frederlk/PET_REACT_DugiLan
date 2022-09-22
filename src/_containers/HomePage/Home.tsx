@@ -1,7 +1,5 @@
 import { FC } from "react";
-
-import HomeSlider from "./HomeSlider";
-import Search from "./Search";
+import { HomeSlider, Search } from "..";
 
 const Home: FC = () => {
     return (
