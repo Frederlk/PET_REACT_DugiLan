@@ -7,7 +7,6 @@ export { default as MenuLinks } from "./_Header/MenuLinks";
 export { default as Footer } from "./_Footer/Footer";
 export { default as FooterList } from "./_Footer/FooterList";
 
-export { default as Banner } from "./HomePage/Banner";
 export { default as Companies } from "./HomePage/Companies";
 export { default as Home } from "./HomePage/Home";
 export { default as HomeSlider } from "./HomePage/HomeSlider";

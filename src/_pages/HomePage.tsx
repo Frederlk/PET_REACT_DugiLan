@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet";
-import { Banner, Body, Companies, Home, Side } from "../_containers";
+import { Banner } from "../_components";
+import { Body, Companies, Home, Side } from "../_containers";
 
 const HomePage = () => {
     return (

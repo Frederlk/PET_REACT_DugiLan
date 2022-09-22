@@ -11,13 +11,13 @@ const ProductItem: FC<{ item: IProduct }> = ({ item }) => {
     return (
         <article className="shop-body__item product-item">
             <div className="product-item__image">
-                <Link to={RouteNames.BROWSE + "/" + title} className="product-item__inner-ibg">
+                <Link to={RouteNames.PRODUCT_LINK + title} className="product-item__inner-ibg">
                     <Picture srcWebp={thumbWebp} fallbackSrc={thumbImg} alt={title} />
                 </Link>
                 <ProductHover item={item} />
             </div>
             <h5 className="product-item__title">
-                <Link to={RouteNames.BROWSE + "/" + title}>{title}</Link>
+                <Link to={RouteNames.PRODUCT_LINK + title}>{title}</Link>
             </h5>
             <div className="product-item__type">
                 {stack.map((item, i) => (

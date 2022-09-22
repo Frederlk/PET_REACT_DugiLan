@@ -1,39 +1,30 @@
 // SINGLE WORKSHOP ========================================================================================================================================================
 .related {
-    &__wrapper {
-    }
-
     &__container {
     }
 
     &__title {
         @include adaptiveValue("margin-bottom", 50, 25);
         font-weight: 400;
-        max-width: 670px;
+        max-width: rem(670);
     }
 
-    &__lfex {
-        display: flex;
-        justify-content: space-between;
-        margin: 0 -10px;
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: rem(20);
         @media (max-width: $tablet) {
+            grid-template-columns: repeat(4, 30%);
             overflow: auto;
         }
-    }
-
-    &__column {
-        flex: 0 1 360px;
-        padding: 0px 10px;
-        @media (max-width: $tablet) {
-            flex: 0 0 30%;
-        }
         @media (max-width: $mobile) {
-            flex: 0 0 45%;
+            grid-template-columns: repeat(4, 45%);
         }
         @media (max-width: $mobileSmall) {
-            flex: 0 0 80%;
+            grid-template-columns: repeat(4, 80%);
         }
     }
+
     &__item {
     }
 }

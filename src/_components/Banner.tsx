@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 
-import { RouteNames } from "../../routes";
-import { images } from "../../constants";
-import { Picture } from "../../_components";
+import { RouteNames } from "../routes";
+import { images } from "../constants";
+import { Picture } from ".";
 
 const { more01, more01_WEBP, more02, more02_WEBP } = images.moreImages;
 

@@ -15,7 +15,7 @@ const FavouritesItem: FC<{ id: string }> = ({ id }) => {
     return (
         <li className="favourites-header__item">
             <div className="favourites-header__info">
-                <Link to={RouteNames.BROWSE + "/" + title} className="favourites-header__title">
+                <Link to={RouteNames.PRODUCT_LINK + title} className="favourites-header__title">
                     {title}
                 </Link>
                 <div className="favourites-header__price">${priceTotal}</div>

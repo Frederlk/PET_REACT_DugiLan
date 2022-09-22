@@ -25,8 +25,9 @@ export interface IProduct {
     inFavourites: number;
     priceTotal: number;
     // PRODUCT PAGE ========= //
-    subtitle: string;
-    content: string;
+    subtitle?: string;
+    content?: string;
+    logo?: string;
     discount?: number;
     images?: IImageItem[];
     video?: string;

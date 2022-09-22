@@ -12,12 +12,15 @@ export interface CustomRouteObject {
 }
 
 const Page404 = lazy(() => import("../_pages/Page404")),
-    HomePage = lazy(() => import("../_pages/HomePage"));
+    HomePage = lazy(() => import("../_pages/HomePage")),
+    Single = lazy(() => import("../_pages/Single"));
 
 export enum RouteNames {
     HOME = "/",
     PAGE404 = "*",
     BROWSE = "/browse",
+    PRODUCT_LINK = "/browse/product/",
+    PRODUCT_ITEM = "/browse/product/:id",
     EXCLUSIVE = "/exclusive",
     DOCS = "/docs",
     ACCOUNT = "/account",
@@ -43,6 +46,7 @@ export enum RouteNames {
     CMS = "/CMS",
     SITE = "/Site",
     BLOGGING = "/Blogging",
+    //========================================================================================================================================================
 }
 
 export const routesConfig: CustomRouteObject[] = [
@@ -60,6 +64,11 @@ export const routesConfig: CustomRouteObject[] = [
         path: RouteNames.BROWSE,
         element: <HomePage />,
         type: "main",
+    },
+    {
+        title: "ProductItem",
+        path: RouteNames.PRODUCT_ITEM,
+        element: <Single />,
     },
     {
         title: "All-Exclusive",

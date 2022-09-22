@@ -38,7 +38,7 @@ const ProductHover: FC<{ item: IProduct }> = ({ item }) => {
                 </button>
             </div>
             <div className="product-item__buttons">
-                <Link to={RouteNames.BROWSE + "/" + title} className="product-item__icon">
+                <Link to={RouteNames.PRODUCT_LINK + title} className="product-item__icon">
                     <img src={icon_eye} alt="Inspect" />
                 </Link>
                 <button
