@@ -20,7 +20,7 @@ const Header: FC = () => {
                 </Link>
                 <div className="header__menu menu">
                     <nav className="menu__body">
-                        <ul className="menu__list" data-spollers="767.98,max">
+                        <ul className="menu__list" data-spollers="">
                             <MenuLinks />
                         </ul>
                     </nav>

@@ -31,11 +31,18 @@ export enum RouteNames {
     THEMES = "/themes",
     AUTHORS = "/authors",
     HELP = "/help",
-    // community ========================================================================================================================================================
+    // Community ========================================================================================================================================================
     COMMUNITY = "/community",
     BLOG = "/blog",
     FORUMS = "/forums",
     MEETUPS = "/meetups",
+    // Categories ========================================================================================================================================================
+    WORDPRESS = "/wordpress",
+    ECOMMERCE = "/eCommerce",
+    MARKETING = "/Marketing",
+    CMS = "/CMS",
+    SITE = "/Site",
+    BLOGGING = "/Blogging",
 }
 
 export const routesConfig: CustomRouteObject[] = [
@@ -53,20 +60,6 @@ export const routesConfig: CustomRouteObject[] = [
         path: RouteNames.BROWSE,
         element: <HomePage />,
         type: "main",
-        nested: [
-            {
-                title: "Product #1",
-                path: "/product#1",
-                element: <HomePage />,
-                type: "product",
-            },
-            {
-                title: "Product #2",
-                path: "product#2",
-                element: <HomePage />,
-                type: "product",
-            },
-        ],
     },
     {
         title: "All-Exclusive",

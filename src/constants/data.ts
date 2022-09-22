@@ -1,3 +1,4 @@
+import { RouteNames } from "./../routes/index";
 import { ICategory, IProduct } from "./../models/index";
 import { IImageItem, ISocialItem } from "./../models";
 import images from "./images";
@@ -75,37 +76,37 @@ const companiesItems: IImageItem[] = [
 const categoriesItems: ICategory[] = [
     {
         icon: icons.icon_home,
-        link: "/",
+        link: RouteNames.HOME,
         title: "Home",
     },
     {
         icon: icons.icon_wordpress,
-        link: "wordpress",
+        link: RouteNames.WORDPRESS,
         title: "WordPress Themes",
     },
     {
         icon: icons.icon_shopCart_1,
-        link: "eCommerce",
+        link: RouteNames.ECOMMERCE,
         title: "eCommerce Templates",
     },
     {
         icon: icons.icon_tv,
-        link: "marketing",
+        link: RouteNames.MARKETING,
         title: "Marketing Templates",
     },
     {
         icon: icons.icon_dashboard,
-        link: "CMS",
+        link: RouteNames.CMS,
         title: "CMS Templates",
     },
     {
         icon: icons.icon_monitor,
-        link: "Site",
+        link: RouteNames.SITE,
         title: "Site Templates",
     },
     {
         icon: icons.icon_edit,
-        link: "blogging",
+        link: RouteNames.BLOGGING,
         title: "Blogging",
     },
 ];

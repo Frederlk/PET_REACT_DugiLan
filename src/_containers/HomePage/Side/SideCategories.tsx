@@ -1,11 +1,12 @@
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
 import { data } from "../../../constants";
+import { RouteNames } from "../../../routes";
 
 const itemsCategories = data.categoriesItems.map(({ title, link, icon }, i) => {
     return (
         <li key={link + i} className="categories__item">
-            <NavLink to={link} end className="categories__link">
+            <NavLink to={RouteNames.BROWSE + link} end className="categories__link">
                 <div className="categories__icon">
                     <img src={icon} alt={title} />
                 </div>

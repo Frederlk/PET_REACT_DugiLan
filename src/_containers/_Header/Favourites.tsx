@@ -1,15 +1,19 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { images } from "../../constants";
+import { useClickOutside } from "../../hooks";
 import { useAppSelector } from "../../hooks/useRedux";
 import FavouritesItem from "./FavouritesItem";
 
 const { icon_heart_1 } = images.icons;
 
 const Favourites: FC = () => {
+    const ref = useRef(null);
     const [favouritesOpen, setFavouritesOpen] = useState(false);
     const { favourites } = useAppSelector((state) => state.product);
     const { pathname } = useLocation();
+
+    useClickOutside(ref, () => setFavouritesOpen(false));
 
     useEffect(() => {
         favourites.length === 0 && setFavouritesOpen(false);
@@ -20,7 +24,7 @@ const Favourites: FC = () => {
     }, [pathname]);
 
     return (
-        <div className="actions-header__favoutites favourites-header">
+        <div className="actions-header__favoutites favourites-header" ref={ref}>
             <button
                 type="button"
                 onClick={() => setFavouritesOpen(!favouritesOpen)}

@@ -66,14 +66,17 @@
             background-color: $white;
             position: fixed;
             top: 0;
-            right: 0;
+            right: rem(10);
             height: rem(80);
-            min-width: rem(320);
+            min-width: rem(310);
             z-index: 21;
             transform: translate(100%, 0px);
             opacity: 0;
             visibility: hidden;
             transition: transform 0.5s ease 0s, opacity 0.5s ease 0s, visibility 0.5s ease 0s;
+            @media (max-width: $mobileSmall) {
+                width: 100%;
+            }
             .menu-open & {
                 transform: translate(0px, 0px);
                 opacity: 1;
@@ -96,6 +99,7 @@
             box-shadow: rem(1) rem(4) rem(44) rgba(0, 0, 0, 0.03);
             transform: translate(100%, 0px);
             opacity: 0;
+            @include scrollbars(rem(10), $blue, $white, true);
             visibility: hidden;
             transition: transform 0.5s ease 0s, opacity 0.5s ease 0s, visibility 0.5s ease 0s;
             .menu-open & {
@@ -127,15 +131,6 @@
         }
         @media (any-hover: hover) {
             &:hover {
-                .menu__sub-list {
-                    transform: translate(0px, 0px);
-                    opacity: 1;
-                    visibility: visible;
-                    pointer-events: auto;
-                }
-                .menu__arrow {
-                    transform: rotate(-180deg);
-                }
                 .menu__link {
                     color: $blue;
                 }
@@ -168,6 +163,18 @@
         &._spoller-active {
             transform: rotate(-180deg);
         }
+        &._spoller-active ~ .menu__sub-list {
+            transform: translate(0px, 0px);
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            .menu__arrow {
+                transform: rotate(-180deg);
+            }
+            .menu__link {
+                color: $blue;
+            }
+        }
         @media (max-width: $mobile) {
             img {
                 width: rem(16);
@@ -182,11 +189,9 @@
         flex: 1 1 100%;
         padding-left: rem(10);
         @media (min-width: $mobile) {
+            box-shadow: rem(1) rem(4) rem(44) rgba(0, 0, 0, 0.03);
             padding: rem(10);
             margin: 0px rem(-10);
-            transform: translate(0px, rem(10));
-            opacity: 0;
-            visibility: hidden;
             pointer-events: none;
             min-width: rem(200);
             position: absolute;
@@ -195,6 +200,12 @@
             z-index: 5;
             border-radius: rem(7);
             transition: transform 0.3s ease 0s, visibility 0.3s ease 0s, opacity 0.3s ease 0s;
+            visibility: hidden;
+            opacity: 0;
+            ._loaded & {
+                visibility: visible;
+                opacity: 1;
+            }
         }
     }
 
@@ -243,7 +254,6 @@
 
     &__favoutites {
         @include adaptiveValue("margin-right", 30, 15);
-        position: relative;
     }
 
     &__btn {
@@ -289,17 +299,20 @@
     &__body {
         position: absolute;
         top: 100%;
-        left: rem(-50);
+        right: rem(20);
         border: rem(1) solid $light;
         border-radius: rem(10);
         background-color: $white;
-        margin-top: rem(50);
+        margin-top: rem(20);
         padding: rem(5) 0;
         overflow: hidden;
         opacity: 0;
         visibility: hidden;
         transform: translate(10vw, 0px);
         transition: transform 0.3s ease 0s, opacity 0.3s ease 0s, visibility 0.3s ease 0s;
+        @media (max-width: $tablet) {
+            right: 0;
+        }
         &._active {
             transform: translate(0px, 0px);
             opacity: 1;
@@ -384,6 +397,15 @@
         }
         span {
             top: calc(50% - rem(1));
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                span,
+                &::before,
+                &::after {
+                    background-color: $blue;
+                }
+            }
         }
         .menu-open & {
             span {
