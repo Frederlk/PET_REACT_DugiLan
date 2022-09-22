@@ -6,9 +6,7 @@ import { useAppSelector } from "../../../hooks/useRedux";
 import { IProduct } from "../../../models";
 import { RouteNames } from "../../../routes";
 
-import { ReactComponent as ReactLogo } from "../../../assets/img/icons/heart_full.svg";
-
-const { Icon_heart_b, Icon_heart_full, Icon_cart, Icon_eye } = images.icons;
+const { icon_heart_2, icon_heart_full, icon_shopCart_2, icon_shopCart_3, icon_eye } = images.icons;
 
 const ProductHover: FC<{ item: IProduct }> = ({ item }) => {
     const { id, inFavourites, title } = item;
@@ -30,17 +28,29 @@ const ProductHover: FC<{ item: IProduct }> = ({ item }) => {
     return (
         <div className="product-item__hover">
             <div className="product-item__top">
-                <span className="product-item__number">{inFavourites}</span>
+                <span className="product-item__number">{isFavourite ? inFavourites + 1 : inFavourites}</span>
                 <button type="button" onClick={onHandleFavourite} className="product-item__heart">
-                    {isFavourite ? <Icon_heart_full /> : <Icon_heart_b />}
+                    {isFavourite ? (
+                        <img src={icon_heart_full} alt="Remove from Favourites" />
+                    ) : (
+                        <img src={icon_heart_2} alt="Add to Favoutites" />
+                    )}
                 </button>
             </div>
             <div className="product-item__buttons">
                 <Link to={RouteNames.BROWSE + "/" + title} className="product-item__icon">
-                    <Icon_eye />
+                    <img src={icon_eye} alt="Inspect" />
                 </Link>
-                <button type="button" onClick={onHandleCart} className="product-item__icon">
-                    <Icon_cart />
+                <button
+                    type="button"
+                    onClick={onHandleCart}
+                    className={`product-item__icon ${inCart ? "_active" : ""}`}
+                >
+                    {inCart ? (
+                        <img src={icon_shopCart_3} alt="Remove From Cart" />
+                    ) : (
+                        <img src={icon_shopCart_2} alt="Add to cart" />
+                    )}
                 </button>
             </div>
         </div>

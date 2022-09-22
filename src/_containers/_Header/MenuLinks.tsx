@@ -5,7 +5,7 @@ import { routesConfig } from "../../routes";
 import { images } from "../../constants";
 
 const MenuLinks: FC = () => {
-    const { Icon_down } = images.icons;
+    const { icon_down } = images.icons;
 
     const menuLinks = useMemo(() => {
         return routesConfig.map(({ path, title, type, nested }, i) => {
@@ -18,7 +18,7 @@ const MenuLinks: FC = () => {
                         {nested && nested.length > 0 && (
                             <>
                                 <button data-spoller type="button" className="menu__arrow">
-                                    <Icon_down />
+                                    <img src={icon_down} alt="activate spoller" />
                                 </button>
                                 <ul className="menu__sub-list">
                                     {nested.map((item, i) => (

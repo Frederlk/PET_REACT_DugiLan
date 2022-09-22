@@ -655,9 +655,9 @@
     }
 
     &__hover {
-        // opacity: 0;
-        // visibility: hidden;
-        transition: all 0.5s ease 0s;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease 0s, visibility 0.5s ease 0s;
         position: absolute;
         width: 100%;
         height: 100%;
@@ -705,6 +705,7 @@
         display: inline-flex;
         box-shadow: rem(1) rem(4) rem(44) rgba(0, 0, 0, 0.03);
         border-radius: rem(7);
+        overflow: hidden;
         justify-content: center;
         align-items: center;
         background-color: $white;
@@ -727,7 +728,13 @@
         min-height: rem(45);
         min-width: rem(65);
         transition: opacity 0.3s ease 0s;
-        svg {
+        img {
+            max-width: 100%;
+        }
+        &._active {
+            path {
+                stroke: $error;
+            }
         }
         @media (any-hover: hover) {
             &:hover {

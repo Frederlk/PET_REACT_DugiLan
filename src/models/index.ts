@@ -13,7 +13,7 @@ export interface IImageItem {
 export interface ICategory {
     title: string;
     link: string;
-    icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+    icon: string;
 }
 
 export interface IProduct {

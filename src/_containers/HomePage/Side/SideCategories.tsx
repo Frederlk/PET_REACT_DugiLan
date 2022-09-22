@@ -1,15 +1,13 @@
-import { FC, useMemo } from "react";
+import { FC } from "react";
 import { NavLink } from "react-router-dom";
 import { data } from "../../../constants";
 
 const itemsCategories = data.categoriesItems.map(({ title, link, icon }, i) => {
-    const Icon = icon;
-
     return (
         <li key={link + i} className="categories__item">
             <NavLink to={link} end className="categories__link">
                 <div className="categories__icon">
-                    <Icon />
+                    <img src={icon} alt={title} />
                 </div>
                 <span>{title}</span>
             </NavLink>

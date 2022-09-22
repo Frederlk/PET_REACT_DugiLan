@@ -74,37 +74,37 @@ const companiesItems: IImageItem[] = [
 
 const categoriesItems: ICategory[] = [
     {
-        icon: icons.Icon_home,
+        icon: icons.icon_home,
         link: "/",
         title: "Home",
     },
     {
-        icon: icons.Icon_wordpress,
+        icon: icons.icon_wordpress,
         link: "wordpress",
         title: "WordPress Themes",
     },
     {
-        icon: icons.Icon_shopCart,
+        icon: icons.icon_shopCart_1,
         link: "eCommerce",
         title: "eCommerce Templates",
     },
     {
-        icon: icons.Icon_tv,
+        icon: icons.icon_tv,
         link: "marketing",
         title: "Marketing Templates",
     },
     {
-        icon: icons.Icon_dashboard,
+        icon: icons.icon_dashboard,
         link: "CMS",
         title: "CMS Templates",
     },
     {
-        icon: icons.Icon_monitor,
+        icon: icons.icon_monitor,
         link: "Site",
         title: "Site Templates",
     },
     {
-        icon: icons.Icon_edit,
+        icon: icons.icon_edit,
         link: "blogging",
         title: "Blogging",
     },

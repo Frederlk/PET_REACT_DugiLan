@@ -2,11 +2,14 @@ import { FC, memo, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { routesConfig } from "../../routes";
 
+import images from "../../constants/images";
 interface FooterListProps {
     label: string;
     linksType?: string;
     children?: ReactNode;
 }
+
+const { icon_down } = images.icons;
 
 const FooterList: FC<FooterListProps> = ({ label, linksType, children }) => {
     return (
@@ -14,20 +17,7 @@ const FooterList: FC<FooterListProps> = ({ label, linksType, children }) => {
             <div className="footer__label" data-spoller>
                 {label}
                 <span>
-                    <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 12 12"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M3 4.5L6 7.5L9 4.5"
-                            stroke="#0B0B0C"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                    </svg>
+                    <img src={icon_down} alt="activate spoller" />
                 </span>
             </div>
             <ul className="footer__list">

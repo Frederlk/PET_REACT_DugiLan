@@ -1,18 +1,16 @@
 import { FC } from "react";
 
 interface FeatureItemProps {
-    icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+    icon: string;
     title: string;
     text: string;
 }
 
 const FeatureItem: FC<FeatureItemProps> = ({ icon, text, title }) => {
-    const Icon = icon;
-
     return (
         <div className="features__column">
             <div className="features__icon">
-                <Icon />
+                <img src={icon} alt={title} />
             </div>
             <div className="features__body">
                 <h3 className="features__title">{title}</h3>

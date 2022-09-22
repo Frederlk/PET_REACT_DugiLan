@@ -6,7 +6,7 @@ import MenuLinks from "./MenuLinks";
 
 import { images } from "../../constants";
 
-const { Icon_logo } = images.icons;
+const { icon_logo } = images.icons;
 
 const Header: FC = () => {
     const ref = useRef(null);
@@ -16,7 +16,7 @@ const Header: FC = () => {
         <header className="header" data-lp ref={ref}>
             <div className="header__container">
                 <Link to="/" className="header__logo">
-                    <Icon_logo />
+                    <img src={icon_logo} alt="Logo" />
                 </Link>
                 <div className="header__menu menu">
                     <nav className="menu__body">

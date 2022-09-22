@@ -14,7 +14,7 @@ const validationScheme = Yup.object({
     email: Yup.string().email("Invalid Email").required("Requried!"),
 });
 
-const { Icon_mail } = images.icons;
+const { icon_mail } = images.icons;
 
 const SideNewsletter: FC = () => {
     const [sended, setSended] = useState(false);
@@ -51,7 +51,7 @@ const SideNewsletter: FC = () => {
                             name="email"
                         />
                         <div className="newsletter__icon">
-                            <Icon_mail />
+                            <img src={icon_mail} alt="Subscribe" />
                         </div>
                     </div>
                     {sended ? (
