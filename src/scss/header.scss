@@ -221,27 +221,29 @@
         position: relative;
         width: rem(18);
         height: rem(18);
-        transition: opacity 0.3s ease 0s;
         img {
+            transition: opacity 0.3s ease 0s;
             max-width: 100%;
+            @media (any-hover: hover) {
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
         }
         span {
             @extend %cart-number;
         }
-        @media (any-hover: hover) {
-            &:hover {
-                opacity: 0.7;
-            }
-        }
         @media (min-width: em(1300)) {
             transform: scale(1.5);
-        }
-        &_favourites {
-            @include adaptiveValue("margin-right", 30, 15);
         }
         &_card {
             @include adaptiveValue("margin-right", 45, 20);
         }
+    }
+
+    &__favoutites {
+        @include adaptiveValue("margin-right", 30, 15);
+        position: relative;
     }
 
     &__btn {
@@ -259,6 +261,94 @@
             width: rem(20);
             height: rem(20);
         }
+    }
+}
+
+.favourites-header {
+    &__icon {
+        position: relative;
+        width: rem(18);
+        height: rem(18);
+        img {
+            transition: opacity 0.3s ease 0s;
+            max-width: 100%;
+            @media (any-hover: hover) {
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+        span {
+            @extend %cart-number;
+        }
+        @media (min-width: em(1300)) {
+            transform: scale(1.5);
+        }
+    }
+
+    &__body {
+        position: absolute;
+        top: 100%;
+        left: rem(-50);
+        border: rem(1) solid $light;
+        border-radius: rem(10);
+        background-color: $white;
+        margin-top: rem(50);
+        padding: rem(5) 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        transform: translate(10vw, 0px);
+        transition: transform 0.3s ease 0s, opacity 0.3s ease 0s, visibility 0.3s ease 0s;
+        &._active {
+            transform: translate(0px, 0px);
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &__list {
+        overflow: auto;
+        max-height: rem(200);
+        min-width: rem(320);
+        box-shadow: rem(1) rem(4) rem(44) rgba(0, 0, 0, 0.03);
+        @include scrollbars(rem(10), $blue, $white, true);
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        gap: rem(20);
+        padding: rem(10) rem(15);
+        &:not(:last-child) {
+            border-bottom: rem(1) solid $light;
+        }
+    }
+
+    &__info {
+    }
+
+    &__title {
+        color: $text_1;
+        transition: color 0.3s ease 0s;
+        margin-bottom: rem(5);
+        @media (any-hover: hover) {
+            &:hover {
+                color: $blue;
+            }
+        }
+    }
+
+    &__price {
+        @extend %p;
+        color: $blue;
+        line-height: math.div(27, 15);
+    }
+
+    &__remove {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
     }
 }
 
