@@ -10,7 +10,6 @@ export { default as FooterList } from "./_Footer/FooterList";
 export { default as Companies } from "./HomePage/Companies";
 export { default as Home } from "./HomePage/Home";
 export { default as HomeSlider } from "./HomePage/HomeSlider";
-export { default as Search } from "./HomePage/Search";
 //========================================================================================================================================================
 export { default as Side } from "./HomePage/Side/Side";
 export { default as SideAdvert } from "./HomePage/Side/SideAdvert";

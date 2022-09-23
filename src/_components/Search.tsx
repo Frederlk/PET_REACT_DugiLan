@@ -1,7 +1,9 @@
 import { FC } from "react";
 import { Formik, Form as FormikForm } from "formik";
 import * as Yup from "yup";
-import Input from "../../_components/Input";
+import { useNavigate } from "react-router-dom";
+import { RouteNames } from "../routes";
+import Input from "./Input";
 
 interface SearchValues {
     search: string;
@@ -13,7 +15,10 @@ const validationScheme = Yup.object({
     search: Yup.string().min(2, "At least 2 symbols").required("Requried!"),
 });
 
-const Search: FC = () => {
+// content-home
+const Search: FC<{ className: string }> = ({ className }) => {
+    const navigate = useNavigate();
+
     return (
         <Formik
             initialValues={initialValues}
@@ -24,17 +29,18 @@ const Search: FC = () => {
                 };
                 resetForm();
                 console.log(JSON.stringify(values, null, 2));
+                navigate(RouteNames.SEARCH + "#" + values.search.toLocaleLowerCase());
             }}
         >
-            <FormikForm className="content-home__form">
+            <FormikForm className={`${className}__form`}>
                 <Input
-                    className="content-home__input input"
+                    className={`${className}__input input`}
                     placeholder="e.g Responsive slider"
                     autoComplete="off"
                     type="text"
                     name="search"
                 />
-                <button type="submit" className="content-home__btn btn">
+                <button type="submit" className={`${className}__btn btn`}>
                     Search
                 </button>
             </FormikForm>

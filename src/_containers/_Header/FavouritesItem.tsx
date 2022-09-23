@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Link } from "react-router-dom";
 
 import { data, images } from "../../constants";
@@ -8,7 +8,7 @@ import { RouteNames } from "../../routes";
 const { icon_x } = images.icons;
 
 const FavouritesItem: FC<{ id: string }> = ({ id }) => {
-    const { title, priceTotal } = data.productItems.filter((item) => item.id === id)[0];
+    const { title, price } = data.productItems.filter((item) => item.id === id)[0];
 
     const { removeFromFavourites } = useActions();
 
@@ -18,7 +18,7 @@ const FavouritesItem: FC<{ id: string }> = ({ id }) => {
                 <Link to={RouteNames.PRODUCT_LINK + title} className="favourites-header__title">
                     {title}
                 </Link>
-                <div className="favourites-header__price">${priceTotal}</div>
+                <div className="favourites-header__price">${price}</div>
             </div>
             <button
                 type="button"
@@ -31,4 +31,4 @@ const FavouritesItem: FC<{ id: string }> = ({ id }) => {
     );
 };
 
-export default FavouritesItem;
+export default memo(FavouritesItem);

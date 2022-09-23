@@ -19,6 +19,7 @@ export enum RouteNames {
     HOME = "/",
     PAGE404 = "*",
     BROWSE = "/browse",
+    SEARCH = "/browse/search/",
     PRODUCT_LINK = "/browse/product/",
     PRODUCT_ITEM = "/browse/product/:id",
     EXCLUSIVE = "/exclusive",

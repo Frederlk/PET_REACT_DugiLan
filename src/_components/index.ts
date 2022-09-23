@@ -4,3 +4,4 @@ export { default as Spinner } from "./Spinner";
 export { default as Picture } from "./Picture";
 export { default as Input } from "./Input";
 export { default as Banner } from "./Banner";
+export { default as Search } from "./Search";

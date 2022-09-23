@@ -132,6 +132,7 @@ const paymentImages = {
 
 import icon_logo from "./../assets/img/icons/logo.svg";
 import icon_circle from "./../assets/img/icons/circle-check.svg";
+import icon_check from "./../assets/img/icons/check.svg";
 import icon_dashboard from "./../assets/img/icons/dashboard.svg";
 import icon_down from "./../assets/img/icons/down.svg";
 import icon_dugi from "./../assets/img/icons/dugi.svg";
@@ -161,6 +162,7 @@ import icon_wordpress from "./../assets/img/icons/wordpress.svg";
 import icon_x from "./../assets/img/icons/x.svg";
 const icons = {
     icon_logo,
+    icon_check,
     icon_circle,
     icon_dashboard,
     icon_down,

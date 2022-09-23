@@ -6,48 +6,33 @@
         width: 0;
         height: 0;
         opacity: 0;
-        &:focus + .checkbox__label:before {
+        &:focus + .checkbox__label {
+            color: $blue;
         }
         &:checked + .checkbox__label:before {
-            position: absolute;
-            left: rem(2);
-            top: rem(5);
-            width: rem(12);
-            height: rem(12);
-            background-color: $secondary;
-            border-radius: rem(2);
+            top: rem(3);
+            background: url("../../../assets/img/icons/square-check.svg") 0 0 no-repeat;
         }
     }
     // .checkbox__label
     &__label {
         cursor: pointer;
-        display: inline-flex;
+        display: flex;
         align-items: center;
         position: relative;
-        gap: rem(10);
-        &:before {
-            content: "";
-            flex: 0 0 rem(12);
-        }
-    }
-
-    // .checkbox__text
-    &__text {
-        @extend %p;
+        gap: rem(15);
         color: $secondary;
+        transition: color 0.3s ease 0s;
         &:before {
             content: "";
             position: relative;
+            background: url("../../../assets/img/icons/square.svg") 0 0 no-repeat;
             align-self: flex-start;
-            margin-right: rem(15);
             flex: 0 0 rem(16);
             left: 0;
-            top: rem(3);
+            top: rem(4);
             width: rem(16);
             height: rem(16);
-            background: $white;
-            border: rem(1) solid $secondary;
-            border-radius: rem(3);
             overflow: hidden;
         }
         @media (any-hover: hover) {
@@ -55,6 +40,16 @@
                 color: $blue;
             }
         }
+    }
+
+    // .checkbox__text
+    &__text {
+        @extend %p;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: rem(10);
     }
 
     &._error {

@@ -5,7 +5,10 @@ import ProductItem from "./ProductItem";
 
 const Body: FC = () => {
     const products = useMemo(
-        () => data.productItems.map((item) => <ProductItem key={item.id} item={item} />),
+        () =>
+            data.productItems.map((item) => (
+                <ProductItem className="shop-body__item" key={item.id} item={item} />
+            )),
         [data.productItems]
     );
 

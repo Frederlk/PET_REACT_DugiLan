@@ -5,11 +5,11 @@ import { RouteNames } from "../../../routes";
 import { Picture } from "../../../_components";
 import ProductHover from "./ProductHover";
 
-const ProductItem: FC<{ item: IProduct }> = ({ item }) => {
-    const { stack, priceTotal, thumbImg, thumbWebp, title } = item;
+const ProductItem: FC<{ className: string; item: IProduct }> = ({ className, item }) => {
+    const { stack, price, thumbImg, thumbWebp, title } = item;
 
     return (
-        <article className="shop-body__item product-item">
+        <article className={`${className || ""} product-item`}>
             <div className="product-item__image">
                 <Link to={RouteNames.PRODUCT_LINK + title} className="product-item__inner-ibg">
                     <Picture srcWebp={thumbWebp} fallbackSrc={thumbImg} alt={title} />
@@ -26,7 +26,7 @@ const ProductItem: FC<{ item: IProduct }> = ({ item }) => {
                     </span>
                 ))}
             </div>
-            <div className="product-item__price">${priceTotal}</div>
+            <div className="product-item__price">${price}</div>
         </article>
     );
 };

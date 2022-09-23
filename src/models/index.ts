@@ -16,6 +16,11 @@ export interface ICategory {
     icon: string;
 }
 
+export interface IExtraProduct {
+    text: string;
+    price: number;
+}
+
 export interface IProduct {
     id: string;
     title: string;
@@ -23,15 +28,16 @@ export interface IProduct {
     thumbWebp: string;
     stack: string[];
     inFavourites: number;
-    priceTotal: number;
+    price: number;
     // PRODUCT PAGE ========= //
+    included?: string[];
     subtitle?: string;
     content?: string;
     logo?: string;
     discount?: number;
     images?: IImageItem[];
     video?: string;
-    priceTax: number;
+    extra?: IExtraProduct[];
     lastUpdate: Date;
     created: Date;
     browsers: string[];

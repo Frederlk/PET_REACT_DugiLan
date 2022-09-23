@@ -119,7 +119,7 @@ const productItems: IProduct[] = [
         thumbWebp: catalogImages.catalog01_WEBP,
         stack: ["PHP", "WORDPRESS"],
         inFavourites: 10,
-        priceTotal: 29.99,
+        price: 29.99,
         // PRODUCT PAGE ========= //
         subtitle: "Upload a CSV File of people's names to guess their genders",
         content: `<p>Gender detection is a wordpress plugin designed and builded for detection of genders in large data files. 
@@ -140,7 +140,6 @@ const productItems: IProduct[] = [
                 alt: "Image #2",
             },
         ],
-        priceTax: 99.99,
         lastUpdate: new Date(2020, 2, 13),
         created: new Date(2020, 0, 1),
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
@@ -154,7 +153,7 @@ const productItems: IProduct[] = [
         thumbWebp: catalogImages.catalog02_WEBP,
         stack: ["PHP", "VUE"],
         inFavourites: 0,
-        priceTotal: 29.99,
+        price: 29.99,
         // PRODUCT PAGE ========= //
         logo: icons.icon_dugi,
         subtitle: "Upload a CSV File of people's names to guess their genders",
@@ -187,8 +186,22 @@ const productItems: IProduct[] = [
                 alt: "Image #4",
             },
         ],
+        included: [
+            "Quality checked by Ceyond",
+            "Included: Future updates",
+            "Included: 1 months support from our team",
+        ],
+        extra: [
+            {
+                text: "Extend support to 12 months",
+                price: 55.5,
+            },
+            {
+                text: "Extend support to 1 months",
+                price: 10.99,
+            },
+        ],
         discount: 3,
-        priceTax: 99.99,
         lastUpdate: new Date(2020, 2, 13),
         created: new Date(2020, 0, 1),
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
@@ -202,7 +215,7 @@ const productItems: IProduct[] = [
         thumbWebp: catalogImages.catalog03_WEBP,
         stack: ["WORDPRESS"],
         inFavourites: 130,
-        priceTotal: 89.99,
+        price: 89.99,
         // PRODUCT PAGE ========= //
         subtitle: "Upload a CSV File of people's names to guess their genders",
         content: `<p>Gender detection is a wordpress plugin designed and builded for detection of genders in large data files. 
@@ -211,7 +224,6 @@ const productItems: IProduct[] = [
             order comments or any questions.</p>
             `,
         discount: 3,
-        priceTax: 99.99,
         lastUpdate: new Date(2020, 2, 13),
         created: new Date(2020, 0, 1),
         browsers: ["Firefox", "Chrome", "Opera", "Edge"],
@@ -225,12 +237,11 @@ const productItems: IProduct[] = [
         thumbWebp: catalogImages.catalog04_WEBP,
         stack: ["VUE", "WORDPRESS"],
         inFavourites: 18,
-        priceTotal: 49.99,
+        price: 49.99,
         // PRODUCT PAGE ========= //
         subtitle: "Upload a CSV File of people's names to guess their genders",
         content: `<p>Our WooCommerce cart PDF plugin helps you and your customers to export their current cart items as PDF. Customize the PDF with ease:</p>`,
         video: "https://www.youtube.com/watch?v=cgUSeWcUiFY&ab_channel=C.DragonMusic",
-        priceTax: 59.99,
         lastUpdate: new Date(2021, 3, 11),
         created: new Date(2019, 12, 4),
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
@@ -244,7 +255,7 @@ const productItems: IProduct[] = [
         thumbWebp: catalogImages.catalog05_WEBP,
         stack: ["REACT", "PHP"],
         inFavourites: 130,
-        priceTotal: 89.99,
+        price: 89.99,
         // PRODUCT PAGE ========= //
         subtitle: "Upload a CSV File of people's names to guess their genders",
         content: `<p>Gender detection is a wordpress plugin designed and builded for detection of genders in large data files. 
@@ -266,7 +277,6 @@ const productItems: IProduct[] = [
             },
         ],
         discount: 10,
-        priceTax: 99.99,
         lastUpdate: new Date(2022, 4, 15),
         created: new Date(2022, 0, 1),
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
@@ -280,7 +290,7 @@ const productItems: IProduct[] = [
         thumbWebp: catalogImages.catalog06_WEBP,
         stack: ["PHP", "WORDPRESS"],
         inFavourites: 1,
-        priceTotal: 149.99,
+        price: 149.99,
         // PRODUCT PAGE ========= //
         subtitle: "Upload a CSV File of people's names to guess their genders",
         content: `<p>Gender detection is a wordpress plugin designed and builded for detection of genders in large data files. 
@@ -289,7 +299,6 @@ const productItems: IProduct[] = [
             order comments or any questions.</p>
             <p>Our WooCommerce cart PDF plugin helps you and your customers to export their current cart items as PDF. Customize the PDF with ease:</p>
             `,
-        priceTax: 99.99,
         lastUpdate: new Date(2022, 1, 6),
         created: new Date(2020, 0, 1),
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
@@ -303,7 +312,7 @@ const productItems: IProduct[] = [
         thumbWebp: catalogImages.catalog07_WEBP,
         stack: ["Figma", "WORDPRESS"],
         inFavourites: 59,
-        priceTotal: 19.99,
+        price: 19.99,
         // PRODUCT PAGE ========= //
         subtitle: "Upload a CSV File of people's names",
         content: `<p>Gender detection is a wordpress plugin designed and builded for detection of genders in large data files. 
@@ -323,7 +332,6 @@ const productItems: IProduct[] = [
             },
         ],
         discount: 3,
-        priceTax: 99.99,
         lastUpdate: new Date(2018, 2, 13),
         created: new Date(2020, 0, 1),
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
@@ -337,12 +345,11 @@ const productItems: IProduct[] = [
         thumbWebp: catalogImages.catalog08_WEBP,
         stack: ["PHP", "WORDPRESS"],
         inFavourites: 10,
-        priceTotal: 29.99,
+        price: 29.99,
         // PRODUCT PAGE ========= //
         subtitle: "Upload a CSV File of people's names to guess their genders",
         content: `<p>Our WooCommerce cart PDF plugin helps you and your customers to export their current cart items as PDF. Customize the PDF with ease:</p>`,
         video: "https://www.youtube.com/watch?v=cgUSeWcUiFY&ab_channel=C.DragonMusic",
-        priceTax: 99.99,
         lastUpdate: new Date(2022, 1, 26),
         created: new Date(2021, 11, 1),
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
@@ -356,11 +363,10 @@ const productItems: IProduct[] = [
         thumbWebp: catalogImages.catalog09_WEBP,
         stack: ["PHP", "WORDPRESS"],
         inFavourites: 10,
-        priceTotal: 29.99,
+        price: 29.99,
         // PRODUCT PAGE ========= //
         subtitle: "Upload their genders",
         content: `<p>Our WooCommerce cart PDF plugin helps you and your customers to export their current cart items as PDF. Customize the PDF with ease:</p>`,
-        priceTax: 99.99,
         lastUpdate: new Date(2020, 2, 13),
         created: new Date(2020, 0, 1),
         browsers: ["Chrome", "Opera"],
@@ -374,7 +380,7 @@ const productItems: IProduct[] = [
         thumbWebp: catalogImages.catalog10_WEBP,
         stack: ["PHP", "WORDPRESS"],
         inFavourites: 10,
-        priceTotal: 29.99,
+        price: 29.99,
         // PRODUCT PAGE ========= //
         subtitle: "Upload a CSV File of people's names to guess their genders",
         content: `<p>Gender detection is a wordpress plugin designed and builded for detection of genders in large data files. 
@@ -397,7 +403,6 @@ const productItems: IProduct[] = [
             },
         ],
         discount: 3,
-        priceTax: 99.99,
         lastUpdate: new Date(2020, 2, 13),
         created: new Date(2020, 0, 1),
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
@@ -411,7 +416,7 @@ const productItems: IProduct[] = [
         thumbWebp: catalogImages.catalog11_WEBP,
         stack: ["ANGULAR", "WORDPRESS"],
         inFavourites: 10,
-        priceTotal: 29.99,
+        price: 29.99,
         // PRODUCT PAGE ========= //
         subtitle: "Upload a CSV File of people's names to guess their genders",
         content: `<p>Gender detection is a wordpress pluginecording but designed and builded for detection of genders in large data files. 
@@ -438,7 +443,6 @@ const productItems: IProduct[] = [
                 alt: "Image #3",
             },
         ],
-        priceTax: 99.99,
         lastUpdate: new Date(2020, 2, 13),
         created: new Date(2020, 0, 1),
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
@@ -452,7 +456,7 @@ const productItems: IProduct[] = [
         thumbWebp: catalogImages.catalog12_WEBP,
         stack: ["VUE", "WORDPRESS"],
         inFavourites: 1500,
-        priceTotal: 189.99,
+        price: 189.99,
         // PRODUCT PAGE ========= //
         subtitle: "Upload a CSV File of people' names to  their genders",
         content: `<p>Gender detection is a  plugin designed and builded  detection of genders in large data files. 
@@ -464,7 +468,6 @@ const productItems: IProduct[] = [
             <p>Our WooCommerce cart PDF plugin helps you  your customers to export their current  items as PDF.  the PDF with ease:</p>
             `,
         discount: 20,
-        priceTax: 99.99,
         lastUpdate: new Date(2021, 4, 5),
         created: new Date(2021, 4, 5),
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],

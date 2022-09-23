@@ -8,14 +8,15 @@ import SingleSide from "../_containers/SinglePage/SingleSide";
 
 const Single: FC = () => {
     const { id } = useParams();
+
     const product = useMemo(
         () => data.productItems.filter((item) => item.title === id)[0],
-        [data.productItems]
+        [data.productItems, id]
     );
     const related = useMemo(
         () =>
             data.productItems.filter((item) => item.category === product.category && item.id !== product.id),
-        [data.productItems]
+        [data.productItems, id]
     );
 
     return (
@@ -23,7 +24,7 @@ const Single: FC = () => {
             <div className="page__body body-workshop">
                 <div className="body-workshop__container ">
                     <SingleBody item={product} />
-                    <SingleSide />
+                    <SingleSide item={product} />
                 </div>
             </div>
             <Banner />
@@ -31,9 +32,12 @@ const Single: FC = () => {
                 <section className="page__related related">
                     <div className="related__container">
                         <h2 className="related__title">Related category plugins</h2>
-                        <div className="related__grid">
+                        <div className="related__body">
                             {related.map((item, i) => {
-                                if (i < 4) return <ProductItem key={item.id} item={item} />;
+                                if (i < 4)
+                                    return (
+                                        <ProductItem className="related__item" key={item.id} item={item} />
+                                    );
                             })}
                         </div>
                     </div>
