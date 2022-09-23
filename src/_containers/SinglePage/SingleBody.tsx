@@ -7,6 +7,8 @@ import SingleSlider from "./SingleSlider";
 const SingleBody: FC<{ item: IProduct }> = ({ item }) => {
     const { content, title, images, video, logo, subtitle } = item;
 
+    console.log(video);
+
     return (
         <section className="body-workshop__content content-workshop">
             <div className="content-workshop__logo">

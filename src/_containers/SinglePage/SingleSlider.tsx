@@ -8,6 +8,8 @@ const swiperProps: SwiperProps = {
     modules: [Pagination],
     pagination: {
         type: "bullets",
+        el: ".content-workshop__pagination",
+        clickable: true,
     },
 };
 
@@ -23,7 +25,8 @@ const SingleSlider: FC<{ images: IImageItem[] }> = ({ images }) => {
             <Swiper
                 {...swiperProps}
                 className="content-workshop__swiper"
-                speed={500}
+                speed={800}
+                loop
                 observer={true}
                 observeParents={true}
             >

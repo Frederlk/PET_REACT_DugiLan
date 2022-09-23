@@ -156,6 +156,7 @@ const productItems: IProduct[] = [
         inFavourites: 0,
         priceTotal: 29.99,
         // PRODUCT PAGE ========= //
+        logo: icons.icon_dugi,
         subtitle: "Upload a CSV File of people's names to guess their genders",
         content: `<p>Gender detection is a wordpress plugin designed and builded for detection of genders in large data files. 
             The plugin allows you to go beyond the usual text messages and contact forms and get closer to your users. 
@@ -163,7 +164,7 @@ const productItems: IProduct[] = [
             order comments or any questions.</p>
             <p>Our WooCommerce cart PDF plugin helps you and your customers to export their current cart items as PDF. Customize the PDF with ease:</p>
             `,
-        video: "https://www.youtube.com/watch?v=cgUSeWcUiFY&ab_channel=C.DragonMusic",
+        video: "KTmatjyd4KM",
         images: [
             {
                 img: catalogImages.catalog03,

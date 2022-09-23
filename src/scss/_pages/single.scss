@@ -31,16 +31,10 @@
 // </SINGLE WORKSHOP>=======================================================================================================================================================
 
 .body-workshop {
-    &__wrapper {
-    }
-
     &__container {
-    }
-
-    &__flex {
-        display: flex;
-        @media (max-width: $tablet) {
-            flex-wrap: wrap;
+        @media (min-width: $tablet) {
+            display: flex;
+            @include adaptiveValue("gap", 100, 30, 1640, 1300, 1);
         }
     }
 
@@ -48,22 +42,142 @@
         flex: 1 1 auto;
         min-width: 0;
         @media (max-width: $tablet) {
-            flex: 1 1 100%;
-            @include adaptiveValue("margin-bottom", 50, 30);
+            @include adaptiveValue("margin-bottom", 50, 30, 991.98, 320, 1);
         }
     }
     &__aside {
-        flex: 0 0 400px;
-        @media (min-width: em(1300)) {
-            @include adaptiveValue("margin-left", 100, 20);
+        flex: 0 0 rem(400);
+    }
+}
+
+//========================================================================================================================================================
+
+.content-workshop {
+    &__logo {
+        display: flex;
+        align-items: center;
+        @include adaptiveValue("margin-bottom", 50, 30);
+    }
+
+    &__image-logo {
+        margin-right: rem(20);
+        flex: 0 0 rem(64);
+        img {
+            max-width: 100%;
         }
-        margin-left: 30px;
-        @media (max-width: $tablet) {
-            flex: 1 1 100%;
-            margin-left: 0;
+    }
+
+    &__title {
+        flex: 1 1 auto;
+        @extend %h2;
+        font-weight: 400;
+    }
+
+    &__subtitle {
+        @extend %h5;
+        @include adaptiveValue("font-size", 22, 18);
+        @include adaptiveValue("margin-bottom", 50, 30);
+    }
+
+    &__video-wrap {
+        position: relative;
+        @include adaptiveValue("height", 510, 300);
+        border: rem(1) solid $light;
+        box-shadow: rem(1) rem(4) rem(44) rgba(0, 0, 0, 0.03);
+        border-radius: rem(9);
+        cursor: pointer;
+        overflow: hidden;
+        @include adaptiveValue("margin-bottom", 50, 30);
+        &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: $black;
+            opacity: 0.5;
+            z-index: 2;
+            transition: opacity 0.5s ease 0s;
+            pointer-events: none;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                &::after {
+                    opacity: 0;
+                }
+            }
+        }
+        &._playing {
+            &::after {
+                opacity: 0 !important;
+            }
+        }
+    }
+
+    &__text {
+        font-size: rem(15);
+        line-height: math.div(27, 15);
+        letter-spacing: -0.0035em;
+        color: $text_4;
+        @include adaptiveValue("margin-bottom", 50, 30);
+        @media (min-width: $tablet) {
+            max-width: rem(900);
+        }
+        p {
+            &:not(:last-child) {
+                @include adaptiveValue("margin-bottom", 30, 15);
+            }
+        }
+    }
+
+    &__slider {
+        position: relative;
+    }
+
+    &__swiper {
+        border-radius: rem(10);
+    }
+
+    &__slide-ibg {
+        @include adaptiveValue("height", 420, 250);
+    }
+
+    &__pagination {
+        position: absolute;
+        height: rem(34);
+        padding: rem(5) rem(16);
+        @include adaptiveValue("bottom", 25, 10);
+        @include adaptiveValue("right", 25, 10);
+        background-color: $white;
+        border-radius: rem(60);
+        display: flex;
+        align-items: center;
+        gap: rem(6);
+        .swiper-pagination-bullet {
+            cursor: pointer;
+            width: rem(8);
+            height: rem(8);
+            background: $text_1;
+            opacity: 0.2;
+            transition: opacity 0.8s ease 0s;
+            border-radius: 50%;
+            @media (any-hover: hover) {
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+            &.swiper-pagination-bullet-active {
+                width: rem(14);
+                height: rem(14);
+                opacity: 1;
+            }
         }
     }
 }
+
+//========================================================================================================================================================
+
 .aside-single {
     &__wrapper {
     }
@@ -331,167 +445,5 @@
         flex: 0 1 50%;
         color: $text_1;
         padding-left: 10px;
-    }
-}
-//========================================================================================================================================================
-
-.content-workshop {
-    &__wrapper {
-    }
-
-    &__logo {
-        display: flex;
-        align-items: center;
-        @include adaptiveValue("margin-bottom", 50, 30);
-    }
-
-    &__image-logo {
-        margin-right: 20px;
-        flex: 0 0 64px;
-        img {
-            max-width: 100%;
-        }
-    }
-
-    &__title {
-        flex: 1 1 auto;
-        @extend %h2;
-        font-weight: 400;
-    }
-
-    &__subtitle {
-        @extend %h5;
-        @include adaptiveValue("font-size", 22, 18);
-        @include adaptiveValue("margin-bottom", 50, 30);
-    }
-
-    &__video-wrap {
-        position: relative;
-        @include adaptiveValue("height", 510, 300);
-        border: 1px solid $light;
-        box-shadow: 1px 4px 44px rgba(0, 0, 0, 0.03);
-        border-radius: 9px;
-        cursor: pointer;
-        @include adaptiveValue("margin-bottom", 50, 30);
-        &::after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-color: $black;
-            opacity: 0.85;
-            z-index: 2;
-            transition: all 0.5s ease 0s;
-        }
-        @media (any-hover: hover) {
-            &:hover {
-                &::after {
-                    opacity: 0.8;
-                }
-            }
-        }
-        &._play {
-            &::after {
-                opacity: 0 !important;
-            }
-            .content-workshop__video-btn {
-                opacity: 0;
-            }
-        }
-    }
-
-    &__video {
-        position: relative;
-    }
-
-    &__video-btn {
-        position: absolute;
-        transition: all 0.5s ease 0s;
-        top: 50%;
-        left: 50%;
-        z-index: 3;
-        @include adaptiveValue("height", 134, 80);
-        @include adaptiveValue("width", 134, 80);
-        transform: translate(-50%, -50%);
-        @media (any-hover: hover) {
-            &:hover {
-                opacity: 0.5;
-            }
-        }
-        img {
-            max-width: 100%;
-        }
-    }
-
-    &__text {
-        @extend %h5;
-        font-size: 15px;
-        color: $text_4;
-        @include adaptiveValue("margin-bottom", 50, 30);
-        @media (min-width: $tablet) {
-            max-width: 900px;
-        }
-        p {
-            &:not(:last-child) {
-                @include adaptiveValue("margin-bottom", 30, 15);
-            }
-        }
-    }
-
-    &__slider {
-        position: relative;
-    }
-
-    &__slick {
-        border-radius: 10px;
-        overflow: hidden;
-        .slick-track {
-            display: flex;
-        }
-    }
-
-    &__slide {
-        @include adaptiveValue("height", 420, 250);
-        cursor: grab;
-    }
-
-    &__pagination {
-        position: absolute;
-        height: 34px;
-        padding: 5px 16px;
-        @include adaptiveValue("bottom", 25, 10);
-        @include adaptiveValue("right", 25, 10);
-        background-color: $white;
-        border-radius: 60px;
-        display: flex;
-        align-items: center;
-        .slick-dots {
-            display: flex;
-            align-items: center;
-            li {
-                cursor: pointer;
-                width: 8px;
-                height: 8px;
-                background: $text_1;
-                opacity: 0.2;
-                transition: all 0.8s ease 0s;
-                border-radius: 50%;
-                @media (any-hover: hover) {
-                    &:hover {
-                        opacity: 0.5;
-                    }
-                }
-                &:not(:last-child) {
-                    margin-right: 6px;
-                }
-                &.slick-active {
-                    width: 14px;
-                    height: 14px;
-                    opacity: 1;
-                }
-            }
-        }
     }
 }
