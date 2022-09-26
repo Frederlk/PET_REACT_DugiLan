@@ -120,3 +120,380 @@
         }
     }
 }
+
+//========================================================================================================================================================
+
+.body-account {
+    &__container {
+        @media (min-width: $tablet) {
+            display: flex;
+            gap: rem(30);
+            align-items: flex-start;
+        }
+        @media (max-width: $tablet) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__aside {
+        @media (min-width: $tablet) {
+            flex: 0 0 rem(400);
+        }
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @media (min-width: $tablet) {
+            flex: 1 1 auto;
+        }
+    }
+}
+
+.content-account {
+    &__dashboard {
+        max-width: rem(950);
+    }
+
+    &__orders {
+    }
+    &__address {
+    }
+    &__details {
+    }
+    &__logout {
+    }
+}
+
+//========================================================================================================================================================
+
+.account-dashboard {
+    &__title {
+        font-weight: 400;
+        @include adaptiveValue("margin-bottom", 20, 10);
+    }
+
+    &__text {
+        color: $text_4;
+        @extend %p;
+        @include adaptiveValue("margin-bottom", 30, 20);
+    }
+
+    &__navigation {
+        @include gridCards(fit, rem(220), rem(260), rem(20));
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__item {
+        @include adaptiveValue("min-height", 200, 100, 767.98, 320, 1);
+        background: rgba(15, 175, 233, 0.1);
+        border-radius: rem(10);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding: rem(25) rem(30);
+        @media (max-width: em(1300)) {
+            justify-content: center;
+            padding: rem(10);
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                .account-dashboard__subtitle {
+                    color: $blue;
+                }
+            }
+        }
+    }
+
+    &__icon {
+        @include adaptiveValue("width", 76, 40);
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__subtitle {
+        @include adaptiveValue("margin-top", 18, 10);
+        text-align: center;
+        transition: color 0.3s ease 0s;
+    }
+}
+
+//========================================================================================================================================================
+
+.account-orders {
+    width: 100%;
+    max-width: rem(1100);
+    &__title {
+        font-weight: 400;
+        @include adaptiveValue("margin-bottom", 50, 30);
+    }
+
+    &__content {
+        @media (max-width: $mobile) {
+            overflow: auto;
+            @include scrollbars(rem(10), $blue, $white, true);
+        }
+    }
+
+    &__table {
+        @media (max-width: $mobile) {
+            width: rem(800);
+        }
+    }
+
+    &__row {
+        padding: rem(10) rem(20);
+        min-height: rem(96);
+        border: rem(1) solid $light;
+        display: flex;
+        align-items: center;
+        @media (max-width: em(1300)) {
+            padding: rem(5);
+            min-height: rem(80);
+        }
+        &:not(:first-child) {
+            border-top: none;
+        }
+        &:last-child {
+            overflow: hidden;
+            border-radius: 0px 0px rem(10) rem(10);
+        }
+        &_top {
+            border-radius: rem(10) rem(10) 0px 0px;
+            overflow: hidden;
+            background-color: rgba(15, 175, 233, 0.1);
+            border: none;
+            min-height: rem(65);
+        }
+    }
+
+    &__td {
+        padding: 0px rem(10);
+        @extend %p;
+        color: $secondary;
+        @media (max-width: em(1300)) {
+            padding: 0px rem(5);
+        }
+        &_1 {
+            flex: 0 1 percent(250, 1120);
+            display: flex;
+            align-items: center;
+            span {
+                @include adaptiveValue("width", 38, 20);
+                @include adaptiveValue("margin-right", 18, 10);
+                img {
+                    max-width: 100%;
+                }
+                @media (max-width: em(1300)) {
+                    display: none;
+                }
+            }
+        }
+
+        &_2 {
+            flex: 0 1 percent(130, 1120);
+        }
+
+        &_3 {
+            flex: 0 1 percent(160, 1120);
+        }
+
+        &_4 {
+            flex: 0 1 percent(100, 1120);
+        }
+
+        &_5 {
+            flex: 0 1 percent(150, 1120);
+        }
+        &_6 {
+            flex: 0 1 percent(90, 1120);
+        }
+        &_7 {
+            flex: 1 1 auto;
+        }
+        &_more {
+            text-transform: uppercase;
+        }
+
+        &_btn {
+            width: 100%;
+            @media (max-width: em(1300)) {
+                min-height: rem(50);
+            }
+        }
+    }
+}
+
+//========================================================================================================================================================
+
+.account-address {
+    width: 100%;
+    max-width: rem(1100);
+    &__title {
+        font-weight: 400;
+        @include adaptiveValue("margin-bottom", 20, 10);
+    }
+
+    &__subtitle {
+        @extend %h4;
+        @include adaptiveValue("margin-bottom", 25, 15);
+    }
+
+    &__form {
+    }
+
+    &__btn {
+        @extend %p;
+        color: $blue;
+        transition: opacity 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+        &_submit {
+            display: none;
+        }
+    }
+
+    &__body {
+        @include adaptiveValue("margin-top", 25, 15);
+        border-radius: rem(10);
+        overflow: hidden;
+        box-shadow: rem(1) rem(4) rem(44) rgba(0, 0, 0, 0.03);
+        border: rem(1) solid $light;
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px rem(40);
+        &:not(:last-child) {
+            border-bottom: rem(1) solid $light;
+        }
+        @media (max-width: $mobile) {
+            padding: 0px rem(15);
+        }
+        @media (max-width: $mobileSmall) {
+            padding: 0 rem(10);
+        }
+    }
+
+    &__label {
+        @extend %p;
+        color: $text_4;
+        flex: 0 1 50%;
+        min-height: rem(65);
+        display: flex;
+        margin-right: rem(20);
+        align-items: center;
+        @media (max-width: $mobileSmall) {
+            flex: 0 1 20%;
+            margin-right: rem(10);
+        }
+    }
+
+    &__input-wrap {
+        flex: 0 1 50%;
+        text-align: right;
+        @media (max-width: $mobileSmall) {
+            flex: 0 1 80%;
+        }
+    }
+
+    &__input {
+        @extend %p;
+        color: $text_1;
+        text-align: right;
+        min-height: rem(65);
+        width: 100%;
+    }
+}
+
+//========================================================================================================================================================
+
+.account-details {
+    width: 100%;
+    max-width: rem(1110);
+    &__form {
+    }
+
+    &__title {
+        font-weight: 400;
+        @include adaptiveValue("margin-bottom", 50, 30);
+    }
+
+    &__info {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0px rem(-22);
+        @media (max-width: em(1300)) {
+            margin: 0px rem(-10);
+        }
+    }
+
+    &__input-wrap {
+        flex: 1 1 100%;
+        padding: 0px rem(22);
+        @media (max-width: em(1300)) {
+            padding: 0 rem(10);
+        }
+        @include adaptiveValue("margin-bottom", 25, 10);
+        &_half {
+            @media (min-width: $mobile) {
+                flex: 0 1 50%;
+            }
+        }
+    }
+
+    &__label {
+        @extend %h6;
+        color: $text_4;
+        margin-bottom: rem(10);
+    }
+
+    &__input {
+    }
+
+    &__subtitle {
+        @extend %h4;
+        font-weight: 400;
+        @include adaptiveValue("margin-bottom", 25, 15);
+        @media (max-width: $mobile) {
+            margin-top: rem(15);
+        }
+    }
+
+    &__password {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0px rem(-22);
+        @media (max-width: em(1300)) {
+            margin: 0px rem(-10);
+        }
+    }
+
+    &__bottom {
+        @include adaptiveValue("margin-top", 25, 10);
+    }
+
+    &__btn {
+        min-width: rem(190);
+        @include adaptiveValue("margin-right", 50, 20);
+    }
+
+    &__reset {
+        @extend %p;
+        color: $blue;
+        transition: opacity 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
+}

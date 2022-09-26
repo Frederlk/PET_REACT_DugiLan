@@ -45,8 +45,21 @@ export interface IProduct {
     version: string;
 }
 
+export interface IUserAddress {
+    firstName: string;
+    lastName: string;
+    country: string;
+    streetAddress: string;
+    town: string;
+    state: string;
+    postalCode: string;
+    phone: string;
+    email: string;
+}
 export interface IUser {
     username: string;
     email: string;
     password: string;
+    orders?: string[];
+    address?: IUserAddress;
 }

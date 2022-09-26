@@ -3,7 +3,6 @@ import { Formik, Form as FormikForm } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import { CheckboxForm, Input } from "../../_components";
-import Checkbox from "../../_components/Checkbox";
 import { RouteNames } from "../../routes";
 import { emailRegex, usernameRegex } from "../../constants/regs";
 import { useActions } from "../../hooks";

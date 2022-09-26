@@ -312,6 +312,7 @@
     }
 
     &__link {
+        width: 100%;
         flex: 1 1 auto;
         display: flex;
         align-items: center;
@@ -327,15 +328,14 @@
             color: $text_1;
             transition: all 0.3s ease 0s;
             @extend %p;
-            &.logout {
-                color: $error;
-            }
+
             @media (any-hover: hover) {
                 &:hover {
                     color: $blue;
                 }
             }
         }
+
         @media (max-width: em(1300)) {
             min-height: rem(50);
             padding: rem(5) rem(20);
@@ -343,7 +343,16 @@
         @media (max-width: $tablet) {
             padding: rem(5) rem(10);
         }
-        &.active {
+        &.logout {
+            span {
+                color: $error;
+            }
+            &:hover {
+                background-color: rgba(255, 31, 15, 0.1);
+                color: $error;
+            }
+        }
+        &._active {
             background-color: rgba(15, 175, 233, 0.1);
         }
     }
@@ -933,461 +942,6 @@
 }
 
 //========================================================================================================================================================
-// MyAccount ==========================================================================================================================================
-//========================================================================================================================================================
-
-.body-account {
-    &__wrapper {
-    }
-
-    &__container {
-    }
-
-    &__flex {
-        display: flex;
-        @media (max-width: $tablet) {
-            flex-wrap: wrap;
-        }
-    }
-    &__aside {
-        margin-right: 30px;
-        flex: 0 0 300px;
-        @media (min-width: em(1300)) {
-            @include adaptiveValue("margin-right", 150, 20);
-            flex: 0 0 400px;
-        }
-        @media (max-width: $tablet) {
-            flex: 1 1 100%;
-            margin-right: 0;
-            @include adaptiveValue("margin-bottom", 50, 30);
-        }
-    }
-    &__content {
-        flex: 1 1 auto;
-        min-width: 0;
-        @media (max-width: $tablet) {
-            flex: 1 1 100%;
-        }
-    }
-}
-.aside-account {
-    &__wrapper {
-    }
-
-    &__menu {
-    }
-}
-.content-account {
-    &__wrapper {
-    }
-
-    &__dashboard {
-        max-width: 950px;
-    }
-
-    &__orders {
-    }
-    &__address {
-    }
-    &__details {
-    }
-    &__logout {
-    }
-}
-//========================================================================================================================================================
-
-.account-dashboard {
-    &__inner {
-    }
-
-    &__title {
-        font-weight: 400;
-        @include adaptiveValue("margin-bottom", 20, 10);
-    }
-
-    &__text {
-        color: $text_4;
-        @extend %p;
-        @include adaptiveValue("margin-bottom", 30, 20);
-    }
-
-    &__navigation {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 0px -10px;
-        @media (max-width: $mobileSmall) {
-            flex-wrap: wrap;
-        }
-    }
-
-    &__column {
-        flex: 0 1 260px;
-        margin: 0px 10px;
-        @media (max-width: $mobileSmall) {
-            flex: 1 1 100%;
-            margin: 0px 0px 20px 0px;
-        }
-        @media (any-hover: hover) {
-            &:hover {
-                .account-dashboard__subtitle {
-                    color: $blue;
-                }
-            }
-        }
-    }
-
-    &__item {
-        @include adaptiveValue("min-height", 200, 150);
-        background: rgba(15, 175, 233, 0.1);
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-        padding: 25px 30px;
-        @media (max-width: em(1300)) {
-            justify-content: center;
-            padding: 10px;
-        }
-        @media (max-width: $mobileSmall) {
-            @include adaptiveValue("min-height", 150, 100);
-        }
-    }
-
-    &__icon {
-        @include adaptiveValue("width", 76, 40);
-        img {
-            max-width: 100%;
-        }
-    }
-
-    &__subtitle {
-        transition: all 0.3s ease 0s;
-        @include adaptiveValue("margin-top", 18, 10);
-        text-align: center;
-    }
-}
-
-//========================================================================================================================================================
-
-.account-orders {
-    &__inner {
-    }
-
-    &__title {
-        font-weight: 400;
-        @include adaptiveValue("margin-bottom", 50, 30);
-    }
-
-    &__content {
-        @media (max-width: $mobile) {
-            overflow: auto;
-        }
-    }
-
-    &__table {
-        @media (max-width: $mobile) {
-            width: 800px;
-        }
-    }
-
-    &__row {
-        padding: 10px 20px;
-        min-height: 96px;
-        border: 1px solid $light;
-        display: flex;
-        align-items: center;
-        @media (max-width: em(1300)) {
-            padding: 5px;
-            min-height: 80px;
-        }
-        &:not(:first-child) {
-            border-top: none;
-        }
-        &:last-child {
-            overflow: hidden;
-            border-radius: 0px 0px 10px 10px;
-        }
-        &_top {
-            border-radius: 10px 10px 0px 0px;
-            overflow: hidden;
-            background-color: rgba(15, 175, 233, 0.1);
-            border: none;
-            min-height: 65px;
-        }
-    }
-
-    &__td {
-        padding: 0px 10px;
-        @extend %p;
-        color: $secondary;
-        @media (max-width: em(1300)) {
-            padding: 0px 5px;
-        }
-        &_1 {
-            flex: 0 1 250 / 1120 * 100%;
-            display: flex;
-            align-items: center;
-            span {
-                @include adaptiveValue("width", 38, 20);
-                @include adaptiveValue("margin-right", 18, 10);
-                img {
-                    max-width: 100%;
-                }
-                @media (max-width: em(1300)) {
-                    display: none;
-                }
-            }
-        }
-
-        &_2 {
-            flex: 0 1 130 / 1120 * 100%;
-        }
-
-        &_3 {
-            flex: 0 1 160 / 1120 * 100%;
-        }
-
-        &_4 {
-            flex: 0 1 100 / 1120 * 100%;
-        }
-
-        &_5 {
-            flex: 0 1 150 / 1120 * 100%;
-        }
-        &_6 {
-            flex: 0 1 90 / 1120 * 100%;
-        }
-        &_7 {
-            flex: 1 1 auto;
-        }
-        &_more {
-            text-transform: uppercase;
-        }
-
-        &_btn {
-            width: 100%;
-            @media (max-width: em(1300)) {
-                min-height: 50px;
-            }
-        }
-    }
-}
-
-//========================================================================================================================================================
-
-.account-address {
-    &__inner {
-    }
-
-    &__title {
-        font-weight: 400;
-        @include adaptiveValue("margin-bottom", 20, 10);
-    }
-
-    &__subtitle {
-        @extend %h4;
-        @include adaptiveValue("margin-bottom", 25, 15);
-    }
-
-    &__form {
-    }
-
-    &__btn {
-        @extend %p;
-        color: $blue;
-        transition: all 0.3s ease 0s;
-        @media (any-hover: hover) {
-            &:hover {
-                opacity: 0.5;
-            }
-        }
-        &_submit {
-            display: none;
-        }
-    }
-
-    &__body {
-        @include adaptiveValue("margin-top", 25, 15);
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 1px 4px 44px rgba(0, 0, 0, 0.03);
-        border: 1px solid $light;
-    }
-
-    &__row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0px 40px;
-        @media (max-width: $mobile) {
-            padding: 0px 15px;
-        }
-        @media (max-width: $mobileSmall) {
-            padding: 0 10px;
-        }
-        &:not(:last-child) {
-            border-bottom: 1px solid $light;
-        }
-    }
-
-    &__label {
-        @extend %p;
-        color: $text_4;
-        flex: 0 1 50%;
-        min-height: 65px;
-        display: flex;
-        margin-right: 20px;
-        align-items: center;
-        @media (max-width: $mobileSmall) {
-            flex: 0 1 20%;
-            margin-right: 10px;
-        }
-    }
-
-    &__input-wrap {
-        flex: 0 1 50%;
-        text-align: right;
-        @media (max-width: $mobileSmall) {
-            flex: 0 1 80%;
-        }
-    }
-
-    &__input {
-        @extend %p;
-        color: $text_1;
-        text-align: right;
-        min-height: 65px;
-        width: 100%;
-    }
-}
-
-//========================================================================================================================================================
-
-.account-details {
-    &__inner {
-    }
-
-    &__form {
-    }
-    &__title {
-        font-weight: 400;
-        @include adaptiveValue("margin-bottom", 50, 30);
-    }
-
-    &__info {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0px -22px;
-        @media (max-width: em(1300)) {
-            margin: 0px -10px;
-        }
-    }
-
-    &__input-wrap {
-        flex: 1 1 100%;
-        padding: 0px 22px;
-        @media (max-width: em(1300)) {
-            padding: 0 10px;
-        }
-        @include adaptiveValue("margin-bottom", 25, 10);
-        &_half {
-            @media (min-width: $mobile) {
-                flex: 0 1 50%;
-            }
-        }
-    }
-
-    &__label {
-        @extend %h6;
-        color: $text_4;
-        margin-bottom: 10px;
-    }
-
-    &__input {
-    }
-
-    &__subtitle {
-        @extend %h4;
-        font-weight: 400;
-        @include adaptiveValue("margin-bottom", 25, 15);
-        @media (max-width: $mobile) {
-            margin-top: 15px;
-        }
-    }
-
-    &__password {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0px -22px;
-        @media (max-width: em(1300)) {
-            margin: 0px -10px;
-        }
-    }
-
-    &__bottom {
-        @include adaptiveValue("margin-top", 25, 10);
-    }
-
-    &__btn {
-        min-width: 190px;
-        @include adaptiveValue("margin-right", 50, 20);
-    }
-
-    &__reset {
-        @extend %p;
-        color: $blue;
-        transition: all 0.3s ease 0s;
-        @media (any-hover: hover) {
-            &:hover {
-                opacity: 0.5;
-            }
-        }
-    }
-}
-//========================================================================================================================================================
-
-.account-logout {
-    &__message {
-        @extend %p;
-        color: $text_1;
-        p {
-            &:not(:last-child) {
-                @include adaptiveValue("margin-bottom", 20, 15);
-            }
-        }
-    }
-
-    &__name {
-    }
-
-    &__error {
-        color: $error;
-        transition: all 0.3s ease 0s;
-        @media (any-hover: hover) {
-            &:hover {
-                opacity: 0.5;
-            }
-        }
-    }
-
-    &__link {
-        color: $blue;
-        transition: all 0.3s ease 0s;
-        @media (any-hover: hover) {
-            &:hover {
-                opacity: 0.5;
-            }
-        }
-    }
-}
-
-//========================================================================================================================================================
-// </MyAccount> ==========================================================================================================================================
-//========================================================================================================================================================
-
-//========================================================================================================================================================
 // MyCard ==========================================================================================================================================
 //========================================================================================================================================================
 
@@ -1651,10 +1205,6 @@
         width: 100%;
     }
 }
-
-//========================================================================================================================================================
-// </MyCard> ==========================================================================================================================================
-//========================================================================================================================================================
 
 //========================================================================================================================================================
 // Billing ==========================================================================================================================================
@@ -1922,10 +1472,6 @@
     }
 }
 //========================================================================================================================================================
-// </Billing>  ==========================================================================================================================================
-//========================================================================================================================================================
-
-//========================================================================================================================================================
 // Thanks  ==========================================================================================================================================
 //========================================================================================================================================================
 
@@ -2109,7 +1655,3 @@
         }
     }
 }
-
-//========================================================================================================================================================
-// </Thanks>  ==========================================================================================================================================
-//========================================================================================================================================================

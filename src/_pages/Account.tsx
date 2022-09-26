@@ -5,7 +5,7 @@ import Email from "../_containers/Account/Email";
 import { useLocation } from "react-router-dom";
 import { useAppSelector } from "../hooks/useRedux";
 import { Spinner } from "../_components";
-import Profile from "./Profile";
+import Profile from "../_containers/Account/Profile";
 
 const Account: FC = () => {
     const [forgotPage, setForgotPage] = useState(false);

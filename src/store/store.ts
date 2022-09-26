@@ -1,3 +1,4 @@
+import { accountReducer } from "./slices/account/account.slice";
 import { authReducer } from "./slices/auth/auth.slice";
 import { productReducer } from "./slices/product/product.slice";
 import { bodyLockReducer } from "./slices/bodyLock/bodyLock.slice";
@@ -9,6 +10,7 @@ const rootReducer = combineReducers({
     menu: menuReducer,
     product: productReducer,
     auth: authReducer,
+    account: accountReducer,
 });
 
 export const setupStore = () => {
