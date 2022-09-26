@@ -1,8 +1,9 @@
-import { FC, Suspense } from "react";
+import { FC, Suspense, useEffect } from "react";
 
 import { AppRouter, Spinner } from "./_components";
-import { useEventListener } from "./hooks";
+import { useActions, useEventListener } from "./hooks";
 import { Footer, Header } from "./_containers";
+import { IUser } from "./models";
 
 const App: FC = () => {
     useEventListener("scroll", function () {
@@ -14,6 +15,15 @@ const App: FC = () => {
             doc.classList.contains("_scroll") ? doc.classList.remove("_scroll") : null;
         }
     });
+
+    const { setUser, setIsAuth } = useActions();
+
+    useEffect(() => {
+        if (localStorage.getItem("auth")) {
+            setUser({ username: localStorage.getItem("username" || "") } as IUser);
+            setIsAuth(true);
+        }
+    }, []);
 
     return (
         <>

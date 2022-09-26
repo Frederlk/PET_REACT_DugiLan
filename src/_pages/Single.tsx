@@ -1,4 +1,5 @@
 import { FC, useMemo } from "react";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import { data } from "../constants";
 import { Banner } from "../_components";
@@ -21,6 +22,11 @@ const Single: FC = () => {
 
     return (
         <>
+            <Helmet>
+                <meta name={product.title} content={product.title} />
+                <title>{product.title}</title>
+            </Helmet>
+
             <div className="page__body body-workshop">
                 <div className="body-workshop__container ">
                     <SingleBody item={product} />

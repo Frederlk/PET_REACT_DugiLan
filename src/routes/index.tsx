@@ -13,7 +13,8 @@ export interface CustomRouteObject {
 
 const Page404 = lazy(() => import("../_pages/Page404")),
     HomePage = lazy(() => import("../_pages/HomePage")),
-    Single = lazy(() => import("../_pages/Single"));
+    Single = lazy(() => import("../_pages/Single")),
+    Account = lazy(() => import("../_pages/Account"));
 
 export enum RouteNames {
     HOME = "/",
@@ -86,7 +87,7 @@ export const routesConfig: CustomRouteObject[] = [
     {
         title: "Account",
         path: RouteNames.ACCOUNT,
-        element: <HomePage />,
+        element: <Account />,
     },
     // Envato Market ========================================================================================================================================================
     {

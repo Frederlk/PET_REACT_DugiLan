@@ -1,3 +1,10 @@
+## [ToDos]
+
+Избранное и товары в корзине зависят от пользователя, если пользователь не авторизован, то оно всё работает \
+Показывать Имя пользователя вместо кнопки Account? \
+У User'a есть поля избранного, заказов, товаров, вся информация с Dashboard \
+Dashboard \
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

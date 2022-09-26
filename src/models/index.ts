@@ -44,3 +44,9 @@ export interface IProduct {
     category: string;
     version: string;
 }
+
+export interface IUser {
+    username: string;
+    email: string;
+    password: string;
+}

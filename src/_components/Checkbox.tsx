@@ -3,12 +3,13 @@ import { FC, ReactNode, useState, useCallback } from "react";
 interface CheckboxProps {
     name: string;
     children: ReactNode;
+    className?: string;
     id: string;
     price?: number;
     setTotalPrice?: any;
 }
 
-const Checkbox: FC<CheckboxProps> = ({ id, name, children, setTotalPrice, price }) => {
+const Checkbox: FC<CheckboxProps> = ({ id, name, children, setTotalPrice, price, className }) => {
     const [checked, setChecked] = useState(false);
 
     const handleChange = useCallback(() => {
@@ -21,7 +22,7 @@ const Checkbox: FC<CheckboxProps> = ({ id, name, children, setTotalPrice, price 
     }, [checked]);
 
     return (
-        <div className="checkbox">
+        <div className={`checkbox ${className || ""}`}>
             <input
                 id={id}
                 className="checkbox__input"
@@ -30,6 +31,7 @@ const Checkbox: FC<CheckboxProps> = ({ id, name, children, setTotalPrice, price 
                 checked={checked}
                 onChange={handleChange}
             />
+
             <label htmlFor={id} className="checkbox__label">
                 <span className="checkbox__text">{children}</span>
             </label>

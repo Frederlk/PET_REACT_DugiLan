@@ -1,0 +1,122 @@
+.body-registr {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        gap: rem(30);
+        @media (max-width: $tablet) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__column {
+        flex: 0 1 rem(750);
+        @media (max-width: $tablet) {
+            flex: 1 1 100%;
+            &:not(:last-child) {
+                @include adaptiveValue("margin-bottom", 50, 30);
+            }
+        }
+        &_login {
+            .body-registr__input-wrap {
+                &:first-child {
+                    @include adaptiveValue("margin-bottom", 50, 20);
+                }
+            }
+        }
+    }
+
+    &__title {
+        font-weight: 400;
+        @include adaptiveValue("margin-bottom", 50, 20);
+    }
+
+    &__form {
+    }
+
+    &__input-wrap {
+        position: relative;
+        margin-bottom: rem(30);
+        ._input__error {
+            @extend %p;
+            color: $error;
+            @media (min-width: $mobileSmall) {
+                position: absolute;
+                top: 100%;
+                left: 0;
+            }
+        }
+    }
+
+    &__subtitle {
+        display: block;
+        color: $text_2;
+        margin-bottom: rem(10);
+    }
+
+    &__input {
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        @include adaptiveValue("gap", 25, 15, 479.98, 320, 1);
+    }
+
+    &__btn {
+        @media (min-width: $mobileSmall) {
+            min-width: rem(360);
+        }
+        @media (max-width: $mobileSmall) {
+            width: 100%;
+        }
+    }
+
+    &__forgot {
+        @include adaptiveValue("margin-top", 20, 10, 479.98, 320, 1);
+        a {
+            @extend %p;
+            color: $text_2;
+            transition: color 0.3s ease 0s;
+            @media (any-hover: hover) {
+                &:hover {
+                    color: $blue;
+                }
+            }
+        }
+    }
+
+    &__text {
+        max-width: rem(535);
+        @extend %p;
+        color: $secondary;
+        margin-bottom: rem(25);
+        p {
+            &:not(:last-child) {
+                margin-bottom: rem(20);
+            }
+        }
+    }
+
+    &__forgot-text {
+        @extend %p;
+        max-width: rem(535);
+        color: $text_4;
+        @include adaptiveValue("margin-bottom", 50, 20);
+    }
+
+    &__subscribed {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @extend %h3;
+        color: $blue;
+        height: rem(60);
+        @media (min-width: $mobileSmall) {
+            max-width: rem(360);
+        }
+        @media (max-width: $mobileSmall) {
+            width: 100%;
+        }
+    }
+}
