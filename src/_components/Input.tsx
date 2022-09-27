@@ -15,7 +15,7 @@ const Input = ({ address, textarea, ...props }: { [x: string]: any; name: string
                 <input {...props} {...field} className={classNames} />
             )}
 
-            {meta.touched && meta.error ? <div className="_input__error">{meta.error}</div> : null}
+            {meta.touched && meta.error && <div className="_input__error">{meta.error}</div>}
         </>
     );
 };

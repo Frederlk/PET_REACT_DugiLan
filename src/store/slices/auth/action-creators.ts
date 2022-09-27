@@ -1,25 +1,24 @@
 import { authActions } from "./auth.slice";
 import { AppDispatch } from "./../../store";
 import { IUser } from "./../../../models/index";
-import UserService from "../../../api/UserService";
 
 export const AuthActionCreators = {
-    login: (userData: IUser) => async (dispatch: AppDispatch) => {
-        const { username, email, password } = userData;
-
+    login: (userData: { login: string; password: string }, user: IUser) => async (dispatch: AppDispatch) => {
+        const iff =
+            userData &&
+            user &&
+            (userData.login === user.email || user.username) &&
+            userData.password === user.password;
         try {
+            dispatch(authActions.setError(""));
             dispatch(authActions.setIsLoading(true));
             setTimeout(async () => {
-                const response = await UserService.getUsers();
-                const mockUser = response.data.find(
-                    (user) =>
-                        (user.username === username || user.email === email) && user.password === password
-                );
-                if (mockUser) {
+                if (iff) {
                     localStorage.setItem("auth", "true");
-                    localStorage.setItem("username", mockUser.username);
-                    dispatch(authActions.setUser(mockUser));
+                    localStorage.setItem("username", user.username);
+                    dispatch(authActions.setUser(user));
                     dispatch(authActions.setIsAuth(true));
+                    window.scrollTo(0, 0);
                 } else {
                     dispatch(authActions.setError("Wrong Username/Email or Password"));
                 }
@@ -29,6 +28,7 @@ export const AuthActionCreators = {
             dispatch(authActions.setError("Something went wrong"));
         }
     },
+
     logout: () => async (dispatch: AppDispatch) => {
         localStorage.removeItem("auth");
         localStorage.removeItem("username");

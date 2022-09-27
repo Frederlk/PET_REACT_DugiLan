@@ -32,8 +32,9 @@ textarea {
         border: rem(1) solid $blue !important;
     }
 
-    &._error {
-        border: rem(1) solid $error;
+    &._error,
+    &._incorrect {
+        border: rem(1) solid $error !important;
     }
 }
 

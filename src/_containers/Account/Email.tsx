@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState, memo } from "react";
 import { Formik, Form as FormikForm } from "formik";
 import * as Yup from "yup";
 import { Input } from "../../_components";
@@ -13,7 +13,7 @@ const validationSchema = Yup.object({
     email: Yup.string().email("Invalid Email").required("Email Address is required"),
 });
 
-const Register: FC<{ forgot?: boolean }> = ({ forgot }) => {
+const Email: FC<{ forgot?: boolean }> = ({ forgot }) => {
     const [sended, setSended] = useState(false);
 
     useEffect(() => {
@@ -87,4 +87,4 @@ const Register: FC<{ forgot?: boolean }> = ({ forgot }) => {
     );
 };
 
-export default Register;
+export default memo(Email);

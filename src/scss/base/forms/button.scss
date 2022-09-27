@@ -7,12 +7,12 @@
     text-align: center;
     @extend %p;
     text-transform: uppercase;
-    background-color: $blue;
     border-radius: rem(10);
     min-height: rem(60);
+    background-color: $blue;
     color: $white;
     border: rem(1) solid $blue;
-    transition: background-color 0.3s ease 0s, color 0.3s ease 0s;
+    transition: background-color 0.3s ease 0s, color 0.3s ease 0s, border 0.3s ease 0s;
     @media (any-hover: hover) {
         &:hover {
             background-color: rgba(15, 175, 233, 0.1);

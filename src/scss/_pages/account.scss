@@ -44,6 +44,11 @@
                 top: 100%;
                 left: 0;
             }
+            &._incorrect {
+                top: 0;
+                left: auto;
+                right: 0;
+            }
         }
     }
 
@@ -69,6 +74,11 @@
         }
         @media (max-width: $mobileSmall) {
             width: 100%;
+        }
+        &:disabled {
+            background-color: rgba(101, 101, 103, 0.1);
+            color: $text_2;
+            border: rem(1) solid $text_2;
         }
     }
 

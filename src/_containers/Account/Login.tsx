@@ -1,20 +1,20 @@
-import { FC } from "react";
+import { FC, useEffect, useState, useMemo } from "react";
 import { Formik, Form as FormikForm } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
+
 import { CheckboxForm, Input } from "../../_components";
 import { RouteNames } from "../../routes";
 import { emailRegex, usernameRegex } from "../../constants/regs";
 import { useActions } from "../../hooks";
-import { IUser } from "../../models";
+import { accountAPI } from "../../services/AccountAPI";
+import { useAppSelector } from "../../hooks/useRedux";
 
 interface LoginValues {
     loginNameEmail: string;
     loginPassword: string;
     remember: boolean;
 }
-
-const initialValues: LoginValues = { loginNameEmail: "", loginPassword: "", remember: false };
 
 const validationSchema = Yup.object({
     loginPassword: Yup.string()
@@ -37,7 +37,26 @@ const validationSchema = Yup.object({
 });
 
 const Login: FC = () => {
+    const [userData, setUserData] = useState<{ login: string; password: string }>({
+        login: "",
+        password: "",
+    });
     const { login } = useActions();
+    const [getUser, { data: user }] = accountAPI.useLazyGetUserQuery();
+    const { error, isLoading } = useAppSelector((state) => state.auth);
+
+    const localState = JSON.parse(localStorage.getItem("remembered") || "{}");
+    const initialValues: LoginValues = useMemo(() => {
+        return {
+            loginNameEmail: localState.loginNameEmail || "",
+            loginPassword: localState.loginPassword || "",
+            remember: localState.remember || "",
+        };
+    }, [localState]);
+
+    useEffect(() => {
+        user && login(userData, user[0]);
+    }, [user]);
 
     return (
         <div className="body-registr__column body-registr__column_login">
@@ -45,28 +64,31 @@ const Login: FC = () => {
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
-                onSubmit={(values, { resetForm }) => {
+                onSubmit={(values) => {
                     values = {
                         ...values,
                     };
-                    const userData: IUser = {
-                        username: !values.loginNameEmail.includes("@") ? values.loginNameEmail : "",
-                        email: values.loginNameEmail.includes("@") ? values.loginNameEmail : "",
+                    setUserData({
+                        login: values.loginNameEmail,
                         password: values.loginPassword,
-                    };
-                    resetForm();
-                    login(userData);
-                    console.log(JSON.stringify(values, null, 2));
+                    });
+                    getUser(values.loginNameEmail);
+                    if (values.remember) {
+                        localStorage.setItem("remembered", JSON.stringify(values));
+                    } else {
+                        localStorage.removeItem("remembered");
+                    }
                 }}
             >
                 <FormikForm className="body-registr__form">
                     <div className="body-registr__input-wrap">
+                        {error && <div className="_input__error _incorrect">{error}</div>}
                         <label htmlFor="account-email" className="body-registr__subtitle">
                             Username or email address
                         </label>
                         <Input
                             id="accout-email"
-                            className="body-registr__input input"
+                            className={`body-registr__input input ${error && "_incorrect"}`}
                             placeholder="Ypur Username or Email Address"
                             type="text"
                             name="loginNameEmail"
@@ -78,7 +100,7 @@ const Login: FC = () => {
                         </label>
                         <Input
                             id="accout-password"
-                            className="body-registr__input input"
+                            className={`body-registr__input input ${error && "_incorrect"}`}
                             autoComplete="off"
                             placeholder="Your Password"
                             type="password"
@@ -86,8 +108,8 @@ const Login: FC = () => {
                         />
                     </div>
                     <div className="body-registr__bottom">
-                        <button type="submit" className="body-registr__btn btn">
-                            Login to your account
+                        <button type="submit" disabled={isLoading} className="body-registr__btn btn">
+                            {isLoading ? "Loading..." : "Login to your account"}
                         </button>
                         <CheckboxForm className="checkbox_account" name="remember" id="remember-me">
                             Remember me

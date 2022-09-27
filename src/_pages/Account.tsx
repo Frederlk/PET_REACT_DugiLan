@@ -4,13 +4,12 @@ import Login from "../_containers/Account/Login";
 import Email from "../_containers/Account/Email";
 import { useLocation } from "react-router-dom";
 import { useAppSelector } from "../hooks/useRedux";
-import { Spinner } from "../_components";
 import Profile from "../_containers/Account/Profile";
 
 const Account: FC = () => {
     const [forgotPage, setForgotPage] = useState(false);
     const { hash } = useLocation();
-    const { isLoading, isAuth, user } = useAppSelector((state) => state.auth);
+    const { isAuth } = useAppSelector((state) => state.auth);
 
     useEffect(() => {
         if (hash === "#forgot") {
@@ -25,9 +24,7 @@ const Account: FC = () => {
                 <title>Account</title>
             </Helmet>
 
-            {isLoading && <Spinner />}
-
-            {isAuth && !isLoading ? (
+            {isAuth ? (
                 <Profile />
             ) : (
                 <div className="page__body body-registr">

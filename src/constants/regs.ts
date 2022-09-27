@@ -1,5 +1,5 @@
 // UserName
-export const usernameRegex = /^(?=[a-zA-Z0-9._]{5,25}$)[^_.].*[^_.]$/;
+export const usernameRegex = /^(?=[a-zA-Z0-9._]{4,25}$)[^_.].*[^_.]$/;
 
 // Email
 export const emailRegex =

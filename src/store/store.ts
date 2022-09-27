@@ -1,3 +1,4 @@
+import { accountAPI } from "./../services/AccountAPI";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { accountReducer } from "./slices/account/account.slice";
 import { authReducer } from "./slices/auth/auth.slice";
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     product: productReducer,
     auth: authReducer,
     account: accountReducer,
+    [accountAPI.reducerPath]: accountAPI.reducer,
     orders: ordersReducer,
     address: addressReducer,
 });
@@ -20,7 +22,7 @@ const rootReducer = combineReducers({
 export const setupStore = () => {
     return configureStore({
         reducer: rootReducer,
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(/* more middlewares */),
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(accountAPI.middleware),
     });
 };
 

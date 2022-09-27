@@ -15,11 +15,11 @@ const labels = [DASHBOARD, ORDERS, ADDRESS, DETAILS];
 const Profile = () => {
     const { selected } = useAppSelector((state) => state.account);
     const { user } = useAppSelector((state) => state.auth);
-    const { fetchOrders, setSelected, fetchAddress } = useActions();
+    const { setSelected } = useActions();
 
     useEffect(() => {
-        fetchOrders(user.username);
-        fetchAddress(user.username);
+        // fetchOrders(user.username);
+        // fetchAddress(user.username);
         setSelected(DASHBOARD);
     }, [user]);
 
