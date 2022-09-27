@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { useActions } from "../../hooks";
 import { useAppSelector } from "../../hooks/useRedux";
 
@@ -7,6 +7,7 @@ const AccountSide: FC<{ labels: string[] }> = ({ labels }) => {
     const { setSelected } = useActions();
 
     const { logout } = useActions();
+
     const asideItems = labels.map((item, i) => (
         <li key={item + i} className="categories__item">
             <button
@@ -35,4 +36,4 @@ const AccountSide: FC<{ labels: string[] }> = ({ labels }) => {
     );
 };
 
-export default AccountSide;
+export default memo(AccountSide);

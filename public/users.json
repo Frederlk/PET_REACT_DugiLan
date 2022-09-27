@@ -2,13 +2,46 @@
     {
         "username": "user",
         "email": "testemail_1@gmail.com",
-        "password": "123"
+        "password": "123",
+        "orders": [
+            {
+                "productId": "e4130915-6a35-49e0-abc8-0d07570dcc34",
+                "orderId": "#2306",
+                "date": "2021-03-12T21:00:00.000Z",
+                "totalPrice": 32.99,
+                "download": "/https://i.pinimg.com/564x/80/ee/29/80ee2944210d97fed039ac9d93da1788.jpg",
+                "qty": 1,
+                "status": "Processing"
+            }, 
+            {
+                "productId": "e4130915-6a35-49e0-abc8-0d07570dcc3",
+                "orderId": "#2305",
+                "date": "2021-01-11T21:00:00.000Z",
+                "totalPrice": 98.49,
+                "download": "/https://i.pinimg.com/564x/80/ee/29/80ee2944210d97fed039ac9d93da1788.jpg",
+                "qty": 1,
+                "status": "Processing"
+            }
+        ],
+        "address": {
+            "firstName": "Sergey",
+            "lastName": "Petrinich",
+            "country": "Belarus",
+            "streetAddress": "Pushkina 20",
+            "town": "Minsk",
+            "state": "Minsk",
+            "postalCode": "696420",
+            "phone": "+383 44 201 874",
+            "email": "testemail_1@gmail.com"
+        }
     },  
+
     {
         "username": "admin",
         "email": "testemail_2@gmail.com",
         "password": "123"
     },  
+    
     {
         "username": "frederlk",
         "email": "testemail_3@gmail.com",

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { images } from "../../constants";
 import { useActions } from "../../hooks";
 import { selectedNames } from "../../store/slices/account/account.slice";
@@ -35,4 +35,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default memo(Dashboard);

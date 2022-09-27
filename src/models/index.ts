@@ -45,6 +45,8 @@ export interface IProduct {
     version: string;
 }
 
+//========================================================================================================================================================
+
 export interface IUserAddress {
     firstName: string;
     lastName: string;
@@ -56,10 +58,21 @@ export interface IUserAddress {
     phone: string;
     email: string;
 }
+
+export interface IOrder {
+    productId: string;
+    orderId: string;
+    date: Date;
+    totalPrice: number;
+    download: string;
+    qty: number;
+    status: string;
+}
+
 export interface IUser {
     username: string;
     email: string;
     password: string;
-    orders?: string[];
+    orders?: IOrder[];
     address?: IUserAddress;
 }

@@ -1,9 +1,11 @@
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { accountReducer } from "./slices/account/account.slice";
 import { authReducer } from "./slices/auth/auth.slice";
 import { productReducer } from "./slices/product/product.slice";
 import { bodyLockReducer } from "./slices/bodyLock/bodyLock.slice";
 import { menuReducer } from "./slices/menu/menu.slice";
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { ordersReducer } from "./slices/orders/orders.slice";
+import { addressReducer } from "./slices/address/address.slice";
 
 const rootReducer = combineReducers({
     bodyLock: bodyLockReducer,
@@ -11,6 +13,8 @@ const rootReducer = combineReducers({
     product: productReducer,
     auth: authReducer,
     account: accountReducer,
+    orders: ordersReducer,
+    address: addressReducer,
 });
 
 export const setupStore = () => {
