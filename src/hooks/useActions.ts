@@ -4,16 +4,16 @@ import { bindActionCreators } from "@reduxjs/toolkit";
 import { menuActions } from "../store/slices/menu/menu.slice";
 import { bodyLockActions } from "../store/slices/bodyLock/bodyLock.slice";
 import { productActions } from "../store/slices/product/product.slice";
-import { authActions } from "../store/slices/auth/auth.slice";
-import { AuthActionCreators } from "../store/slices/auth/action-creators";
+import { userActions } from "../store/slices/user/user.slice";
+import { UserActionCreators } from "../store/slices/user/action-creators";
 import { accountActions } from "../store/slices/account/account.slice";
 
 const actions = {
     ...menuActions,
     ...bodyLockActions,
     ...productActions,
-    ...authActions,
-    ...AuthActionCreators,
+    ...userActions,
+    ...UserActionCreators,
     ...accountActions,
 };
 

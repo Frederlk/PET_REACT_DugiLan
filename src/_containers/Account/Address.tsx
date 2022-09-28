@@ -1,10 +1,11 @@
 import { FC, memo, useMemo, useState } from "react";
 import { Formik, Form as FormikForm } from "formik";
 import * as Yup from "yup";
-import { useActions } from "../../hooks";
-import { IUser, IUserAddress } from "../../models";
+import { IUserAddress } from "../../models";
 import AddressRow from "./AddressRow";
 import { useAppSelector } from "../../hooks/useRedux";
+import { userAPI } from "../../services/userAPI";
+import { useActions } from "../../hooks";
 
 const validationSchema = Yup.object({
     email: Yup.string().email("Invalid Email").required("Email Address is required"),
@@ -13,7 +14,10 @@ const validationSchema = Yup.object({
 const Address: FC = () => {
     const [edit, setEdit] = useState(false);
 
-    const { user } = useAppSelector((state) => state.auth);
+    const [changeAddress] = userAPI.useChangeAddressMutation();
+    const { setUser } = useActions();
+
+    const { user } = useAppSelector((state) => state.user);
     const { country, email, firstName, lastName, phone, postalCode, state, streetAddress, town } =
         user.address;
 
@@ -38,25 +42,35 @@ const Address: FC = () => {
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
-                onSubmit={(values, { resetForm }) => {
-                    values = {
-                        ...values,
+                onSubmit={(values) => {
+                    const newAddress = {
+                        ...user,
+                        address: {
+                            country: values.country,
+                            email: values.email,
+                            firstName: values.firstName,
+                            lastName: values.lastName,
+                            phone: values.phone,
+                            postalCode: values.postalCode,
+                            state: values.state,
+                            streetAddress: values.streetAddress,
+                            town: values.town,
+                        },
                     };
-                    resetForm();
-                    console.log(JSON.stringify(values, null, 2));
+                    changeAddress({
+                        id: user.id,
+                        data: newAddress,
+                    });
+                    localStorage.setItem("user", JSON.stringify(newAddress));
                 }}
             >
-                <FormikForm className="account-address__form">
+                <FormikForm className={`account-address__form ${edit ? "_edit" : ""}`}>
                     {edit ? (
-                        <button
-                            type="submit"
-                            onClick={() => setEdit(false)}
-                            className="account-address__btn account-address__btn_submit"
-                        >
+                        <button type="button" onClick={() => setEdit(false)} className="account-address__btn">
                             Submit
                         </button>
                     ) : (
-                        <button type="button" onClick={() => setEdit(true)} className="account-address__btn">
+                        <button type="submit" onClick={() => setEdit(true)} className="account-address__btn">
                             Edit
                         </button>
                     )}

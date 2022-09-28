@@ -36,7 +36,7 @@ const OrderItem: FC<{ item: IOrder }> = ({ item }) => {
 };
 
 const Orders: FC = () => {
-    const { user } = useAppSelector((state) => state.auth);
+    const { user } = useAppSelector((state) => state.user);
 
     const ordersItems = useMemo(() => {
         if (user && user.orders && user.orders.length > 0) {

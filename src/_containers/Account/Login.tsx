@@ -42,7 +42,7 @@ const Login: FC = () => {
         password: "",
     });
     const { login } = useActions();
-    const { error, isLoading } = useAppSelector((state) => state.auth);
+    const { error, isLoading } = useAppSelector((state) => state.user);
     const [getUser, { data: user, isLoading: loadingUser }] = userAPI.useLazyGetUserQuery();
 
     const localState = JSON.parse(localStorage.getItem("remembered") || "{}");

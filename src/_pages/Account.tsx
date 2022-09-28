@@ -9,7 +9,7 @@ import Profile from "../_containers/Account/Profile";
 const Account: FC = () => {
     const [forgotPage, setForgotPage] = useState(false);
     const { hash } = useLocation();
-    const { isAuth } = useAppSelector((state) => state.auth);
+    const { isAuth } = useAppSelector((state) => state.user);
 
     useEffect(() => {
         if (hash === "#forgot") {

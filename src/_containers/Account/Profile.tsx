@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useActions } from "../../hooks";
 import { useAppSelector } from "../../hooks/useRedux";
 import { selectedNames } from "../../store/slices/account/account.slice";
@@ -14,12 +13,10 @@ const labels = [DASHBOARD, ORDERS, ADDRESS, DETAILS];
 
 const Profile = () => {
     const { selected } = useAppSelector((state) => state.account);
-    const { user } = useAppSelector((state) => state.auth);
+    const { user } = useAppSelector((state) => state.user);
     const { setSelected } = useActions();
 
     useEffect(() => {
-        // fetchOrders(user.username);
-        // fetchAddress(user.username);
         setSelected(DASHBOARD);
     }, [user]);
 

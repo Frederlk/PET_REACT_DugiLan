@@ -3,7 +3,7 @@ import { useField } from "formik";
 const Input = ({ address, textarea, ...props }: { [x: string]: any; name: string }) => {
     const [field, meta] = useField({ ...props, type: "textarea" });
 
-    const classNames = `${!address && "input"} ${props.className || ""} ${
+    const classNames = `${!address ? "input" : ""} ${props.className || ""} ${
         meta.touched && meta.error ? "_error" : ""
     }`;
 

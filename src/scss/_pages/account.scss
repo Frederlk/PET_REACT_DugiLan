@@ -364,9 +364,6 @@
                 opacity: 0.5;
             }
         }
-        &_submit {
-            display: none;
-        }
     }
 
     &__body {
@@ -401,9 +398,13 @@
         display: flex;
         margin-right: rem(20);
         align-items: center;
+        transition: color 0.3s ease 0s;
         @media (max-width: $mobileSmall) {
             flex: 0 1 20%;
             margin-right: rem(10);
+        }
+        ._edit & {
+            color: $text_1;
         }
     }
 
@@ -421,6 +422,13 @@
         text-align: right;
         min-height: rem(65);
         width: 100%;
+        outline: none;
+        &:focus {
+            color: $blue;
+        }
+        &:disabled {
+            background-color: transparent;
+        }
     }
 }
 
