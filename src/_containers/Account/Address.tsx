@@ -13,13 +13,14 @@ const validationSchema = Yup.object({
 const Address: FC = () => {
     const [edit, setEdit] = useState(false);
 
-    const { address } = useAppSelector((state) => state.address);
-    const { country, email, firstName, lastName, phone, postalCode, state, streetAddress, town } = address;
+    const { user } = useAppSelector((state) => state.auth);
+    const { country, email, firstName, lastName, phone, postalCode, state, streetAddress, town } =
+        user.address;
 
     const initialValues: IUserAddress = useMemo(() => {
         return {
             country: country || "",
-            email: email || "",
+            email: email || user.email || "",
             firstName: firstName || "",
             lastName: lastName || "",
             phone: phone || "",
@@ -28,7 +29,7 @@ const Address: FC = () => {
             streetAddress: streetAddress || "",
             town: town || "",
         };
-    }, [address]);
+    }, [user.address]);
 
     return (
         <div className="content-account__address account-address">

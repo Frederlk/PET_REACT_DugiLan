@@ -12,18 +12,16 @@ export const AuthActionCreators = {
         try {
             dispatch(authActions.setError(""));
             dispatch(authActions.setIsLoading(true));
-            setTimeout(async () => {
-                if (iff) {
-                    localStorage.setItem("auth", "true");
-                    localStorage.setItem("username", user.username);
-                    dispatch(authActions.setUser(user));
-                    dispatch(authActions.setIsAuth(true));
-                    window.scrollTo(0, 0);
-                } else {
-                    dispatch(authActions.setError("Wrong Username/Email or Password"));
-                }
-                dispatch(authActions.setIsLoading(false));
-            }, 1000);
+            if (iff) {
+                localStorage.setItem("auth", "true");
+                localStorage.setItem("user", JSON.stringify(user));
+                dispatch(authActions.setUser(user));
+                dispatch(authActions.setIsAuth(true));
+                window.scrollTo(0, 0);
+            } else {
+                dispatch(authActions.setError("Wrong Username/Email or Password"));
+            }
+            dispatch(authActions.setIsLoading(false));
         } catch (e) {
             dispatch(authActions.setError("Something went wrong"));
         }
@@ -31,7 +29,7 @@ export const AuthActionCreators = {
 
     logout: () => async (dispatch: AppDispatch) => {
         localStorage.removeItem("auth");
-        localStorage.removeItem("username");
+        localStorage.removeItem("user");
         dispatch(authActions.setUser({} as IUser));
         dispatch(authActions.setIsAuth(false));
     },

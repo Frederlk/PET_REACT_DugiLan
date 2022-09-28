@@ -70,9 +70,10 @@ export interface IOrder {
 }
 
 export interface IUser {
+    id: string;
     username: string;
     email: string;
     password: string;
-    orders?: IOrder[];
-    address?: IUserAddress;
+    orders: IOrder[];
+    address: IUserAddress;
 }

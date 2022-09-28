@@ -36,18 +36,19 @@ const OrderItem: FC<{ item: IOrder }> = ({ item }) => {
 };
 
 const Orders: FC = () => {
-    const { orders } = useAppSelector((state) => state.orders);
+    const { user } = useAppSelector((state) => state.auth);
 
-    const ordersItems = useMemo(
-        () => orders.map((item) => <OrderItem key={item.orderId} item={item} />),
-        [orders]
-    );
+    const ordersItems = useMemo(() => {
+        if (user && user.orders && user.orders.length > 0) {
+            return user.orders.map((item) => <OrderItem key={item.orderId} item={item} />);
+        }
+    }, [user]);
 
     return (
         <div className="content-account__orders account-orders">
             <h2 className="account-orders__title">Orders</h2>
             <div className="account-orders__content">
-                {ordersItems.length > 0 ? (
+                {ordersItems ? (
                     <>
                         <div className="account-orders__row account-orders__row_top">
                             <div className="account-orders__td account-orders__td_1">Order name</div>

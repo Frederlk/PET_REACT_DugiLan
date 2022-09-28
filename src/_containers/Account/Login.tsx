@@ -7,7 +7,7 @@ import { CheckboxForm, Input } from "../../_components";
 import { RouteNames } from "../../routes";
 import { emailRegex, usernameRegex } from "../../constants/regs";
 import { useActions } from "../../hooks";
-import { accountAPI } from "../../services/AccountAPI";
+import { userAPI } from "../../services/userAPI";
 import { useAppSelector } from "../../hooks/useRedux";
 
 interface LoginValues {
@@ -42,8 +42,8 @@ const Login: FC = () => {
         password: "",
     });
     const { login } = useActions();
-    const [getUser, { data: user }] = accountAPI.useLazyGetUserQuery();
     const { error, isLoading } = useAppSelector((state) => state.auth);
+    const [getUser, { data: user, isLoading: loadingUser }] = userAPI.useLazyGetUserQuery();
 
     const localState = JSON.parse(localStorage.getItem("remembered") || "{}");
     const initialValues: LoginValues = useMemo(() => {
@@ -55,7 +55,7 @@ const Login: FC = () => {
     }, [localState]);
 
     useEffect(() => {
-        user && login(userData, user[0]);
+        user && login(userData, user);
     }, [user]);
 
     return (
@@ -108,8 +108,12 @@ const Login: FC = () => {
                         />
                     </div>
                     <div className="body-registr__bottom">
-                        <button type="submit" disabled={isLoading} className="body-registr__btn btn">
-                            {isLoading ? "Loading..." : "Login to your account"}
+                        <button
+                            type="submit"
+                            disabled={isLoading || loadingUser}
+                            className="body-registr__btn btn"
+                        >
+                            {isLoading || loadingUser ? "Loading..." : "Login to your account"}
                         </button>
                         <CheckboxForm className="checkbox_account" name="remember" id="remember-me">
                             Remember me
