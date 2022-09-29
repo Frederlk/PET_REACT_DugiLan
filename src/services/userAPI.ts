@@ -22,6 +22,7 @@ export const userAPI = createApi({
                     const user =
                         users.find((item) => login === item.username || login === item.email) ||
                         ({} as IUser);
+                    console.log(user);
                     return { data: user };
                 } catch (e) {
                     return { error: e };
@@ -29,10 +30,9 @@ export const userAPI = createApi({
             },
         }),
 
-        changeAddress: build.mutation({
+        changeInfo: build.mutation({
             async queryFn({ id, data }) {
                 try {
-                    console.log(id, data);
                     await setDoc(doc(db, "users", id), {
                         ...data,
                     });

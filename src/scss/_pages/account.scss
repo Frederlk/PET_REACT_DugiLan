@@ -372,6 +372,10 @@
         overflow: hidden;
         box-shadow: rem(1) rem(4) rem(44) rgba(0, 0, 0, 0.03);
         border: rem(1) solid $light;
+        transition: border 0.3s ease 0s;
+        ._edit & {
+            border: rem(1) solid $blue;
+        }
     }
 
     &__row {
@@ -429,6 +433,12 @@
         &:disabled {
             background-color: transparent;
         }
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+            border: rem(1) solid transparent;
+        }
     }
 }
 
@@ -466,9 +476,14 @@
                 flex: 0 1 50%;
             }
         }
+        ._input__error {
+            @extend %p;
+            color: $error;
+        }
     }
 
     &__label {
+        display: block;
         @extend %h6;
         color: $text_4;
         margin-bottom: rem(10);
@@ -502,6 +517,17 @@
     &__btn {
         min-width: rem(190);
         @include adaptiveValue("margin-right", 50, 20);
+        &_edit {
+            ._edit & {
+                display: none;
+            }
+        }
+        &_submit {
+            display: none;
+            ._edit & {
+                display: inline-flex;
+            }
+        }
     }
 
     &__reset {

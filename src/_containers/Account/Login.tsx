@@ -18,7 +18,10 @@ interface LoginValues {
 
 const validationSchema = Yup.object({
     loginPassword: Yup.string()
-        .min(2, "Password is too short - should be 2 chars minimum.")
+        .matches(
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+            "Minimum eight characters, at least one uppercase letter, one lowercase letter and one number"
+        )
         .required("Password is required"),
 
     loginNameEmail: Yup.string()
@@ -56,7 +59,7 @@ const Login: FC = () => {
 
     useEffect(() => {
         user && login(userData, user);
-    }, [user]);
+    }, [user, userData]);
 
     return (
         <div className="body-registr__column body-registr__column_login">

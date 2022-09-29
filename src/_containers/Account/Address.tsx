@@ -5,7 +5,6 @@ import { IUserAddress } from "../../models";
 import AddressRow from "./AddressRow";
 import { useAppSelector } from "../../hooks/useRedux";
 import { userAPI } from "../../services/userAPI";
-import { useActions } from "../../hooks";
 
 const validationSchema = Yup.object({
     email: Yup.string().email("Invalid Email").required("Email Address is required"),
@@ -13,9 +12,7 @@ const validationSchema = Yup.object({
 
 const Address: FC = () => {
     const [edit, setEdit] = useState(false);
-
-    const [changeAddress] = userAPI.useChangeAddressMutation();
-    const { setUser } = useActions();
+    const [changeInfo] = userAPI.useChangeInfoMutation();
 
     const { user } = useAppSelector((state) => state.user);
     const { country, email, firstName, lastName, phone, postalCode, state, streetAddress, town } =
@@ -57,7 +54,7 @@ const Address: FC = () => {
                             town: values.town,
                         },
                     };
-                    changeAddress({
+                    changeInfo({
                         id: user.id,
                         data: newAddress,
                     });
