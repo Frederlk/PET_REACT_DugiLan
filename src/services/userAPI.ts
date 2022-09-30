@@ -22,7 +22,6 @@ export const userAPI = createApi({
                     const user =
                         users.find((item) => login === item.username || login === item.email) ||
                         ({} as IUser);
-                    console.log(user);
                     return { data: user };
                 } catch (e) {
                     return { error: e };

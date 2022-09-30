@@ -13,10 +13,10 @@ const validationSchema = Yup.object({
 const Address: FC = () => {
     const [edit, setEdit] = useState(false);
     const [changeInfo] = userAPI.useChangeInfoMutation();
-
+    const localState = JSON.parse(localStorage.getItem("user") || "{}");
     const { user } = useAppSelector((state) => state.user);
     const { country, email, firstName, lastName, phone, postalCode, state, streetAddress, town } =
-        user.address;
+        localState.address;
 
     const initialValues: IUserAddress = useMemo(() => {
         return {
@@ -30,7 +30,7 @@ const Address: FC = () => {
             streetAddress: streetAddress || "",
             town: town || "",
         };
-    }, [user.address]);
+    }, [localState]);
 
     return (
         <div className="content-account__address account-address">
@@ -41,7 +41,7 @@ const Address: FC = () => {
                 validationSchema={validationSchema}
                 onSubmit={(values) => {
                     const newAddress = {
-                        ...user,
+                        ...localState,
                         address: {
                             country: values.country,
                             email: values.email,
