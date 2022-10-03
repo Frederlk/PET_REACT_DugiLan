@@ -149,6 +149,9 @@
         @media (min-width: $tablet) {
             flex: 0 0 rem(400);
         }
+        @media (max-width: $tablet) {
+            margin-bottom: rem(30);
+        }
     }
     &__content {
         display: flex;
@@ -190,9 +193,13 @@
     }
 
     &__navigation {
-        @include gridCards(fit, rem(220), rem(260), rem(20));
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        @include adaptiveValue("gap", 85, 20, 1640, 1300, 1);
         align-items: center;
-        justify-content: space-between;
+        @media (max-width: $mobileSmall) {
+            grid-template-columns: 1fr;
+        }
     }
 
     &__item {
@@ -242,15 +249,19 @@
     }
 
     &__content {
-        @media (max-width: $mobile) {
-            overflow: auto;
-            @include scrollbars(rem(10), $blue, $white, true);
+        &._full {
+            @media (max-width: $mobile) {
+                overflow: auto;
+                margin: 0px rem(-15);
+                padding: 0px rem(15);
+                @include scrollbars(rem(10), $blue, $white, true);
+            }
         }
     }
 
     &__table {
         @media (max-width: $mobile) {
-            width: rem(800);
+            width: rem(700);
         }
     }
 
@@ -272,7 +283,7 @@
             border-radius: 0px 0px rem(10) rem(10);
         }
         &_top {
-            border-radius: rem(10) rem(10) 0px 0px;
+            border-radius: rem(10) rem(10) 0px 0px !important;
             overflow: hidden;
             background-color: rgba(15, 175, 233, 0.1);
             border: none;
@@ -490,6 +501,14 @@
     }
 
     &__input {
+        color: $text_3;
+        ._edit & {
+            color: $text_1;
+
+            &::placeholder {
+                color: $text_1;
+            }
+        }
     }
 
     &__subtitle {

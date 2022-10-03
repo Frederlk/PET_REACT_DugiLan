@@ -1,28 +1,35 @@
 import { FC, memo } from "react";
 import { Link } from "react-router-dom";
 import { images } from "../../../constants";
-import { useActions } from "../../../hooks";
+import { useActions, useSetPrices } from "../../../hooks";
 import { useAppSelector } from "../../../hooks/useRedux";
-import { IProduct } from "../../../models";
+import { ICartProduct, IProduct } from "../../../models";
 import { RouteNames } from "../../../routes";
 
 const { icon_heart_2, icon_heart_full, icon_shopCart_2, icon_shopCart_3, icon_eye } = images.icons;
 
 const ProductHover: FC<{ item: IProduct }> = ({ item }) => {
-    const { id, inFavourites, title } = item;
+    const { id, inFavourites, title, price, discount } = item;
 
     const { addToCart, addToFavourites, removeFromCart, removeFromFavourites } = useActions();
     const { cartItems, favourites } = useAppSelector((state) => state.product);
 
     const isFavourite = favourites.includes(id);
-    const inCart = cartItems.includes(id);
+    const inCart = cartItems.filter((item) => item.id === id)[0];
 
     const onHandleFavourite = () => {
         isFavourite ? removeFromFavourites(id) : addToFavourites(id);
     };
 
+    const { priceDiscount, priceTax } = useSetPrices(price, discount);
+    const cartItem: ICartProduct = {
+        id: id,
+        price: priceDiscount || priceTax,
+        qty: 1,
+    };
+
     const onHandleCart = () => {
-        inCart ? removeFromCart(id) : addToCart(id);
+        inCart ? removeFromCart(id) : addToCart(cartItem);
     };
 
     return (

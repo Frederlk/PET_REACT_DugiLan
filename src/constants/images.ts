@@ -158,6 +158,7 @@ import icon_suare from "./../assets/img/icons/square.svg";
 import icon_suareCheck from "./../assets/img/icons/square-check.svg";
 import icon_tv from "./../assets/img/icons/tv.svg";
 import icon_user from "./../assets/img/icons/user.svg";
+import icon_user_1 from "./../assets/img/icons/user_1.svg";
 import icon_wordpress from "./../assets/img/icons/wordpress.svg";
 import icon_x from "./../assets/img/icons/x.svg";
 const icons = {
@@ -189,6 +190,7 @@ const icons = {
     icon_suareCheck,
     icon_tv,
     icon_user,
+    icon_user_1,
     icon_wordpress,
     icon_x,
 };

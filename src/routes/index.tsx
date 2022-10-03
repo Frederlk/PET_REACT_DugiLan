@@ -14,7 +14,8 @@ export interface CustomRouteObject {
 const Page404 = lazy(() => import("../_pages/Page404")),
     HomePage = lazy(() => import("../_pages/HomePage")),
     Single = lazy(() => import("../_pages/Single")),
-    Account = lazy(() => import("../_pages/Account"));
+    Account = lazy(() => import("../_pages/Account")),
+    ShoppingCard = lazy(() => import("../_pages/ShoppingCard"));
 
 export enum RouteNames {
     HOME = "/",
@@ -157,5 +158,11 @@ export const routesConfig: CustomRouteObject[] = [
         path: RouteNames.MEETUPS,
         element: <Page404 />,
         type: "community",
+    },
+    // CARD ========================================================================================================================================================
+    {
+        title: "Shopping Card",
+        path: RouteNames.CARD,
+        element: <ShoppingCard />,
     },
 ];

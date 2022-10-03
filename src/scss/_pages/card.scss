@@ -1,0 +1,311 @@
+.body-card {
+    &__container {
+    }
+    &__title {
+        font-weight: 400;
+        @include adaptiveValue("margin-bottom", 50, 20);
+    }
+    &__flex {
+        @media (min-width: $tablet) {
+            display: flex;
+            gap: rem(30);
+            justify-content: space-between;
+        }
+    }
+
+    &__aside {
+        flex: 0 0 rem(300);
+        @media (min-width: em(1300)) {
+            flex: 0 0 rem(400);
+        }
+    }
+    &__content,
+    &__empty {
+        @media (min-width: $tablet) {
+            flex: 0 1 rem(1100);
+        }
+        @media (max-width: $tablet) {
+            @include adaptiveValue("margin-bottom", 40, 30, 991.98, 320, 1);
+        }
+    }
+
+    &__empty-title {
+        margin-bottom: rem(25);
+    }
+    &__empty-btn {
+        min-width: rem(200);
+    }
+}
+
+.content-card {
+    &__table {
+        @media (max-width: em(550)) {
+            overflow: auto;
+            margin: 0px rem(-15);
+            padding: 0px rem(15);
+            @include scrollbars(rem(10), $blue, $white, true);
+        }
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: rem(10) rem(45);
+        min-height: rem(95);
+        background-color: $white;
+        border: rem(1) solid $light;
+        @extend %p;
+        color: $secondary;
+        &:not(:last-child) {
+            border-bottom: none;
+        }
+        &:last-child {
+            border-radius: 0px 0px rem(10) rem(10);
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                .quantity__button {
+                    opacity: 1;
+                }
+            }
+        }
+        &_top {
+            color: $text_1;
+            border: none;
+            border-radius: rem(10) rem(10) 0px 0px;
+            background-color: rgba(15, 175, 233, 0.1);
+            min-height: rem(65);
+        }
+        @media (max-width: em(1300)) {
+            padding: rem(10) rem(15);
+            min-height: rem(80);
+        }
+        @media (max-width: em(550)) {
+            width: rem(450);
+        }
+    }
+
+    &__td {
+        padding: 0 rem(5);
+        &_1 {
+            flex: 0 1 percent(440, 1100);
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease 0s;
+            span {
+                width: rem(38);
+                @include adaptiveValue("margin-right", 40, 10);
+                img {
+                    max-width: 100%;
+                }
+                @media (max-width: $mobile) {
+                    display: none;
+                }
+            }
+            @media (max-width: em(550)) {
+                flex: 0 1 percent(350, 1100);
+            }
+            @media (any-hover: hover) {
+                &:hover {
+                    color: $blue;
+                }
+            }
+        }
+
+        &_2 {
+            flex: 0 1 percent(230, 1100);
+            @media (max-width: em(550)) {
+                flex: 0 1 percent(200, 1100);
+            }
+        }
+
+        &_3 {
+            text-align: center;
+            flex: 0 1 percent(210, 1100);
+        }
+
+        &_4 {
+            text-align: right;
+            flex: 0 1 percent(170, 1100);
+            @media (max-width: em(550)) {
+                flex: 0 1 percent(200, 1100);
+            }
+        }
+    }
+
+    &__bottom {
+    }
+}
+
+.bottom-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: rem(25);
+    @media (max-width: $mobile) {
+        flex-wrap: wrap;
+    }
+    &__discount {
+        display: flex;
+        align-items: center;
+        flex: 0 0 percent(570, 1100);
+        position: relative;
+        @media (max-width: $mobile) {
+            flex: 1 1 100%;
+        }
+        @media (max-width: $mobileSmall) {
+            flex-wrap: wrap;
+        }
+        ._input__error {
+            @extend %p;
+            color: $error;
+            @media (min-width: $mobileSmall) {
+                position: absolute;
+                top: 100%;
+                left: 0;
+            }
+        }
+    }
+
+    &__input {
+        &:focus,
+        &._error {
+            @media (min-width: $mobileSmall) {
+                border-right: none !important;
+            }
+        }
+        &:disabled {
+            color: $light;
+        }
+
+        @media (min-width: $mobileSmall) {
+            flex: 1 1 auto;
+            border-radius: rem(7) 0px 0px rem(7);
+            border-right: none;
+        }
+        @media (max-width: $mobileSmall) {
+            margin-bottom: rem(15);
+            flex: 1 1 100%;
+        }
+    }
+
+    &__btn {
+        &:disabled {
+            background-color: rgba(101, 101, 103, 0.1);
+            color: $text_2;
+            border: rem(1) solid $text_2;
+        }
+        @media (min-width: $mobileSmall) {
+            flex: 0 0 rem(190);
+            border-radius: 0px rem(10) rem(10) 0px;
+            @media (max-width: em(1300)) {
+                flex: 0 0 rem(120);
+            }
+            @media (max-width: $mobile) {
+                flex: 0 0 rem(190);
+            }
+        }
+        @media (max-width: $mobileSmall) {
+            flex: 1 1 100%;
+        }
+    }
+
+    &__text {
+        flex: 0 1 percent(500, 1100);
+        @extend %p;
+        &.initial {
+            color: $text_4;
+        }
+        &.error {
+            color: $error;
+        }
+        &.success {
+            color: $blue;
+        }
+        @media (min-width: $mobile) {
+            @include adaptiveValue("margin-left", 25, 10);
+        }
+        @media (max-width: $mobile) {
+            margin-top: rem(10);
+            flex: 1 1 100%;
+        }
+    }
+}
+
+.aside-card {
+    &__menu {
+    }
+}
+
+.card {
+    &__inner {
+        margin-bottom: rem(20);
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        min-height: rem(80);
+        background-color: $blue;
+        color: $white;
+        padding: rem(5) rem(30);
+        border-radius: rem(10) rem(10) 0 0;
+        @media (max-width: $mobile) {
+            padding: rem(5) rem(20);
+            min-height: rem(65);
+        }
+    }
+
+    &__body {
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: rem(65);
+        background-color: $white;
+        color: $text_4;
+        border: rem(1) solid $light;
+        padding: rem(5) rem(30);
+        @extend %p;
+        @media (max-width: $mobile) {
+            padding: rem(5) rem(20);
+            min-height: rem(60);
+        }
+        &:not(:last-child) {
+            border-bottom: none;
+        }
+        &:last-child {
+            border-radius: 0 0 rem(10) rem(10);
+        }
+        span {
+            margin-left: rem(3);
+        }
+        &_active {
+            background: rgba(15, 175, 233, 0.1);
+            color: $text_1;
+        }
+    }
+
+    &__label {
+        flex: 0 1 50%;
+        padding-right: rem(10);
+    }
+
+    &__price {
+        flex: 0 1 50%;
+        text-align: right;
+    }
+
+    &__btn {
+        width: 100%;
+        @media (max-width: $tablet) {
+            width: rem(290);
+        }
+        @media (max-width: em(550)) {
+            width: 100%;
+        }
+    }
+}

@@ -21,6 +21,10 @@ const Profile = () => {
         setSelected(DASHBOARD);
     }, [user]);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [selected]);
+
     return (
         <div className="page__body body-account">
             <div className="body-account__container">

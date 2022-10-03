@@ -38,6 +38,7 @@ textarea:-webkit-autofill:active {
         min-height: rem(50);
     }
     &::placeholder {
+        transition: color 0.3s ease 0s;
         color: $text_3;
     }
 

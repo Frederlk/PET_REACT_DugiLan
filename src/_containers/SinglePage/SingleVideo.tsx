@@ -5,7 +5,7 @@ const opts: YouTubeProps["opts"] = {
     playerVars: {
         autohide: 1,
         wmode: "opaque",
-        origin: "http://localhost:3000",
+        origin: "https://localhost:3000",
         color: "white",
     },
     width: "100%",

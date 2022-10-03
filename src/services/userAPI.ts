@@ -60,16 +60,5 @@ export const userAPI = createApi({
         // ! ACCOUNT ========================================================================================================================================================
         // * todo: fetchUser
         // todo: createOrder
-        // todo: changeAddresInfo
-        // todo: changeAccountInfo
-
-        // ! FAVOURITES ========================================================================================================================================================
-        // todo: addToFavourites
-        // todo: removeFromFavourites
-
-        // ! CART ========================================================================================================================================================
-        // todo: addProductToCart
-        // todo: removeProductFromCart
-        // todo: changeProductInCart
     }),
 });

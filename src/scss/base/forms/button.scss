@@ -13,6 +13,9 @@
     color: $white;
     border: rem(1) solid $blue;
     transition: background-color 0.3s ease 0s, color 0.3s ease 0s, border 0.3s ease 0s;
+    @media (max-width: $tablet) {
+        min-height: rem(50);
+    }
     @media (any-hover: hover) {
         &:hover {
             background-color: rgba(15, 175, 233, 0.1);

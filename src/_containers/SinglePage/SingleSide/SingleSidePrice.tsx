@@ -1,5 +1,5 @@
 import { FC, memo, useMemo, useCallback, useState, useEffect } from "react";
-import { useActions } from "../../../hooks";
+import { useActions, useSetPrices } from "../../../hooks";
 import { useAppSelector } from "../../../hooks/useRedux";
 import { IProduct } from "../../../models";
 import { images } from "../../../constants";
@@ -8,21 +8,19 @@ import Checkbox from "../../../_components/Checkbox";
 import { useLocation } from "react-router-dom";
 
 const { icon_check } = images.icons;
-const tax = 0.1;
 
 const SingleSidePrice: FC<{ item: IProduct }> = ({ item }) => {
     const { price, discount, included, id, extra } = item;
 
-    const priceTax = price + price * tax;
-    const priceDiscount = discount ? priceTax - priceTax * (discount / 100) : priceTax;
+    const { addToCart, removeFromCart } = useActions();
+    const { cartItems } = useAppSelector((state) => state.product);
+
     const [totalPrice, setTotalPrice] = useState(price);
+    const { priceDiscount, priceTax } = useSetPrices(price, discount);
 
     useEffect(() => {
         setTotalPrice(priceDiscount || priceTax);
     }, [price]);
-
-    const { addToCart, removeFromCart } = useActions();
-    const { cartItems } = useAppSelector((state) => state.product);
 
     const includedItems = useMemo(
         () =>
@@ -54,11 +52,19 @@ const SingleSidePrice: FC<{ item: IProduct }> = ({ item }) => {
         [extra, totalPrice]
     );
 
+    console.log(totalPrice);
+
     const { pathname } = useLocation();
-    const inCart = cartItems.includes(id);
+    const inCart = cartItems.filter((item) => item.id === id)[0];
     const onHandleCart = useCallback(() => {
-        inCart ? removeFromCart(id) : addToCart(id);
-    }, [inCart, pathname]);
+        inCart
+            ? removeFromCart(id)
+            : addToCart({
+                  id: id,
+                  price: totalPrice,
+                  qty: 1,
+              });
+    }, [inCart, pathname, totalPrice]);
 
     return (
         <div className="aside-single__price price-workshop">

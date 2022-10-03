@@ -45,6 +45,11 @@ export interface IProduct {
     version: string;
 }
 
+export interface ICartProduct {
+    id: string;
+    qty: number;
+    price: number;
+}
 //========================================================================================================================================================
 
 export interface IUserAddress {

@@ -1,12 +1,12 @@
-import { FC, memo, useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { FC, memo } from "react";
+import { Link } from "react-router-dom";
 import { RouteNames } from "../../routes";
 
 import { images } from "../../constants";
 import { useAppSelector } from "../../hooks/useRedux";
 import Favourites from "./Favourites";
 
-const { icon_shopBag_1, icon_user } = images.icons;
+const { icon_shopBag_1, icon_user_1 } = images.icons;
 
 const Actions: FC = () => {
     const { cartItems } = useAppSelector((state) => state.product);
@@ -22,7 +22,7 @@ const Actions: FC = () => {
                 Account
             </Link>
             <Link to={RouteNames.ACCOUNT} className="actions-header__btn-icon">
-                <img src={icon_user} alt="Account" />
+                <img src={icon_user_1} alt="Account" />
             </Link>
         </div>
     );
