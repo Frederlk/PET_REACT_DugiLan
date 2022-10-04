@@ -8,10 +8,6 @@ import { couponAPI } from "../../services/couponAPI";
 import { ICoupon } from "../../models";
 import { Input } from "../../_components";
 
-const validationSchema = object({
-    coupon: string().required("Please, enter coupon"),
-});
-
 const Discount: FC = () => {
     const [getCoupon, { isLoading, isSuccess, data }] = couponAPI.useLazyGetCouponQuery();
     const { coupon } = useAppSelector((state) => state.product);
@@ -39,10 +35,14 @@ const Discount: FC = () => {
     return (
         <div className="content-card__bottom bottom-card">
             <Formik
-                validationSchema={validationSchema}
                 initialValues={initialValues}
                 onSubmit={(values) => {
-                    getCoupon(values.coupon);
+                    if (values.coupon) {
+                        getCoupon(values.coupon);
+                    } else {
+                        setStatus("initial");
+                        setCoupon(null);
+                    }
                 }}
             >
                 <FormikForm className="bottom-card__discount">

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Link } from "react-router-dom";
 import { IProduct } from "../../../models";
 import { RouteNames } from "../../../routes";
@@ -31,4 +31,4 @@ const ProductItem: FC<{ className: string; item: IProduct }> = ({ className, ite
     );
 };
 
-export default ProductItem;
+export default memo(ProductItem);

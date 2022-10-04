@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { HomeSlider } from "..";
 import { Search } from "../../_components";
 
@@ -20,4 +20,4 @@ const Home: FC = () => {
     );
 };
 
-export default Home;
+export default memo(Home);

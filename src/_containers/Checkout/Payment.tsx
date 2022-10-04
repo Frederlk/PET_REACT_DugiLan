@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC, memo, useCallback } from "react";
 import { Formik, Form as FormikForm } from "formik";
 import { boolean, object, string } from "yup";
 import { useNavigate } from "react-router-dom";
@@ -33,7 +33,7 @@ const paymentItems = data.soforteItems.map(({ img, alt }, i) => (
 ));
 
 const Payment: FC = () => {
-    const { cartItems, coupon } = useAppSelector((state) => state.product);
+    const { cartItems, coupon, prices } = useAppSelector((state) => state.product);
     const { user } = useAppSelector((state) => state.user);
     const { clearCart, setUser } = useActions();
 
@@ -41,47 +41,64 @@ const Payment: FC = () => {
 
     const navigate = useNavigate();
 
+    const onHandleSubmit = useCallback(
+        (values: any) => {
+            const orderDate = Date.now();
+            const orderNumber =
+                user.orders.length > 0
+                    ? `#${+user.orders[user.orders.length - 1].orderId.replace(/[^+\d]/g, "") + 1}`
+                    : "#1";
+
+            const orderItems: IOrder[] = cartItems.map(({ id, price, qty }) => {
+                const subtotal = price * qty;
+                const discount = coupon ? subtotal * (coupon.discount / 100) : 0;
+
+                return {
+                    date: orderDate,
+                    download: data.productItems.find((item) => item.id === id)?.download || "",
+                    orderId: orderNumber,
+                    productId: id,
+                    qty: qty,
+                    status: "Processing",
+                    price: +price.toFixed(2),
+                    subTotalPrice: +subtotal.toFixed(2),
+                    totalPrice: +(subtotal - discount).toFixed(2),
+                    payment: values.payment,
+                };
+            });
+
+            const updatedUser = {
+                ...user,
+                orders: [...user.orders, ...orderItems],
+            };
+
+            changeInfo({ id: user.id, data: updatedUser });
+            setUser(updatedUser);
+            localStorage.setItem("user", JSON.stringify(updatedUser));
+            clearCart();
+
+            navigate(RouteNames.THANKS, {
+                state: {
+                    products: cartItems,
+                    date: orderDate,
+                    orderNumber: orderNumber,
+                    payment: values.payment,
+                    prices: prices,
+                },
+            });
+        },
+        [user, cartItems, coupon]
+    );
+
+    const emptyAddress = Object.values(user.address).filter((item) => item === "" || !item);
+
     return (
         <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
             validateOnChange={false}
             validateOnBlur={false}
-            onSubmit={(values) => {
-                const orderDate = Date.now();
-
-                const orderItems: IOrder[] = cartItems.map(({ id, price, qty }) => {
-                    const subtotal = price * qty;
-                    const discount = coupon ? subtotal * (coupon.discount / 100) : 0;
-
-                    return {
-                        date: orderDate,
-                        download: data.productItems.find((item) => item.id === id)?.download || "",
-                        orderId: `#${
-                            +user.orders[user.orders.length - 1].orderId.replace(/[^+\d]/g, "") + 1
-                        }`,
-                        productId: id,
-                        qty: qty,
-                        status: "Processing",
-                        price: +price.toFixed(2),
-                        subTotalPrice: +subtotal.toFixed(2),
-                        totalPrice: +(subtotal - discount).toFixed(2),
-                        payment: values.payment,
-                    };
-                });
-
-                const updatedUser = {
-                    ...user,
-                    orders: [...user.orders, ...orderItems],
-                };
-                changeInfo({ id: user.id, data: updatedUser });
-                setUser(updatedUser);
-                localStorage.setItem("user", JSON.stringify(updatedUser));
-                // clearCart();
-                navigate(RouteNames.THANKS, {
-                    state: orderItems,
-                });
-            }}
+            onSubmit={(values) => onHandleSubmit(values)}
         >
             {({ errors }) => (
                 <FormikForm className="order-billing__form form-billing">
@@ -113,11 +130,16 @@ const Payment: FC = () => {
                         {errors.terms && <div className="_input__error">{errors.terms}</div>}
                         <button
                             type="submit"
-                            disabled={cartItems.length === 0 || isLoading}
+                            disabled={cartItems.length === 0 || isLoading || emptyAddress.length > 0}
                             className="form-billing__btn btn"
                         >
                             Place order
                         </button>
+                        {emptyAddress.length > 0 && (
+                            <div className="_input__error">
+                                Please check your address info. All fields must be filled
+                            </div>
+                        )}
                     </div>
                 </FormikForm>
             )}

@@ -134,7 +134,7 @@ const Details: FC = () => {
                     });
                 }}
             >
-                {({ values, errors, handleBlur, handleChange, setFieldError }) => {
+                {({ values, errors, handleChange, setFieldError }) => {
                     const handleDebounceChange = (e: ChangeEvent<HTMLInputElement>, name: string) => {
                         handleChange(e);
                         debouncedValidation(e.target.value, setFieldError, name);

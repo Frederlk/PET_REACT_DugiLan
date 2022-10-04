@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { images } from "../../../constants";
 import FeatureItem from "./FeatureItem";
 
@@ -28,4 +28,4 @@ const BodyFeatures: FC = () => {
     );
 };
 
-export default BodyFeatures;
+export default memo(BodyFeatures);

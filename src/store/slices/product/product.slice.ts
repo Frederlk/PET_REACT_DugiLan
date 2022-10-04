@@ -8,16 +8,24 @@ export enum LSKeys {
     LS_COUPON_KEY = "coupon",
 }
 
+export interface IPrices {
+    subtotal: number;
+    discount: number;
+    total: number;
+}
+
 export interface productState {
     cartItems: ICartProduct[];
     favourites: string[];
     coupon: ICoupon | null;
+    prices: IPrices;
 }
 
 const initialState: productState = {
     cartItems: JSON.parse(localStorage.getItem(LSKeys.LS_CART_KEY) ?? "[]"),
     favourites: JSON.parse(localStorage.getItem(LSKeys.LS_FAV_KEY) ?? "[]"),
     coupon: null,
+    prices: {} as IPrices,
 };
 
 export const productSlice = createSlice({
@@ -48,6 +56,9 @@ export const productSlice = createSlice({
         setCoupon: (state, action: PayloadAction<ICoupon | null>) => {
             state.coupon = action.payload;
             localStorage.setItem(LSKeys.LS_COUPON_KEY, JSON.stringify(state.coupon));
+        },
+        setPrices: (state, action: PayloadAction<IPrices>) => {
+            state.prices = action.payload;
         },
 
         //========================================================================================================================================================

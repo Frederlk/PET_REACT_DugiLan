@@ -1,7 +1,7 @@
 import { IUser } from "./../models/index";
 import { db } from "../firebaseConfig";
 import { createApi, fakeBaseQuery } from "@reduxjs/toolkit/query/react";
-import { addDoc, collection, doc, getDoc, getDocs, serverTimestamp, setDoc } from "firebase/firestore";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 
 export const userAPI = createApi({
     reducerPath: "userAPI",

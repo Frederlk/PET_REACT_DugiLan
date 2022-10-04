@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Swiper, SwiperSlide, SwiperProps } from "swiper/react";
 import { Autoplay, Keyboard, EffectFade } from "swiper";
 
@@ -45,4 +45,4 @@ const HomeSlider: FC = () => {
     );
 };
 
-export default HomeSlider;
+export default memo(HomeSlider);

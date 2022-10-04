@@ -5,13 +5,17 @@ import { ICartProduct } from "../models";
 import { RouteNames } from "../routes";
 import { Quantity } from "./";
 
-const CardItem: FC<{ item: ICartProduct }> = ({ item }) => {
+const CardItem: FC<{ item: ICartProduct; className: string; card?: boolean }> = ({
+    item,
+    className,
+    card,
+}) => {
     const { id, price, qty } = item;
     const { title, logo } = data.productItems.filter((item) => item.id === id)[0];
 
     return (
-        <div className="content-card__row">
-            <Link to={RouteNames.PRODUCT_LINK + title} className="content-card__td content-card__td_1">
+        <div className={`${className}__row`}>
+            <Link to={RouteNames.PRODUCT_LINK + title} className={`${className}__td ${className}__td_1`}>
                 {logo && (
                     <span>
                         <img src={logo} alt={title} />
@@ -19,9 +23,14 @@ const CardItem: FC<{ item: ICartProduct }> = ({ item }) => {
                 )}
                 {title}
             </Link>
-            <div className="content-card__td content-card__td_2">$ {price.toFixed(2)}</div>
-            <Quantity className="content-card__td content-card__td_3" item={item} />
-            <div className="content-card__td content-card__td_4">$ {(price * qty).toFixed(2)}</div>
+            <div className={`${className}__td ${className}__td_2`}>$ {price.toFixed(2)}</div>
+            {card ? (
+                <Quantity className={`${className}__td ${className}__td_3`} item={item} />
+            ) : (
+                <div className={`${className}__td ${className}__td_3`}>{qty}</div>
+            )}
+
+            <div className={`${className}__td ${className}__td_4`}>$ {(price * qty).toFixed(2)}</div>
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import SideAdvert from "./SideAdvert";
 import SideCategories from "./SideCategories";
 import SideNewsletter from "./SideNewsletter";
@@ -15,4 +15,4 @@ const Side: FC = () => {
     );
 };
 
-export default Side;
+export default memo(Side);

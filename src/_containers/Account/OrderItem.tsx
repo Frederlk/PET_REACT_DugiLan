@@ -21,7 +21,7 @@ const OrderItem: FC<{ item: IOrder }> = ({ item }) => {
             <div className="account-orders__td account-orders__td_2">{orderId}</div>
             <div className="account-orders__td account-orders__td_3">{status}</div>
             <div className="account-orders__td account-orders__td_4">{qty}</div>
-            <div className="account-orders__td account-orders__td_5">$ {totalPrice}</div>
+            <div className="account-orders__td account-orders__td_5">$ {totalPrice.toFixed(2)}</div>
             <div className="account-orders__td account-orders__td_6 account-orders__td_more">
                 <Link to={RouteNames.PRODUCT_LINK + title}>details</Link>
             </div>

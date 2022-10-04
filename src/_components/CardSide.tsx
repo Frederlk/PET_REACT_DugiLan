@@ -1,11 +1,14 @@
 import { FC, memo, useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
+import { useActions } from "../hooks";
 import { useAppSelector } from "../hooks/useRedux";
 import { RouteNames } from "../routes";
 
 const CardSide: FC<{ className: string; card?: boolean }> = ({ className, card }) => {
     const { coupon, cartItems } = useAppSelector((state) => state.product);
+    const { setPrices } = useActions();
     const [total, setTotal] = useState(0);
+    const { isAuth } = useAppSelector((state) => state.user);
 
     const subtotal = useMemo(() => {
         return cartItems
@@ -20,6 +23,14 @@ const CardSide: FC<{ className: string; card?: boolean }> = ({ className, card }
     useEffect(() => {
         setTotal(subtotal - discount);
     }, [subtotal, discount]);
+
+    useEffect(() => {
+        setPrices({
+            subtotal,
+            discount,
+            total,
+        });
+    }, [total]);
 
     return (
         <aside className={`${className || ""} aside-card`}>
@@ -41,9 +52,14 @@ const CardSide: FC<{ className: string; card?: boolean }> = ({ className, card }
                         </div>
                     </div>
                 </div>
-                {card && (
+                {card && isAuth && (
                     <Link to={RouteNames.CHECKOUT} className="card__btn btn">
                         Proceed to checkout
+                    </Link>
+                )}
+                {!isAuth && (
+                    <Link to={RouteNames.ACCOUNT} className="card__btn btn">
+                        Please Login
                     </Link>
                 )}
             </section>

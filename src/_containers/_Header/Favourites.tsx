@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState, memo } from "react";
 import { useLocation } from "react-router-dom";
 import { images } from "../../constants";
 import { useClickOutside } from "../../hooks";
@@ -46,4 +46,4 @@ const Favourites: FC = () => {
     );
 };
 
-export default Favourites;
+export default memo(Favourites);

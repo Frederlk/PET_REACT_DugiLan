@@ -10,7 +10,7 @@ const ShoppingCard: FC = () => {
     const { cartItems } = useAppSelector((state) => state.product);
 
     const productItems = useMemo(
-        () => cartItems.map((item) => <CardItem key={item.id} item={item} />),
+        () => cartItems.map((item) => <CardItem className="content-card" key={item.id} card item={item} />),
         [cartItems]
     );
 

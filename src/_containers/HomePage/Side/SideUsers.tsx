@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 const SideUsers: FC = () => {
     return (
@@ -27,4 +27,4 @@ const SideUsers: FC = () => {
     );
 };
 
-export default SideUsers;
+export default memo(SideUsers);

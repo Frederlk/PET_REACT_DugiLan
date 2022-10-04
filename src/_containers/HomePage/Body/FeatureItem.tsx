@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 interface FeatureItemProps {
     icon: string;
@@ -20,4 +20,4 @@ const FeatureItem: FC<FeatureItemProps> = ({ icon, text, title }) => {
     );
 };
 
-export default FeatureItem;
+export default memo(FeatureItem);

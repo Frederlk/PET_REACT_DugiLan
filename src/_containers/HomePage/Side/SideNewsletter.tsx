@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState, memo } from "react";
 import { Formik, Form as FormikForm } from "formik";
 import * as Yup from "yup";
 import { images } from "../../../constants";
@@ -67,4 +67,4 @@ const SideNewsletter: FC = () => {
     );
 };
 
-export default SideNewsletter;
+export default memo(SideNewsletter);

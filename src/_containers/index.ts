@@ -40,3 +40,5 @@ export { default as Coupon } from "./Checkout/Coupon";
 export { default as CardOrder } from "./Checkout/Order";
 export { default as CardOrderItem } from "./Checkout/OrderItem";
 export { default as Payment } from "./Checkout/Payment";
+export { default as OrderInfo } from "./Checkout/OrderInfo";
+export { default as OrderDetails } from "./Checkout/OrderDetails";

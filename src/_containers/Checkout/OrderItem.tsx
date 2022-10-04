@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Link } from "react-router-dom";
 import { data } from "../../constants";
 import { useActions } from "../../hooks";
@@ -47,4 +47,4 @@ const OrderItem: FC<{ id: string }> = ({ id }) => {
     );
 };
 
-export default OrderItem;
+export default memo(OrderItem);

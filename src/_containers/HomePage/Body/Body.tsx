@@ -1,4 +1,4 @@
-import { FC, useMemo } from "react";
+import { FC, useMemo, memo } from "react";
 import { data } from "../../../constants";
 import BodyFeatures from "./BodyFeatures";
 import ProductItem from "./ProductItem";
@@ -20,4 +20,4 @@ const Body: FC = () => {
     );
 };
 
-export default Body;
+export default memo(Body);

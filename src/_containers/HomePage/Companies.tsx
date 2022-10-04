@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { data } from "../../constants";
 
 const companiesItems = data.companiesItems.map(({ img, alt }, i) => (
@@ -18,4 +18,4 @@ const Companies: FC = () => {
     );
 };
 
-export default Companies;
+export default memo(Companies);

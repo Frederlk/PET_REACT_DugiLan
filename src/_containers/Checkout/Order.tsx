@@ -1,4 +1,4 @@
-import { FC, useMemo } from "react";
+import { FC, useMemo, memo } from "react";
 import { useAppSelector } from "../../hooks/useRedux";
 import { CardOrderItem, Payment } from "..";
 import { CardSide } from "../../_components";
@@ -27,4 +27,4 @@ const Order: FC = () => {
     );
 };
 
-export default Order;
+export default memo(Order);

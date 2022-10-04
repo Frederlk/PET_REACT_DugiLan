@@ -302,6 +302,7 @@
             flex: 0 1 percent(250, 1120);
             display: flex;
             align-items: center;
+            transition: color 0.3s ease 0s;
             span {
                 @include adaptiveValue("width", 38, 20);
                 @include adaptiveValue("margin-right", 18, 10);
@@ -310,6 +311,11 @@
                 }
                 @media (max-width: em(1300)) {
                     display: none;
+                }
+            }
+            @media (any-hover: hover) {
+                &:hover {
+                    color: $blue;
                 }
             }
         }
@@ -331,6 +337,12 @@
         }
         &_6 {
             flex: 0 1 percent(90, 1120);
+            transition: color 0.3s ease 0s;
+            @media (any-hover: hover) {
+                &:hover {
+                    color: $blue;
+                }
+            }
         }
         &_7 {
             flex: 1 1 auto;
@@ -375,6 +387,17 @@
                 opacity: 0.5;
             }
         }
+        &_edit {
+            ._edit & {
+                display: none;
+            }
+        }
+        &_submit {
+            display: none;
+            ._edit & {
+                display: inline-flex;
+            }
+        }
     }
 
     &__body {
@@ -393,6 +416,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        position: relative;
         padding: 0px rem(40);
         &:not(:last-child) {
             border-bottom: rem(1) solid $light;
@@ -428,6 +452,17 @@
         text-align: right;
         @media (max-width: $mobileSmall) {
             flex: 0 1 80%;
+        }
+        ._input__error {
+            @extend %p;
+            color: $error;
+            @media (min-width: $mobileSmall) {
+                position: absolute;
+                z-index: 2;
+                top: 100%;
+                margin-top: rem(-25);
+                left: rem(40);
+            }
         }
     }
 

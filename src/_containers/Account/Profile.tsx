@@ -3,18 +3,20 @@ import { useActions } from "../../hooks";
 import { useAppSelector } from "../../hooks/useRedux";
 import { selectedNames } from "../../store/slices/account/account.slice";
 import { AccountSide, Dashboard, Orders, Address, Details } from "..";
+import { useLocation } from "react-router-dom";
 
 const { DASHBOARD, ORDERS, ADDRESS, DETAILS } = selectedNames;
 
 const labels = [DASHBOARD, ORDERS, ADDRESS, DETAILS];
 
 const Profile: FC = () => {
+    const { state } = useLocation();
     const { selected } = useAppSelector((state) => state.account);
     const { user } = useAppSelector((state) => state.user);
     const { setSelected } = useActions();
 
     useEffect(() => {
-        setSelected(DASHBOARD);
+        setSelected(state?.orderSuccess ? ORDERS : DASHBOARD);
     }, [user]);
 
     useEffect(() => {

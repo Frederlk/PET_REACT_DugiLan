@@ -1,0 +1,184 @@
+.body-thanks {
+    &__container {
+    }
+
+    &__title {
+        font-weight: 400;
+        @include adaptiveValue("margin-bottom", 50, 30);
+    }
+
+    &__order {
+        @include adaptiveValue("margin-bottom", 50, 30);
+        display: flex;
+        @media (max-width: $tablet) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__column {
+        flex: 0 1 25%;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        &:not(:first-child) {
+            align-items: center;
+        }
+        @media (min-width: $tablet) {
+            &:not(:last-child) {
+                border-right: rem(1) solid $light;
+            }
+        }
+        @media (max-width: $tablet) {
+            flex: 0 1 50%;
+            align-items: center;
+            text-align: center;
+            margin-bottom: rem(15);
+        }
+        @media (max-width: $mobileSmall) {
+            flex: 1 1 100%;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        @media (min-width: $mobileSmall) {
+            padding: rem(10);
+        }
+    }
+
+    &__label {
+        color: $text_4;
+        @extend %p;
+        @media (min-width: $mobileSmall) {
+            margin-bottom: rem(5);
+        }
+    }
+
+    &__info {
+        color: $text_1;
+        @extend %p-lead_bold;
+    }
+
+    &__details {
+        max-width: rem(1100);
+    }
+}
+
+.thanks-details {
+    &__title {
+        @include adaptiveValue("margin-bottom", 50, 20);
+        font-weight: 400;
+    }
+
+    &__table {
+        @media (max-width: em(550)) {
+            overflow: auto;
+            margin: 0px rem(-15);
+            padding: 0px rem(15);
+            @include scrollbars(rem(10), $blue, $white, true);
+        }
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: rem(10) rem(45);
+        min-height: rem(95);
+        background-color: $white;
+        border: rem(1) solid $light;
+        @extend %p;
+        color: $secondary;
+        &:not(:last-child) {
+            border-bottom: none;
+        }
+        &:last-child {
+            border-radius: 0px 0px rem(10) rem(10);
+        }
+        @media (max-width: em(1300)) {
+            padding: rem(10) rem(15);
+            min-height: rem(80);
+        }
+        @media (max-width: em(550)) {
+            width: rem(450);
+        }
+        &_top {
+            color: $text_1;
+            border: none;
+            border-radius: rem(10) rem(10) 0px 0px;
+            background-color: rgba(15, 175, 233, 0.1);
+            min-height: rem(65);
+        }
+        &_total {
+            min-height: rem(65);
+            background: rgba(15, 175, 233, 0.1);
+        }
+    }
+
+    &__td {
+        padding: 0 rem(5);
+        &_1 {
+            flex: 0 1 percent(440, 1100);
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease 0s;
+            span {
+                width: rem(38);
+                @include adaptiveValue("margin-right", 40, 10);
+                img {
+                    max-width: 100%;
+                }
+                @media (max-width: $mobile) {
+                    display: none;
+                }
+            }
+            @media (max-width: em(550)) {
+                flex: 0 1 percent(350, 1100);
+            }
+            @media (any-hover: hover) {
+                &:hover {
+                    color: $blue;
+                }
+            }
+        }
+
+        &_2 {
+            flex: 0 1 percent(230, 1100);
+            @media (max-width: em(550)) {
+                flex: 0 1 percent(200, 1100);
+            }
+        }
+
+        &_3 {
+            text-align: center;
+            flex: 0 1 percent(210, 1100);
+        }
+
+        &_4 {
+            text-align: right;
+            flex: 0 1 percent(170, 1100);
+            @media (max-width: em(550)) {
+                flex: 0 1 percent(200, 1100);
+            }
+        }
+
+        &_label {
+            flex: 0 1 50%;
+        }
+
+        &_info {
+            flex: 0 1 50%;
+            text-align: right;
+        }
+    }
+
+    &__btn {
+        @include adaptiveValue("margin-top", 25, 20);
+        min-width: rem(270);
+        @media (max-width: $mobileSmall) {
+            width: 100%;
+        }
+    }
+}

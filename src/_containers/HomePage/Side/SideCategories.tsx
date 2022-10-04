@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { NavLink } from "react-router-dom";
 import { data } from "../../../constants";
 import { RouteNames } from "../../../routes";
@@ -47,4 +47,4 @@ const SideCategories: FC = () => {
     );
 };
 
-export default SideCategories;
+export default memo(SideCategories);

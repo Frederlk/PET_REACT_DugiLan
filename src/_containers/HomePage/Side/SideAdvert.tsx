@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { images } from "../../../constants";
 import { Picture } from "../../../_components";
 
@@ -22,4 +22,4 @@ const SideAdvert: FC = () => {
     );
 };
 
-export default SideAdvert;
+export default memo(SideAdvert);
