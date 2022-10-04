@@ -1,9 +1,9 @@
 import { FC, memo } from "react";
 import { Link } from "react-router-dom";
-import { data } from "../../constants";
-import { ICartProduct } from "../../models";
-import { RouteNames } from "../../routes";
-import Quantity from "../../_components/Quantity";
+import { data } from "../constants";
+import { ICartProduct } from "../models";
+import { RouteNames } from "../routes";
+import { Quantity } from "./";
 
 const CardItem: FC<{ item: ICartProduct }> = ({ item }) => {
     const { id, price, qty } = item;

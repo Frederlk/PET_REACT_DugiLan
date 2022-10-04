@@ -2,15 +2,15 @@ import { FC, memo, useMemo, useState } from "react";
 import { Formik, Form as FormikForm } from "formik";
 import * as Yup from "yup";
 import { IUserAddress } from "../../models";
-import AddressRow from "./AddressRow";
 import { useAppSelector } from "../../hooks/useRedux";
 import { userAPI } from "../../services/userAPI";
+import AddressRow from "./AddressRow";
 
 const validationSchema = Yup.object({
     email: Yup.string().email("Invalid Email").required("Email Address is required"),
 });
 
-const Address: FC = () => {
+const Address: FC<{ className?: string; address?: boolean }> = ({ className, address }) => {
     const [edit, setEdit] = useState(false);
     const [changeInfo] = userAPI.useChangeInfoMutation();
     const localState = JSON.parse(localStorage.getItem("user") || "{}");
@@ -33,8 +33,8 @@ const Address: FC = () => {
     }, [localState]);
 
     return (
-        <div className="content-account__address account-address">
-            <h2 className="account-address__title">Address</h2>
+        <div className={`${className || ""} account-address`}>
+            {address && <h2 className="account-address__title">Address</h2>}
             <div className="account-address__subtitle">Billing address</div>
             <Formik
                 initialValues={initialValues}

@@ -43,12 +43,18 @@ export interface IProduct {
     browsers: string[];
     category: string;
     version: string;
+    download: string;
 }
 
 export interface ICartProduct {
     id: string;
     qty: number;
     price: number;
+}
+
+export interface ICoupon {
+    coupon: string;
+    discount: number;
 }
 //========================================================================================================================================================
 
@@ -67,11 +73,14 @@ export interface IUserAddress {
 export interface IOrder {
     productId: string;
     orderId: string;
-    date: Date;
+    date: number;
+    price: number;
+    subTotalPrice: number;
     totalPrice: number;
     download: string;
     qty: number;
     status: string;
+    payment: string;
 }
 
 export interface IUser {

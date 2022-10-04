@@ -3,7 +3,7 @@ import { Formik, Form as FormikForm } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { RouteNames } from "../routes";
-import Input from "./Input";
+import Input from "./FormComponents/Input";
 
 interface SearchValues {
     search: string;

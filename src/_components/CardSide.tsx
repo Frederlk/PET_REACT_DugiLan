@@ -1,9 +1,9 @@
 import { FC, memo, useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { useAppSelector } from "../../hooks/useRedux";
-import { RouteNames } from "../../routes";
+import { useAppSelector } from "../hooks/useRedux";
+import { RouteNames } from "../routes";
 
-const Side: FC = () => {
+const CardSide: FC<{ className: string; card?: boolean }> = ({ className, card }) => {
     const { coupon, cartItems } = useAppSelector((state) => state.product);
     const [total, setTotal] = useState(0);
 
@@ -14,7 +14,7 @@ const Side: FC = () => {
     }, [cartItems]);
 
     const discount = useMemo(() => {
-        return coupon ? subtotal * (coupon / 100) : 0;
+        return coupon ? subtotal * (coupon.discount / 100) : 0;
     }, [subtotal, coupon]);
 
     useEffect(() => {
@@ -22,10 +22,10 @@ const Side: FC = () => {
     }, [subtotal, discount]);
 
     return (
-        <aside className="body-card__aside aside-card">
+        <aside className={`${className || ""} aside-card`}>
             <section className="aside-card__menu card">
                 <div className="card__inner">
-                    <h3 className="card__title">My Profile</h3>
+                    {card && <h3 className="card__title">My Profile</h3>}
                     <div className="card__body">
                         <div className="card__item">
                             <div className="card__label">Subtotal</div>
@@ -41,12 +41,14 @@ const Side: FC = () => {
                         </div>
                     </div>
                 </div>
-                <Link to={RouteNames.CARD + "/checkout"} className="card__btn btn">
-                    Proceed to checkout
-                </Link>
+                {card && (
+                    <Link to={RouteNames.CHECKOUT} className="card__btn btn">
+                        Proceed to checkout
+                    </Link>
+                )}
             </section>
         </aside>
     );
 };
 
-export default memo(Side);
+export default memo(CardSide);

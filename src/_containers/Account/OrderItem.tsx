@@ -1,8 +1,9 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Link } from "react-router-dom";
 import { data } from "../../constants";
 import { IOrder } from "../../models";
 import { RouteNames } from "../../routes";
+
 const OrderItem: FC<{ item: IOrder }> = ({ item }) => {
     const { orderId, productId, totalPrice, download, qty, status } = item;
     const { title, logo } = data.productItems.filter((p) => p.id === productId)[0];
@@ -33,4 +34,4 @@ const OrderItem: FC<{ item: IOrder }> = ({ item }) => {
     );
 };
 
-export default OrderItem;
+export default memo(OrderItem);

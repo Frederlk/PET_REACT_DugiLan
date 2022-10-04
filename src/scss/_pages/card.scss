@@ -277,6 +277,12 @@
         &:not(:last-child) {
             border-bottom: none;
         }
+        &:first-child {
+            .order-billing__prices & {
+                border-radius: rem(10) rem(10) 0 0;
+                overflow: hidden;
+            }
+        }
         &:last-child {
             border-radius: 0 0 rem(10) rem(10);
         }

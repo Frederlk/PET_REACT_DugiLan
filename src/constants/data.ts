@@ -2,7 +2,7 @@ import { RouteNames } from "./../routes/index";
 import { ICategory, IProduct } from "./../models/index";
 import { IImageItem, ISocialItem } from "./../models";
 import images from "./images";
-const { homeImages, catalogImages, companyImages, footerImages, icons } = images;
+const { homeImages, catalogImages, companyImages, footerImages, icons, paymentImages } = images;
 
 const socialItems: ISocialItem[] = [
     {
@@ -145,6 +145,7 @@ const productItems: IProduct[] = [
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
         category: "WORDPRESS",
         version: "2.0.0",
+        download: "/RubICons",
     },
     {
         id: "e4130915-6a35-49e0-abc8-0d07570dcc3",
@@ -207,6 +208,7 @@ const productItems: IProduct[] = [
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
         category: "Site",
         version: "2.0.0",
+        download: "/DugiLan",
     },
     {
         id: "e4130915-6a35-49e0-abc8-0d07570dcc",
@@ -229,6 +231,7 @@ const productItems: IProduct[] = [
         browsers: ["Firefox", "Chrome", "Opera", "Edge"],
         category: "Site",
         version: "2.0.0",
+        download: "/donwload_link",
     },
     {
         id: "e4130915-6a35-49e0-abc8-0d07570dc",
@@ -247,6 +250,7 @@ const productItems: IProduct[] = [
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
         category: "Blogging",
         version: "2.1.1",
+        download: "/donwload_link",
     },
     {
         id: "e4130915-6a35-49e0-abc8-0d07570d",
@@ -282,6 +286,7 @@ const productItems: IProduct[] = [
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
         category: "Data",
         version: "1.2.4",
+        download: "/donwload_link",
     },
     {
         id: "e4130915-6a35-49e0-abc8-0d07570",
@@ -304,6 +309,7 @@ const productItems: IProduct[] = [
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
         category: "Data",
         version: "1.0.0",
+        download: "/donwload_link",
     },
     {
         id: "e4130915-6a35-49e0-abc8-0d0757",
@@ -337,6 +343,7 @@ const productItems: IProduct[] = [
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
         category: "eCommerce",
         version: "12.0.0",
+        download: "/donwload_link",
     },
     {
         id: "e4130915-6a35-49e0-abc8-0d075",
@@ -355,6 +362,7 @@ const productItems: IProduct[] = [
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
         category: "Marketing",
         version: "1.2.3",
+        download: "/donwload_link",
     },
     {
         id: "e4130915-6a35-49e0-abc8-0d07",
@@ -372,6 +380,7 @@ const productItems: IProduct[] = [
         browsers: ["Chrome", "Opera"],
         category: "CMS",
         version: "2.1.3",
+        download: "/donwload_link",
     },
     {
         id: "e4130915-6a35-49e0-abc8-0d0",
@@ -408,6 +417,7 @@ const productItems: IProduct[] = [
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
         category: "CMS",
         version: "2.0.0",
+        download: "/donwload_link",
     },
     {
         id: "e4130915-6a35-49e0-abc8-0d",
@@ -448,6 +458,7 @@ const productItems: IProduct[] = [
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
         category: "Site",
         version: "2.0.0",
+        download: "/donwload_link",
     },
     {
         id: "e4130915-6a35-49e0-abc8-0",
@@ -473,7 +484,35 @@ const productItems: IProduct[] = [
         browsers: ["IE11", "Firefox", "Chrome", "Opera", "Edge", "Safari"],
         category: "WordPress",
         version: "1.0.0",
+        download: "/donwload_link",
     },
 ];
 
-export default { socialItems, homeSliderItems, companiesItems, categoriesItems, productItems };
+const soforteItems: IImageItem[] = [
+    {
+        img: paymentImages.paymentMastercard,
+        alt: "Mastercard",
+    },
+    {
+        img: paymentImages.paymentAmex,
+        alt: "Amex",
+    },
+    {
+        img: paymentImages.paymentVisa,
+        alt: "Visa",
+    },
+    {
+        img: paymentImages.paymentDiners,
+        alt: "Diners",
+    },
+    {
+        img: paymentImages.paymentJCB,
+        alt: "JCB",
+    },
+    {
+        img: paymentImages.paymentDiscover,
+        alt: "Discover",
+    },
+];
+
+export default { socialItems, homeSliderItems, companiesItems, categoriesItems, productItems, soforteItems };

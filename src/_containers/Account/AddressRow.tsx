@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Input } from "../../_components";
 
 const AddressRow: FC<{ label: string; name: string; disabled: boolean }> = ({ label, name, disabled }) => {
@@ -21,4 +21,4 @@ const AddressRow: FC<{ label: string; name: string; disabled: boolean }> = ({ la
         </div>
     );
 };
-export default AddressRow;
+export default memo(AddressRow);

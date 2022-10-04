@@ -1,13 +1,12 @@
-import { Input } from "../../_components";
 import { FC, memo, useEffect, useState } from "react";
 import { Formik, Form as FormikForm } from "formik";
-import { couponAPI } from "../../services/couponAPI";
 import { object, string } from "yup";
-import { useActions } from "../../hooks";
 
-const initialValues = {
-    coupon: "",
-};
+import { useActions } from "../../hooks";
+import { useAppSelector } from "../../hooks/useRedux";
+import { couponAPI } from "../../services/couponAPI";
+import { ICoupon } from "../../models";
+import { Input } from "../../_components";
 
 const validationSchema = object({
     coupon: string().required("Please, enter coupon"),
@@ -15,24 +14,26 @@ const validationSchema = object({
 
 const Discount: FC = () => {
     const [getCoupon, { isLoading, isSuccess, data }] = couponAPI.useLazyGetCouponQuery();
-    const [status, setStatus] = useState("initial");
+    const { coupon } = useAppSelector((state) => state.product);
+    const [status, setStatus] = useState(coupon ? "success" : "initial");
+
+    const initialValues = {
+        coupon: coupon?.coupon || "",
+    };
 
     const { setCoupon } = useActions();
 
     useEffect(() => {
         if (isSuccess && data) {
             setStatus("success");
-            setCoupon(data.discount);
+            setCoupon(data as ICoupon);
         } else if (isSuccess && !data) {
             setStatus("error");
-            setCoupon(0);
+            setCoupon(null);
             setTimeout(() => {
                 setStatus("initial");
             }, 5000);
         }
-        return () => {
-            setCoupon(0);
-        };
     }, [isSuccess, data]);
 
     return (
@@ -62,7 +63,7 @@ const Discount: FC = () => {
                 {status === "initial" &&
                     "If you have a coupon code discount please apply , otherwise please subscribe to our offers below for a chance to receive one."}
                 {status === "error" && "This coupon doesn't exist"}
-                {status === "success" && `This coupon gives you ${data?.discount}% discount!`}
+                {status === "success" && `This coupon gives you ${coupon?.discount}% discount!`}
             </p>
         </div>
     );

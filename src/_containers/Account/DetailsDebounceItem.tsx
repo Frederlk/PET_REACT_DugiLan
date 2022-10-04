@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 const DetailsDebounceItem: FC<{
     name: string;
@@ -28,4 +28,4 @@ const DetailsDebounceItem: FC<{
     );
 };
 
-export default DetailsDebounceItem;
+export default memo(DetailsDebounceItem);

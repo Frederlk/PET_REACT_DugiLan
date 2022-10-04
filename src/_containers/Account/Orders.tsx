@@ -1,4 +1,5 @@
 import { FC, memo, useMemo } from "react";
+import { sortData } from "../../helpers/functions";
 import { useAppSelector } from "../../hooks/useRedux";
 import OrderItem from "./OrderItem";
 
@@ -7,7 +8,10 @@ const Orders: FC = () => {
 
     const ordersItems = useMemo(() => {
         if (user && user.orders && user.orders.length > 0) {
-            return user.orders.map((item) => <OrderItem key={item.orderId} item={item} />);
+            return user.orders
+                .slice()
+                .sort((a, b) => sortData(a.orderId, b.orderId))
+                .map((item, i) => <OrderItem key={item.orderId + i} item={item} />);
         }
     }, [user]);
 

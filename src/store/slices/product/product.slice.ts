@@ -1,19 +1,23 @@
+import { ICoupon } from "./../../../models/index";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ICartProduct } from "../../../models";
 
-const LS_FAV_KEY = "fav";
-const LS_CART_KEY = "cart";
+export enum LSKeys {
+    LS_FAV_KEY = "fav",
+    LS_CART_KEY = "cart",
+    LS_COUPON_KEY = "coupon",
+}
 
 export interface productState {
     cartItems: ICartProduct[];
     favourites: string[];
-    coupon: number;
+    coupon: ICoupon | null;
 }
 
 const initialState: productState = {
-    cartItems: JSON.parse(localStorage.getItem(LS_CART_KEY) ?? "[]"),
-    favourites: JSON.parse(localStorage.getItem(LS_FAV_KEY) ?? "[]"),
-    coupon: 0,
+    cartItems: JSON.parse(localStorage.getItem(LSKeys.LS_CART_KEY) ?? "[]"),
+    favourites: JSON.parse(localStorage.getItem(LSKeys.LS_FAV_KEY) ?? "[]"),
+    coupon: null,
 };
 
 export const productSlice = createSlice({
@@ -22,11 +26,11 @@ export const productSlice = createSlice({
     reducers: {
         addToCart: (state, action: PayloadAction<ICartProduct>) => {
             state.cartItems.push(action.payload);
-            localStorage.setItem(LS_CART_KEY, JSON.stringify(state.cartItems));
+            localStorage.setItem(LSKeys.LS_CART_KEY, JSON.stringify(state.cartItems));
         },
         removeFromCart: (state, action: PayloadAction<string>) => {
             state.cartItems = state.cartItems.filter((item) => item.id !== action.payload);
-            localStorage.setItem(LS_CART_KEY, JSON.stringify(state.cartItems));
+            localStorage.setItem(LSKeys.LS_CART_KEY, JSON.stringify(state.cartItems));
         },
         changeProduct: (state, action: PayloadAction<ICartProduct>) => {
             state.cartItems.splice(
@@ -34,20 +38,26 @@ export const productSlice = createSlice({
                 1,
                 action.payload
             );
-            localStorage.setItem(LS_CART_KEY, JSON.stringify(state.cartItems));
+            localStorage.setItem(LSKeys.LS_CART_KEY, JSON.stringify(state.cartItems));
         },
-        setCoupon: (state, action: PayloadAction<number>) => {
+        clearCart: (state) => {
+            state.cartItems = [];
+            localStorage.removeItem(LSKeys.LS_CART_KEY);
+            localStorage.removeItem(LSKeys.LS_COUPON_KEY);
+        },
+        setCoupon: (state, action: PayloadAction<ICoupon | null>) => {
             state.coupon = action.payload;
+            localStorage.setItem(LSKeys.LS_COUPON_KEY, JSON.stringify(state.coupon));
         },
 
         //========================================================================================================================================================
         addToFavourites: (state, action: PayloadAction<string>) => {
             state.favourites.push(action.payload);
-            localStorage.setItem(LS_FAV_KEY, JSON.stringify(state.favourites));
+            localStorage.setItem(LSKeys.LS_FAV_KEY, JSON.stringify(state.favourites));
         },
         removeFromFavourites: (state, action: PayloadAction<string>) => {
             state.favourites = state.favourites.filter((id) => id !== action.payload);
-            localStorage.setItem(LS_FAV_KEY, JSON.stringify(state.favourites));
+            localStorage.setItem(LSKeys.LS_FAV_KEY, JSON.stringify(state.favourites));
         },
     },
 });

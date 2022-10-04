@@ -15,7 +15,9 @@ const Page404 = lazy(() => import("../_pages/Page404")),
     HomePage = lazy(() => import("../_pages/HomePage")),
     Single = lazy(() => import("../_pages/Single")),
     Account = lazy(() => import("../_pages/Account")),
-    ShoppingCard = lazy(() => import("../_pages/ShoppingCard"));
+    ShoppingCard = lazy(() => import("../_pages/ShoppingCard")),
+    Checkout = lazy(() => import("../_pages/Checkout")),
+    Thanks = lazy(() => import("../_pages/Thanks"));
 
 export enum RouteNames {
     HOME = "/",
@@ -28,6 +30,8 @@ export enum RouteNames {
     DOCS = "/docs",
     ACCOUNT = "/account",
     CARD = "/card",
+    CHECKOUT = "/card/checkout",
+    THANKS = "/card/checkout/thanks",
     // Envato market ========================================================================================================================================================
     TERMS = "/terms",
     LICENSES = "/lisenses",
@@ -164,5 +168,15 @@ export const routesConfig: CustomRouteObject[] = [
         title: "Shopping Card",
         path: RouteNames.CARD,
         element: <ShoppingCard />,
+    },
+    {
+        title: "Billing & Checkout",
+        path: RouteNames.CHECKOUT,
+        element: <Checkout />,
+    },
+    {
+        title: "Thank You",
+        path: RouteNames.THANKS,
+        element: <Thanks />,
     },
 ];

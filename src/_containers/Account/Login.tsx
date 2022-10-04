@@ -1,4 +1,4 @@
-import { FC, useEffect, useState, useMemo } from "react";
+import { FC, useEffect, useState, useMemo, memo } from "react";
 import { Formik, Form as FormikForm } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
@@ -131,4 +131,4 @@ const Login: FC = () => {
     );
 };
 
-export default Login;
+export default memo(Login);

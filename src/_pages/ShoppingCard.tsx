@@ -3,9 +3,8 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../hooks/useRedux";
 import { RouteNames } from "../routes";
-import CardItem from "../_containers/Card/CardItem";
-import Coupon from "../_containers/Card/Coupon";
-import Side from "../_containers/Card/Side";
+import { CardItem, CardSide } from "../_components";
+import { Coupon } from "../_containers";
 
 const ShoppingCard: FC = () => {
     const { cartItems } = useAppSelector((state) => state.product);
@@ -55,7 +54,7 @@ const ShoppingCard: FC = () => {
                                 </Link>
                             </section>
                         )}
-                        <Side />
+                        <CardSide className="body-card__aside" card />
                     </div>
                 </div>
             </div>

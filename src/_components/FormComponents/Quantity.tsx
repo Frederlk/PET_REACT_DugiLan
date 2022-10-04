@@ -1,7 +1,7 @@
 import { FC, ChangeEvent, useState, useCallback, useEffect } from "react";
-import { images } from "../constants";
-import { useActions } from "../hooks";
-import { ICartProduct } from "../models";
+import { images } from "../../constants";
+import { useActions } from "../../hooks";
+import { ICartProduct } from "../../models";
 
 const Quantity: FC<{ className?: string; item?: ICartProduct }> = ({ className, item }) => {
     const [quantity, setQuantity] = useState<any>(item?.qty || 1);
@@ -10,7 +10,6 @@ const Quantity: FC<{ className?: string; item?: ICartProduct }> = ({ className, 
 
     useEffect(() => {
         if (item) {
-            console.log(quantity);
             changeProduct({
                 ...item,
                 qty: quantity,

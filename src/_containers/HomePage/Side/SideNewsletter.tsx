@@ -1,8 +1,8 @@
 import { FC, useEffect, useState } from "react";
 import { Formik, Form as FormikForm } from "formik";
 import * as Yup from "yup";
-import Input from "../../../_components/Input";
 import { images } from "../../../constants";
+import { Input } from "../../../_components";
 
 interface NewsletterValues {
     email: string;

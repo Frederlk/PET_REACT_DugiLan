@@ -4,7 +4,7 @@ import { useAppSelector } from "../../../hooks/useRedux";
 import { IProduct } from "../../../models";
 import { images } from "../../../constants";
 import PriceItem from "./PriceItem";
-import Checkbox from "../../../_components/Checkbox";
+import Checkbox from "../../../_components/FormComponents/Checkbox";
 import { useLocation } from "react-router-dom";
 
 const { icon_check } = images.icons;
@@ -51,8 +51,6 @@ const SingleSidePrice: FC<{ item: IProduct }> = ({ item }) => {
             )),
         [extra, totalPrice]
     );
-
-    console.log(totalPrice);
 
     const { pathname } = useLocation();
     const inCart = cartItems.filter((item) => item.id === id)[0];

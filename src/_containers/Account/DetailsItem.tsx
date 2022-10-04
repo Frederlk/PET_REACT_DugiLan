@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Input } from "../../_components";
 
 const DetailsItem: FC<{
@@ -23,4 +23,4 @@ const DetailsItem: FC<{
     );
 };
 
-export default DetailsItem;
+export default memo(DetailsItem);

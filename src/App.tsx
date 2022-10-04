@@ -3,6 +3,7 @@ import { FC, Suspense, useEffect } from "react";
 import { AppRouter, Spinner } from "./_components";
 import { useActions, useEventListener } from "./hooks";
 import { Footer, Header } from "./_containers";
+import { LSKeys } from "./store/slices/product/product.slice";
 
 const App: FC = () => {
     useEventListener("scroll", function () {
@@ -15,12 +16,15 @@ const App: FC = () => {
         }
     });
 
-    const { setUser, setIsAuth } = useActions();
+    const { setUser, setIsAuth, setCoupon } = useActions();
 
     useEffect(() => {
         if (localStorage.getItem("auth")) {
             setUser(JSON.parse(localStorage.getItem("user") || ""));
             setIsAuth(true);
+        }
+        if (localStorage.getItem(LSKeys.LS_COUPON_KEY)) {
+            setCoupon(JSON.parse(localStorage.getItem(LSKeys.LS_COUPON_KEY) || ""));
         }
     }, []);
 

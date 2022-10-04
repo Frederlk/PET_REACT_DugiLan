@@ -1,18 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, FC, memo } from "react";
 import { useActions } from "../../hooks";
 import { useAppSelector } from "../../hooks/useRedux";
 import { selectedNames } from "../../store/slices/account/account.slice";
-import AccountSide from "./AccountSide";
-import Address from "./Address";
-import Dashboard from "./Dashboard";
-import Details from "./Details";
-import Orders from "./Orders";
+import { AccountSide, Dashboard, Orders, Address, Details } from "..";
 
 const { DASHBOARD, ORDERS, ADDRESS, DETAILS } = selectedNames;
 
 const labels = [DASHBOARD, ORDERS, ADDRESS, DETAILS];
 
-const Profile = () => {
+const Profile: FC = () => {
     const { selected } = useAppSelector((state) => state.account);
     const { user } = useAppSelector((state) => state.user);
     const { setSelected } = useActions();
@@ -34,7 +30,7 @@ const Profile = () => {
 
                     {selected === ORDERS && <Orders />}
 
-                    {selected === ADDRESS && <Address />}
+                    {selected === ADDRESS && <Address className="content-account__address" address />}
 
                     {selected === DETAILS && <Details />}
                 </section>
@@ -43,4 +39,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default memo(Profile);

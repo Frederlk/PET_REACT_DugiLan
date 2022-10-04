@@ -22,3 +22,21 @@ export { default as BodyFeatures } from "./HomePage/Body/BodyFeatures";
 export { default as FeatureItem } from "./HomePage/Body/FeatureItem";
 export { default as ProductItem } from "./HomePage/Body/ProductItem";
 export { default as ProductHover } from "./HomePage/Body/ProductHover";
+//========================================================================================================================================================
+export { default as AccountSide } from "./Account/AccountSide";
+export { default as Address } from "./Account/Address";
+export { default as AddressRow } from "./Account/AddressRow";
+export { default as Dashboard } from "./Account/Dashboard";
+export { default as Details } from "./Account/Details";
+export { default as DetailsDebounceItem } from "./Account/DetailsDebounceItem";
+export { default as DetailsItem } from "./Account/DetailsItem";
+export { default as Email } from "./Account/Email";
+export { default as Login } from "./Account/Login";
+export { default as OrderItem } from "./Account/OrderItem";
+export { default as Orders } from "./Account/Orders";
+export { default as Profile } from "./Account/Profile";
+//========================================================================================================================================================
+export { default as Coupon } from "./Checkout/Coupon";
+export { default as CardOrder } from "./Checkout/Order";
+export { default as CardOrderItem } from "./Checkout/OrderItem";
+export { default as Payment } from "./Checkout/Payment";
