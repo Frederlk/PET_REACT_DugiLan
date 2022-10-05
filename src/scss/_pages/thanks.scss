@@ -67,6 +67,9 @@
 }
 
 .thanks-details {
+    @media (max-width: em(550)) {
+        margin-bottom: rem(-15);
+    }
     &__title {
         @include adaptiveValue("margin-bottom", 50, 20);
         font-weight: 400;
@@ -76,7 +79,7 @@
         @media (max-width: em(550)) {
             overflow: auto;
             margin: 0px rem(-15);
-            padding: 0px rem(15);
+            padding: 0px rem(15) rem(15) rem(15);
             @include scrollbars(rem(10), $blue, $white, true);
         }
     }
@@ -102,7 +105,7 @@
             min-height: rem(80);
         }
         @media (max-width: em(550)) {
-            width: rem(450);
+            @include adaptiveValue("width", 600, 450, 550, 320, 1);
         }
         &_top {
             color: $text_1;

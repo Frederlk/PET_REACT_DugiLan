@@ -1,6 +1,6 @@
 .page404 {
-    @include adaptiveValue("padding-top", 144, 60, 1170, 600.98, 1);
-    @include adaptiveValue("padding-bottom", 144, 100, 1170, 600.98, 1);
+    padding-top: rem(144);
+    @include adaptiveValue("padding-bottom", 144, 60, 1170, 600.98, 1);
     text-align: center;
 
     &__container {

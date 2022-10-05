@@ -1,9 +1,10 @@
 import { FC, memo, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useSwipeable } from "react-swipeable";
+
 import useMenu from "../../store/slices/menu/useMenu";
 import Actions from "./Actions";
 import MenuLinks from "./MenuLinks";
-
 import { images } from "../../constants";
 
 const { icon_logo } = images.icons;
@@ -12,6 +13,10 @@ const Header: FC = () => {
     const ref = useRef(null);
     const { onToggleMenu } = useMenu(ref);
 
+    const handlers = useSwipeable({
+        onSwipedRight: onToggleMenu,
+    });
+
     return (
         <header className="header" data-lp ref={ref}>
             <div className="header__container">
@@ -19,7 +24,7 @@ const Header: FC = () => {
                     <img src={icon_logo} alt="Logo" />
                 </Link>
                 <div className="header__menu menu">
-                    <nav className="menu__body">
+                    <nav {...handlers} className="menu__body">
                         <ul className="menu__list" data-spollers="">
                             <MenuLinks />
                         </ul>

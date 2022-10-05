@@ -275,7 +275,7 @@
             min-height: rem(60);
         }
         @media (max-width: $tablet) {
-            padding: rem(10);
+            padding: rem(15);
         }
         @media (max-width: $mobile) {
             justify-content: space-between;
@@ -343,7 +343,7 @@
             padding: rem(5) rem(20);
         }
         @media (max-width: $tablet) {
-            padding: rem(5) rem(10);
+            padding: rem(5) rem(15);
         }
         &.logout {
             span {
@@ -376,7 +376,7 @@
         padding: rem(20) rem(25);
     }
     @media (max-width: $tablet), (max-width: $mobileSmall) {
-        padding: rem(10);
+        padding: rem(15);
     }
     @media (max-width: $mobileSmall) {
         margin-top: rem(20);
@@ -456,7 +456,7 @@
         padding: rem(20);
     }
     @media (max-width: $tablet) {
-        padding: rem(10);
+        padding: rem(15);
     }
     @media (max-width: $mobile) {
         display: none;
@@ -527,7 +527,7 @@
             padding: rem(20);
         }
         @media (max-width: $tablet) {
-            padding: rem(10);
+            padding: rem(15);
         }
     }
 
@@ -589,7 +589,7 @@
         grid-template-columns: 1fr;
     }
     @media (max-width: $mobile) {
-        padding: rem(10);
+        padding: rem(15);
     }
 
     &__column {
@@ -631,6 +631,9 @@
         flex: 1 1 auto;
         @extend %p;
         color: $text_4;
+        @media (max-width: em(1300)) {
+            margin-left: rem(-38);
+        }
     }
 }
 

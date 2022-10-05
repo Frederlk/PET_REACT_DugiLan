@@ -38,7 +38,7 @@ const Discount: FC = () => {
                 initialValues={initialValues}
                 onSubmit={(values) => {
                     if (values.coupon) {
-                        getCoupon(values.coupon);
+                        getCoupon(values.coupon.toLowerCase());
                     } else {
                         setStatus("initial");
                         setCoupon(null);

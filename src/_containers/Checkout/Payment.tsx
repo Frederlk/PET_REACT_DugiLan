@@ -41,54 +41,10 @@ const Payment: FC = () => {
 
     const navigate = useNavigate();
 
-    const onHandleSubmit = useCallback(
-        (values: any) => {
-            const orderDate = Date.now();
-            const orderNumber =
-                user.orders.length > 0
-                    ? `#${+user.orders[user.orders.length - 1].orderId.replace(/[^+\d]/g, "") + 1}`
-                    : "#1";
-
-            const orderItems: IOrder[] = cartItems.map(({ id, price, qty }) => {
-                const subtotal = price * qty;
-                const discount = coupon ? subtotal * (coupon.discount / 100) : 0;
-
-                return {
-                    date: orderDate,
-                    download: data.productItems.find((item) => item.id === id)?.download || "",
-                    orderId: orderNumber,
-                    productId: id,
-                    qty: qty,
-                    status: "Processing",
-                    price: +price.toFixed(2),
-                    subTotalPrice: +subtotal.toFixed(2),
-                    totalPrice: +(subtotal - discount).toFixed(2),
-                    payment: values.payment,
-                };
-            });
-
-            const updatedUser = {
-                ...user,
-                orders: [...user.orders, ...orderItems],
-            };
-
-            changeInfo({ id: user.id, data: updatedUser });
-            setUser(updatedUser);
-            localStorage.setItem("user", JSON.stringify(updatedUser));
-            clearCart();
-
-            navigate(RouteNames.THANKS, {
-                state: {
-                    products: cartItems,
-                    date: orderDate,
-                    orderNumber: orderNumber,
-                    payment: values.payment,
-                    prices: prices,
-                },
-            });
-        },
-        [user, cartItems, coupon]
-    );
+    // const onHandleSubmit = useCallback(
+    //     (values: any) =>
+    //     [user, cartItems, coupon]
+    // );
 
     const emptyAddress = Object.values(user.address).filter((item) => item === "" || !item);
 
@@ -98,13 +54,61 @@ const Payment: FC = () => {
             validationSchema={validationSchema}
             validateOnChange={false}
             validateOnBlur={false}
-            onSubmit={(values) => onHandleSubmit(values)}
+            onSubmit={(values) => {
+                const orderDate = Date.now();
+                const orderNumber =
+                    user.orders.length > 0
+                        ? `#${+user.orders[user.orders.length - 1].orderId.replace(/[^+\d]/g, "") + 1}`
+                        : "#1";
+
+                const orderItems: IOrder[] = cartItems.map(({ id, price, qty }) => {
+                    const subtotal = price * qty;
+                    const discount = coupon ? subtotal * (coupon.discount / 100) : 0;
+
+                    return {
+                        date: orderDate,
+                        download: data.productItems.find((item) => item.id === id)?.download || "",
+                        orderId: orderNumber,
+                        productId: id,
+                        qty: qty,
+                        status: "Processing",
+                        price: +price.toFixed(2),
+                        subTotalPrice: +subtotal.toFixed(2),
+                        totalPrice: +(subtotal - discount).toFixed(2),
+                        payment: values.payment,
+                    };
+                });
+
+                const updatedUser = {
+                    ...user,
+                    orders: [...user.orders, ...orderItems],
+                };
+
+                changeInfo({ id: user.id, data: updatedUser });
+                setUser(updatedUser);
+                localStorage.setItem("user", JSON.stringify(updatedUser));
+                clearCart();
+
+                navigate(RouteNames.THANKS, {
+                    state: {
+                        products: cartItems,
+                        date: orderDate,
+                        orderNumber: orderNumber,
+                        payment: values.payment,
+                        prices: prices,
+                    },
+                });
+            }}
         >
             {({ errors }) => (
                 <FormikForm className="order-billing__form form-billing">
                     <div className="form-billing__top">
                         <div className="form-billing__soforte">
-                            <RadioButton name="payment" value={Options.SOFORTE}>
+                            <RadioButton
+                                className="form-billing__radio-item"
+                                name="payment"
+                                value={Options.SOFORTE}
+                            >
                                 Soforte Payment
                             </RadioButton>
                             <div className="form-billing__payment">{paymentItems}</div>
@@ -119,7 +123,11 @@ const Payment: FC = () => {
                         </a>
                     </div>
                     <div className="form-billing__middle">
-                        <RadioButton name="payment" value={Options.PAYPAL}>
+                        <RadioButton
+                            className="form-billing__radio-item"
+                            name="payment"
+                            value={Options.PAYPAL}
+                        >
                             <img src={images.paymentImages.paymentPayPal} alt="PayPal" />
                         </RadioButton>
                     </div>

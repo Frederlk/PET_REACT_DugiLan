@@ -30,10 +30,7 @@
     }
 
     &__empty-title {
-        margin-bottom: rem(25);
-    }
-    &__empty-btn {
-        min-width: rem(200);
+        color: $error;
     }
 }
 
@@ -42,7 +39,7 @@
         @media (max-width: em(550)) {
             overflow: auto;
             margin: 0px rem(-15);
-            padding: 0px rem(15);
+            padding: 0 rem(15) rem(15) rem(15);
             @include scrollbars(rem(10), $blue, $white, true);
         }
     }
@@ -82,7 +79,7 @@
             min-height: rem(80);
         }
         @media (max-width: em(550)) {
-            width: rem(450);
+            @include adaptiveValue("width", 600, 450, 550, 320, 1);
         }
     }
 

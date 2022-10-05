@@ -8,15 +8,15 @@
     }
 
     &__address {
+        .account-address__subtitle {
+            @extend %h2;
+            font-weight: 400;
+        }
         @media (min-width: $tablet) {
             flex: 0 1 rem(690);
         }
         @media (max-width: $tablet) {
-            @include adaptiveValue("margin-bottom", 40, 30, 991.98, 320, 1);
-        }
-        .account-address__subtitle {
-            @extend %h2;
-            font-weight: 400;
+            margin-bottom: rem(40);
         }
     }
 
@@ -30,7 +30,12 @@
 .order-billing {
     &__title {
         font-weight: 400;
-        @include adaptiveValue("margin-bottom", 74, 54);
+        @media (min-width: $tablet) {
+            @include adaptiveValue("margin-bottom", 74, 54);
+        }
+        @media (max-width: $tablet) {
+            margin-bottom: rem(20);
+        }
     }
 
     &__products {
@@ -164,6 +169,7 @@
         flex-wrap: wrap;
         @media (max-width: $mobileSmall) {
             flex: 1 1 100%;
+            margin-top: rem(20);
             justify-content: space-between;
         }
     }
@@ -172,12 +178,15 @@
         padding: 0px rem(5);
         flex: 0 1 33.333%;
         margin-bottom: rem(10);
+        img {
+            max-width: 100%;
+        }
         @media (max-width: $mobileSmall) {
             flex: 1 1 auto;
             text-align: center;
-        }
-        img {
-            max-width: 100%;
+            img {
+                width: 100%;
+            }
         }
     }
 
@@ -213,10 +222,6 @@
         display: flex;
         justify-content: space-between;
         position: relative;
-        @media (max-width: $mobileSmall) {
-            padding: rem(20);
-            min-height: rem(150);
-        }
         .form-billing__btn {
             width: 100%;
             margin-top: rem(20);
@@ -224,6 +229,10 @@
         ._input__error {
             @extend %p;
             color: $error;
+        }
+        @media (max-width: $mobileSmall) {
+            padding: rem(20);
+            min-height: rem(150);
         }
     }
 }

@@ -248,7 +248,7 @@
             transform: scale(1.5);
         }
         &_card {
-            @include adaptiveValue("margin-right", 45, 20);
+            @include adaptiveValue("margin-right", 45, 15);
         }
     }
 
@@ -313,6 +313,9 @@
         @media (max-width: $tablet) {
             right: 0;
         }
+        @media (max-width: $mobileSmall) {
+            right: rem(-46);
+        }
         &._active {
             transform: translate(0px, 0px);
             opacity: 1;
@@ -323,7 +326,7 @@
     &__list {
         overflow: auto;
         max-height: rem(200);
-        min-width: rem(320);
+        min-width: rem(290);
         box-shadow: rem(1) rem(4) rem(44) rgba(0, 0, 0, 0.03);
         @include scrollbars(rem(10), $blue, $white, true);
     }

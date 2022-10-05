@@ -76,6 +76,7 @@ const Address: FC<{ className?: string; address?: boolean }> = ({ className, add
                     });
                     setUser(newAddress);
                     localStorage.setItem("user", JSON.stringify(newAddress));
+                    setEdit(false);
                 }}
             >
                 <FormikForm className={`account-address__form ${edit ? "_edit" : ""}`}>

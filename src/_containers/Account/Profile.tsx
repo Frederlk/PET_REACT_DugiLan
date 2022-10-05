@@ -17,7 +17,7 @@ const Profile: FC = () => {
 
     useEffect(() => {
         setSelected(state?.orderSuccess ? ORDERS : DASHBOARD);
-    }, [user]);
+    }, []);
 
     useEffect(() => {
         window.scrollTo(0, 0);
