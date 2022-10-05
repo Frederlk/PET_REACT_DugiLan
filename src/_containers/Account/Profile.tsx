@@ -12,12 +12,12 @@ const labels = [DASHBOARD, ORDERS, ADDRESS, DETAILS];
 const Profile: FC = () => {
     const { state } = useLocation();
     const { selected } = useAppSelector((state) => state.account);
-    const { user } = useAppSelector((state) => state.user);
+    const { isAuth } = useAppSelector((state) => state.user);
     const { setSelected } = useActions();
 
     useEffect(() => {
         setSelected(state?.orderSuccess ? ORDERS : DASHBOARD);
-    }, []);
+    }, [isAuth]);
 
     useEffect(() => {
         window.scrollTo(0, 0);

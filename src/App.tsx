@@ -4,6 +4,8 @@ import { AppRouter, Spinner } from "./_components";
 import { useActions, useEventListener } from "./hooks";
 import { Footer, Header } from "./_containers";
 import { LSKeys } from "./store/slices/product/product.slice";
+import { userAPI } from "./services/userAPI";
+import { IUser } from "./models";
 
 const App: FC = () => {
     useEventListener("scroll", function () {
@@ -16,17 +18,28 @@ const App: FC = () => {
         }
     });
 
+    const [getUserById, { data }] = userAPI.useLazyGetUserByIdQuery();
+
     const { setUser, setIsAuth, setCoupon } = useActions();
 
     useEffect(() => {
         if (localStorage.getItem("auth")) {
-            setUser(JSON.parse(localStorage.getItem("user") || ""));
+            const localUser = JSON.parse(localStorage.getItem("user") || "");
+            getUserById(localUser?.id);
+            setUser(localUser);
             setIsAuth(true);
         }
         if (localStorage.getItem(LSKeys.LS_COUPON_KEY)) {
             setCoupon(JSON.parse(localStorage.getItem(LSKeys.LS_COUPON_KEY) || ""));
         }
     }, []);
+
+    useEffect(() => {
+        if (data) {
+            setUser(data as IUser);
+            localStorage.setItem("user", JSON.stringify(data));
+        }
+    }, [data]);
 
     return (
         <>

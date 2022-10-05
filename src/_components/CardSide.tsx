@@ -57,7 +57,7 @@ const CardSide: FC<{ className: string; card?: boolean }> = ({ className, card }
                         Proceed to checkout
                     </Link>
                 )}
-                {cartItems.length === 0 && (
+                {cartItems.length === 0 && isAuth && (
                     <Link to={RouteNames.BROWSE} className="card__btn btn">
                         Browse Products
                     </Link>

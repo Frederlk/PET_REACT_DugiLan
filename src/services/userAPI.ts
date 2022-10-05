@@ -1,7 +1,7 @@
 import { IUser } from "./../models/index";
 import { db } from "../firebaseConfig";
 import { createApi, fakeBaseQuery } from "@reduxjs/toolkit/query/react";
-import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore";
 
 export const userAPI = createApi({
     reducerPath: "userAPI",
@@ -20,15 +20,27 @@ export const userAPI = createApi({
                         });
                     });
                     const user =
-                        users.find((item) => login === item.username || login === item.email) ||
-                        ({} as IUser);
+                        users.find(
+                            (item) =>
+                                login === item.username.toLowerCase() || login === item.email.toLowerCase()
+                        ) || ({} as IUser);
                     return { data: user };
                 } catch (e) {
                     return { error: e };
                 }
             },
         }),
-
+        getUserById: build.query({
+            async queryFn(id: string) {
+                try {
+                    const docRef = doc(db, "users", id);
+                    const docSnap = await getDoc(docRef);
+                    return { data: docSnap.data() };
+                } catch (e) {
+                    return { error: e };
+                }
+            },
+        }),
         changeInfo: build.mutation({
             async queryFn({ id, data }) {
                 try {
