@@ -1,6 +1,11 @@
+import { FC } from "react";
 import { useField } from "formik";
 
-const Input = ({ address, textarea, ...props }: { [x: string]: any; name: string }) => {
+const Input: FC<{ address?: boolean; textarea?: boolean; [x: string]: any; name: string }> = ({
+    address,
+    textarea,
+    ...props
+}) => {
     const [field, meta] = useField({ ...props, type: "textarea" });
 
     const classNames = `${!address ? "input" : ""} ${props.className || ""} ${

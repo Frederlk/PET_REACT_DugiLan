@@ -1,0 +1,12 @@
+[
+    {
+        "__id__": "coupon1",
+        "coupon": "coupon1",
+        "discount": 10
+    },
+    {
+        "__id__": "coupon2",
+        "coupon": "coupon2",
+        "discount": 20
+    }
+]
