@@ -10,11 +10,11 @@ Users can view themes, add them to favorites and shopping cart, select quantity 
 
 change the address and checkout.
 
-On the account page, you first need to log in
+On the account page, you first need to log in.
 
-*   Login:testemail\_1@gmail.com;Password:Password1
-*   Login:testemail\_2@gmail.com;Password:Password2
-*   Login:testemail\_3@gmail.com;Password:Password3
+*   Login:testemail\_1@gmail.com; Password:Password1
+*   Login:testemail\_2@gmail.com; Password:Password2
+*   Login:testemail\_3@gmail.com; Password:Password3
 
 After that, the user will have access to information about his orders, address and account information that he can change.
 
