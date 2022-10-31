@@ -1,65 +1,62 @@
-## [ToDos]
+[DugiLan](https://react-pet-dugilan.web.app/)
+----------------------------------------------------------------------------------------------
 
-Избранное и товары в корзине зависят от пользователя, если пользователь не авторизован, то оно всё работает \
-Показывать Имя пользователя вместо кнопки Account? \
-У User'a есть поля избранного, заказов, товаров, вся информация с Dashboard \
-Dashboard \
+A fully responsive Wordpress Themes shop website.
 
-# Getting Started with Create React App
+Users can view themes, add them to favorites and shopping cart, select quantity andadditional services. In the shopping cart, user can enter a discount coupon,
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+*   coupon1
+*   coupon2
 
-## Available Scripts
+change the address and checkout.
 
-In the project directory, you can run:
+On the account page, you first need to log in
 
-### `npm start`
+*   Login:testemail\_1@gmail.com;Password:Password1
+*   Login:testemail\_2@gmail.com;Password:Password2
+*   Login:testemail\_3@gmail.com;Password:Password3
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+After that, the user will have access to information about his orders, address and account information that he can change.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+All forms are made with Formik and validatable by yup. Data is stored with FirebaseFirestore.
 
-### `npm test`
+### Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+*   React
+*   TypeScript
+*   SCSS
+*   Redux
+*   Formik
+*   Firebase
+*   Redux Toolkit
+*   Swiper
+*   react-router-dom
 
-### `npm run build`
+### External Links
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+*   [Home Page](https://react-pet-dugilan.web.app/)
+*   [Product Page](https://react-pet-dugilan.web.app/browse/product/DugiLan)
+*   [Account Page](https://react-pet-dugilan.web.app/account)
+*   [Shopping Card Page](https://react-pet-dugilan.web.app/card)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Built Date
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+October, 2022
 
-### `npm run eject`
+![DugiLan_1](https://firebasestorage.googleapis.com/v0/b/petrinich-sergey----portfolio.appspot.com/o/PET_REACT_DugiLan%2FDugiLan_1.jpg?alt=media&token=ae97fd7a-dd3d-44ce-aaf2-9248114959f0)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![DugiLan_2](https://firebasestorage.googleapis.com/v0/b/petrinich-sergey----portfolio.appspot.com/o/PET_REACT_DugiLan%2FDugiLan_2.jpg?alt=media&token=1ec01506-ac05-4a59-a8ff-5d1fb588f843)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![DugiLan_3](https://firebasestorage.googleapis.com/v0/b/petrinich-sergey----portfolio.appspot.com/o/PET_REACT_DugiLan%2FDugiLan_3.jpg?alt=media&token=2ad92f7d-61fe-46cd-b398-c90f046b5a73)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![DugiLan_4](https://firebasestorage.googleapis.com/v0/b/petrinich-sergey----portfolio.appspot.com/o/PET_REACT_DugiLan%2FDugiLan_4.jpg?alt=media&token=d91e4e1a-17f4-489d-8497-5e2a5be71cac)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![DugiLan_5](https://firebasestorage.googleapis.com/v0/b/petrinich-sergey----portfolio.appspot.com/o/PET_REACT_DugiLan%2FDugiLan_5.jpg?alt=media&token=ce80a48d-c152-4489-962b-e39e2babee91)
 
-## [Packages]
+![DugiLan_6](https://firebasestorage.googleapis.com/v0/b/petrinich-sergey----portfolio.appspot.com/o/PET_REACT_DugiLan%2FDugiLan_6.jpg?alt=media&token=1127898f-cc22-4c15-b50a-5f536bfb5693)
 
-`Forms`
-npm i formik yup
+![DugiLan_7](https://firebasestorage.googleapis.com/v0/b/petrinich-sergey----portfolio.appspot.com/o/PET_REACT_DugiLan%2FDugiLan_7.jpg?alt=media&token=d6907a26-50f6-4872-8fe5-8aae65c14ccf)
 
-`React-Helmet`
-npm i react-helmet \
-npm i --save @types/react-helmet \
+![DugiLan_8](https://firebasestorage.googleapis.com/v0/b/petrinich-sergey----portfolio.appspot.com/o/PET_REACT_DugiLan%2FDugiLan_8.jpg?alt=media&token=09d78208-e6c9-446f-a8fc-85be69a3126a)
 
-`React-GoTo`
-npm i react-scroll \
-npm i --save @types/react-scroll \
-
-`etc.`
-npm i lightgallery \
-npm i swiper \
-npm i date-fns \
+![DugiLan_9](https://firebasestorage.googleapis.com/v0/b/petrinich-sergey----portfolio.appspot.com/o/PET_REACT_DugiLan%2FDugiLan_9.jpg?alt=media&token=3c361c88-d3c3-40d2-8228-7a4946f2fa62)
